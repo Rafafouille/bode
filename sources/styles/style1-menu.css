@@ -1,0 +1,37 @@
+/*--------------------------------------
+		MENU
+-----------------------------------------*/
+
+
+
+
+#menu
+{
+	margin-bottom:10px;
+}
+
+
+.ui-menu
+	{
+		width: 300px;	/*Largeur des colonnes*/
+		font-size: 18px;
+		min-height: 28px; /* définit la hauteur minimale du menu (dépendante de la valeur de font-size) */
+	}
+
+ul#menu
+	{
+		width: 100%; /* définit la largeur totale du menu */
+	}
+
+ul#menu>li
+	{
+		width: 200px; /* définit la largeur des items de niveau 1 */
+		float: left; /* définit le positionnement des items de niveau 1 */
+	 	text-decoration:none;
+	}
+
+#menu a
+	{
+		display:inline-block;
+		width:100%;
+	} 

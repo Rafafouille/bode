@@ -1,0 +1,171 @@
+		<!-- Nouveau 1er ordre-->
+			<div id="dialogNouveau1erOrdre" title="Ajouter une fonction du 1er Ordre">
+				<form>
+					<p>H(p)=K/(1+&tau;p)</p>
+					<p>
+							<label for="nouveau1erOrdreK">K = </label>
+							<input type="text" id="nouveau1erOrdreK" name="nouveau1erOrdreK" value="1"/>
+						<br/>
+							<label for="nouveau1erOrdreTau">&tau; = </label>
+							<input type="text" id="nouveau1erOrdreTau" name="nouveau1erOrdreTau" value="1"/>
+					</p>
+				</form>
+			</div>
+			<script>
+				//On transforme le <div> précédent en boite de dialogue
+				$("#dialogNouveau1erOrdre").dialog({
+									modal:true,
+									buttons: {
+										"Annuler": function() {$(this).dialog( "close" );},
+										"Ajouter": function() {$(this).dialog("close");actionAjouter1erOrdre($("#nouveau1erOrdreK").val(),$("#nouveau1erOrdreTau").val());}
+										}
+								});
+				$("#dialogNouveau1erOrdre").dialog('close');
+			</script>
+
+
+		<!-- Nouveau 2eme ordre-->
+			<div id="dialogNouveau2emeOrdre" title="Ajouter une fonction du 2<sup>ème</sup> Ordre">
+				<form>
+					<p>H(p)=K/(1/&omega;0²p²+1z/&omega;p+1)</p>
+					<p>
+							<label for="nouveau2emeOrdreK">K = </label>
+							<input type="text" id="nouveau2emeOrdreK" name="nouveau2emeOrdreK" value="1"/>
+						<br/>
+							<label for="nouveau2emeOrdreW0">&omega;<sub>0</sub> = </label>
+							<input type="text" id="nouveau2emeOrdreW0" name="nouveau2emeOrdreW0" value="1"/>
+						<br/>
+							<label for="nouveau2emeOrdreZ">z = </label>
+							<input type="text" id="nouveau2emeOrdreZ" name="nouveau2emeOrdreZ" value="1"/>
+					</p>
+				</form>
+			</div>
+			<script>
+				//On transforme le <div> précédent en boite de dialogue
+				$("#dialogNouveau2emeOrdre").dialog({
+									modal:true,
+									buttons: {
+										"Annuler": function() {$(this).dialog( "close" );},
+										"Ajouter": function() {$(this).dialog("close");actionAjouter2emeOrdre($("#nouveau2emeOrdreK").val(),$("#nouveau2emeOrdreW0").val(),$("#nouveau2emeOrdreZ").val());}
+										}
+								});
+				$("#dialogNouveau2emeOrdre").dialog('close');
+			</script>
+
+
+		<!-- Nouveau Gain-->
+			<div id="dialogNouveauGain" title="Ajouter un gain pur">
+				<form>
+					<p>H(p)=K/(1/&omega;0²p²+1z/&omega;p+1)</p>
+					<p>
+							<label for="nouveauGainK">K = </label>
+							<input type="text" id="nouveauGainK" name="nouveauGainK" value="1"/>
+					</p>
+				</form>
+			</div>
+			<script>
+				//On transforme le <div> précédent en boite de dialogue
+				$("#dialogNouveauGain").dialog({
+									modal:true,
+									buttons: {
+										"Annuler": function() {$(this).dialog( "close" );},
+										"Ajouter": function() {$(this).dialog("close");actionAjouterGain($("#nouveauGainK").val());}
+										}
+								});
+				$("#dialogNouveauGain").dialog('close');
+			</script>
+
+
+		<!-- Nouvelle Derivee-->
+			<div id="dialogNouvelleDerivee" title="Ajouter d'une dérivée">
+				<form>
+					<p>H(p)=K p</p>
+					<p>
+							<label for="nouvelleDeriveeK">K = </label>
+							<input type="text" id="nouvelleDeriveeK" name="nouvelleDeriveeK" value="1"/>
+					</p>
+				</form>
+			</div>
+			<script>
+				//On transforme le <div> précédent en boite de dialogue
+				$("#dialogNouvelleDerivee").dialog({
+									modal:true,
+									buttons: {
+										"Annuler": function() {$(this).dialog( "close" );},
+										"Ajouter": function() {$(this).dialog("close");actionAjouterDerivee($("#nouvelleDeriveeK").val());}
+										}
+								});
+				$("#dialogNouvelleDerivee").dialog('close');
+			</script>
+
+
+		<!-- Nouvelle Intégrale-->
+			<div id="dialogNouvelleIntegrale" title="Ajouter d'une dérivée">
+				<form>
+					<p>H(p)=K/p</p>
+					<p>
+							<label for="nouvelleIntegraleK">K = </label>
+							<input type="text" id="nouvelleIntegraleK" name="nouvelleIntegraleK" value="1"/>
+					</p>
+				</form>
+			</div>
+			<script>
+				//On transforme le <div> précédent en boite de dialogue
+				$("#dialogNouvelleIntegrale").dialog({
+									modal:true,
+									buttons: {
+										"Annuler": function() {$(this).dialog( "close" );},
+										"Ajouter": function() {$(this).dialog("close");actionAjouterIntegrale($("#nouvelleIntegraleK").val());}
+										}
+								});
+				$("#dialogNouvelleIntegrale").dialog('close');
+			</script>
+
+
+		<!-- Supprimer fonction-->
+			<div id="dialogSupprime" title="Supprimer la fonction">
+				<form>
+					Voulez-vous supprimer la fonction H<sub><span class="detailSupprime"></span></sub>(p) ?
+				</form>
+			</div>
+			<script>
+				//On transforme le <div> précédent en boite de dialogue
+				$("#dialogSupprime").dialog({
+									modal:true,
+									buttons: {
+										"Annuler": function() {$(this).dialog( "close" );},
+										"Supprimer": function() {$(this).dialog( "close" );supprimeFonction(parseInt($("#dialogSupprime span").text()));}
+										}
+								});
+				$("#dialogSupprime").dialog('close');
+			</script>
+
+
+		<!-- Export Latex-->
+			<div id="dialogExport" title="Exporter le rendu">
+				<form>
+					<label for="typeExport">Format :</label>
+					<select name="formatExport">
+						<option>LaTex</option>
+						<option>SVG</option>
+					</select>
+					<textarea id="fenetreExport" cols="50" rows="10"></textarea>
+				</form>
+			</div>
+			<script>
+				//On transforme le <div> précédent en boite de dialogue
+				$("#dialogExport").dialog({
+									modal:true,
+									buttons: {
+										"Télécharger": function() {},
+										"Fermer": function() {$(this).dialog("close");}
+										},
+									autoOpen: false,
+									width:600
+								});
+				//$("#dialogExport").dialog('close');
+			</script>
+
+
+
+

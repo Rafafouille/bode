@@ -1,0 +1,137 @@
+body
+{
+	font-family:"arial";
+}
+
+
+h1
+{
+	text-align:center;
+	color:white;
+	background-color:black;
+	padding:20px;
+	margin:0px;
+	margin:auto;
+}
+
+
+
+
+
+
+
+/*--------------------------------------
+		Fonctions
+-----------------------------------------*/
+
+#colonneFonctions
+{
+	vertical-align:top;
+	width:750px;
+}
+
+#listeDesFonctions
+{
+	
+}
+
+.ligneFonction
+{
+	border : solid 0.5px;
+	border-radius:10px;
+	width:100%;
+	margin-bottom:2px;
+	margin-left:10px;
+
+	padding-left:10px;
+
+	/*Fond------*/
+		/*background:#aaffaa;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffc7", endColorstr="#aaffaa");  Pour IE seulement et mode gradient à linear 
+		background: -webkit-gradient(linear, left top, left bottom, from(#ffffc7), to(#aaffaa));
+		background: -webkit-linear-gradient(#ffffc7, #aaffaa);
+		background: -moz-linear-gradient(#ffffc7, #aaffaa);
+		background: -o-linear-gradient(#ffffc7, #aaffaa); 
+		background: -ms-linear-gradient(#ffffc7, #aaffaa); 
+		background: linear-gradient(#ffffc7, #aaffaa);*/
+}
+
+.listeTypeFonction
+{
+	width:150px;
+	text-align:center;
+}
+
+.listeEquationFonction
+{
+	width:150px;
+	vertical-align:middle;
+}
+
+.equation
+{
+	font-style=italic;
+}
+
+.division
+{
+	display:inline-block;
+	text-align:center;
+	width:auto;
+	margin-bottom:-10px;
+}
+.division hr
+{
+	margin:0px;
+	padding:0px;
+}
+
+.ligneFonction a
+{
+	display:block;
+	color:white;
+	background-color:red;
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	width:20px;
+	height:20px;
+	border-radius:10px;
+	margin-bottom:-20px;
+}
+
+
+
+/*--------------------------------------
+		Graphique
+-----------------------------------------*/
+
+#graphiques
+{
+	text-align:center;
+}
+
+#graphique, #graphique-bode-gdb, #graphique-bode-phase
+{
+	margin:auto;
+}
+
+
+
+
+/*--------------------------------------
+	Commande des graphiques
+-----------------------------------------*/
+
+sup input
+{
+	font-size:6pt;
+}
+
+sub
+{
+	font-size:x-small;
+}
+
+
+

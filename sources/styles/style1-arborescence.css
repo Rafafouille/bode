@@ -1,0 +1,124 @@
+/*--------------------------------------
+	Arborescence
+-----------------------------------------*/
+
+/*Bloc autour */
+#blocArborescence
+{
+	width:350px;
+	float:left;
+	min-height:500px;
+	/*border:solid;*/
+}
+
+/*Titre tout en haut*/
+#blocArborescence #titreArborescence
+{
+	text-align:center;
+	font-size:large;
+	font-style:italic;
+	font-weight:bold;
+}
+
+
+#arborescence2 .icone
+{
+	vertical-align:middle;
+}
+
+/*Fonction en général*/
+#blocArborescence .fonction
+{
+	background-color:#DDD;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	border-radius: 10px;
+	box-shadow: 8px 8px 12px #aaa; 
+	margin-bottom:2px;
+}
+
+/*Options de la fonction */
+#blocArborescence .fonction .titre-fonction
+{
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:15px;
+
+	cursor:pointer;
+	background-color:#BBB;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	border-radius: 10px;
+	font-weight:bold;
+}
+
+#blocArborescence .fonction .titre-fonction:hover
+{
+	color:white;
+}
+
+#blocArborescence .fonction .fleche-arbo
+{
+	display:inline-block;
+	margin-right:10px;
+	transition: all 0.2s;
+	color:gray;
+}
+
+/*Options de la fonction */
+#blocArborescence .fonction .options-fonctions
+{
+	display:none;
+	padding-left:25px;
+	font-size:small;
+	margin-bottom:3px;
+}
+
+#blocArborescence .Affichage-titre, #blocArborescence .parametres-titre
+{
+	cursor:pointer;
+}
+
+#blocArborescence .items
+{
+	display:none;
+	margin-left:20px;
+	border-left:solid;
+	padding-left:10px;
+}
+
+#blocArborescence .options-supprimer
+{
+	cursor:pointer;
+}
+
+/* OLD */
+
+#blocArborescence caption
+{
+	text-align:center;
+	font-size:large;
+	font-style:italic;
+}
+
+
+
+#arborescence
+{
+	width:100%;
+}
+
+#arborescence .icone
+{
+	vertical-align:middle;
+}
+
+
+#arborescence .typeTrait
+{
+	font-family:"Courier New";
+}
+
+#arborescence input[type="number"] {
+   width:30px;
+}
