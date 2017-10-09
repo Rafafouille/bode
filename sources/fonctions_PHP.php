@@ -57,10 +57,7 @@ function verifSauvegarde($_email,$_contenu,$_capchien)
 function bddConnect()
 	{
 
-		$sql_serveur="localhost";
-		$sql_login="raf";
-		$sql_db="bode";
-		$sql_mdp="XrMsP33_q";
+		include("./sources/PHP/parametresSQL.php");
 		try
 			{
 				$bdd=new PDO('mysql:host='.$sql_serveur.';dbname='.$sql_db.';charset=utf8',$sql_login,$sql_mdp, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
