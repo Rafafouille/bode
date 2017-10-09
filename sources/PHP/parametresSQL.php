@@ -1,5 +1,5 @@
 <?php
-$sql_serveur="localhost";
+$sql_serveur="";
 $sql_login="";
 $sql_db="";
 $sql_mdp="";
