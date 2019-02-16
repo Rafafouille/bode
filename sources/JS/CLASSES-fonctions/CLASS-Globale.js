@@ -18,8 +18,47 @@ var FonctionGlobale = function()
 		this._epaisseurAnalytique=4;//Epaisseur du trait
 		this._epaisseurAsymptotique=3;//Epaisseur du trait
 		this._icone="./sources/icones/iconeGlobal.png";
+		this._afficheMargeDeGain=true;
+		this._afficheMargeDePhase=true;
+		this._epaisseurFlechesMarges=3;
+		this._tailleBoutFlecheMarges=15;//Taille des extrémité de flèche
 
+	//==========================
+	//Getters/Setters
+	//==========================
 
+		//Renvoie s'il faut afficher la marge de gain (ou pas)
+		this.afficheMargeDeGain=function(a)
+			{
+				if(typeof(a) != 'undefined')
+					this._afficheMargeDeGain=a;
+				return this._afficheMargeDeGain;
+			}
+			
+		//Renvoie s'il faut afficher la marge de phase (ou pas)
+		this.afficheMargeDePhase=function(a)
+			{
+				if(typeof(a) != 'undefined')
+					this._afficheMargeDePhase=a;
+				return this._afficheMargeDePhase;
+			}
+	
+		//Renvoie l'épaisseur de ligne des flèches de marge
+		this.epaisseurFlechesMarges=function(e)
+			{
+				if(typeof(e) != 'undefined')
+					this._epaisseurFlechesMarges=e;
+				return this._epaisseurFlechesMarges;
+			}
+	
+		//Renvoie la longueur de la tete de la flèche des marges
+		this.tailleBoutFlecheMarges=function(t)
+			{
+				if(typeof(t) != 'undefined')
+					this._tailleBoutFlecheMarges=t;
+				return this._tailleBoutFlecheMarges;
+			}
+	
 	//==========================
 	//Fonctions Membres
 	//==========================
@@ -197,6 +236,226 @@ var FonctionGlobale = function()
 
 				return li;
 			}
+			
+		
+		//Renvoie la liste des pulsation à 0 dB.	
+		this.getW0dB=function()
+		{
+			var pas=(this.bornesW().maxi-this.bornesW().mini)/(this.nbPoints()-1);
+			var pulsations=[];
+			for(w=this.bornesW().mini;w<this.bornesW().maxi;w+=pas)//Pour chaque point (on boucle sur les log(omega))
+			{
+				wSuivant=w+pas;
+				if(this.getGdb(Math.pow(10,w))==0 && this.getGdb(Math.pow(10,wSuivant))!=0)	//Si on tombe pile sur un zero (coup de bol !)
+				{
+					pulsations.push(Math.pow(10,w))
+				}
+				else if(this.getGdb(Math.pow(10,w))*this.getGdb(Math.pow(10,wSuivant))<0) //Sinon, si le zero est sur l'intervale qui suit
+				{
+					//Dichotomie :
+					while(Math.abs(w-wSuivant)>0.0001)
+					{https://www.qwant.com/?l=fr
+						c=0.5*(w+wSuivant)
+						if(this.getGdb(Math.pow(10,w))*this.getGdb(Math.pow(10,c))<0)
+							wSuivant=c
+						else
+							w=c
+					}
+					c=0.5*(w+wSuivant)
+					pulsations.push(Math.pow(10,c))
+				}
+			}
+			return pulsations
+		}
+		
+			
+		//Renvoie la liste des pulsation à 0 dB.	
+		this.getWm180deg=function()
+		{
+			var pas=(this.bornesW().maxi-this.bornesW().mini)/(this.nbPoints()-1);
+			var pulsations=[];
+			for(w=this.bornesW().mini;w<this.bornesW().maxi;w+=pas)//Pour chaque point (on boucle sur les log(omega))
+			{
+				wSuivant=w+pas;
+				if(this.getPhase(Math.pow(10,w))==-180)	//Si on tombe pile sur un -180 (coup de bol !)
+				{
+					pulsations.push(Math.pow(10,w))
+				}
+				else if((this.getPhase(Math.pow(10,w))+180)*(this.getPhase(Math.pow(10,wSuivant))+180)<0) //Sinon, si le -180 est sur l'intervale qui suit
+				{
+					//Dichotomie :
+					while(Math.abs(w-wSuivant)>0.0001)
+					{
+						c=0.5*(w+wSuivant)
+						if((this.getPhase(Math.pow(10,w))+180)*(this.getPhase(Math.pow(10,c))+180)<0)
+							wSuivant=c
+						else
+							w=c
+					}
+					c=0.5*(w+wSuivant)
+					pulsations.push(Math.pow(10,c))
+				}
+			}
+			return pulsations
+		}
+			
+			
+			
+		//Met à jour les flèches qui indiquent la marge de gain
+		this.updateMargeDeGain=function()
+		{
+			//Effacer les précédentes fleches
+			this.margesDeGain.destroyChildren();
+			
+			if(this.afficheMargeDeGain())
+			{
+				//Refaire les nouvelles flèches
+				pulsations=this.getWm180deg();
+				for(i=0;i<pulsations.length;i++)
+				{
+					var w=pulsations[i];
+					var Gbd=this.getGdb(w);
+					var signe=(Gbd<0)*2-1;
+					var taille=this.tailleBoutFlecheMarges();
+					//On cree la tige
+					var point1=grapheBodeGdb.coordonnees(Math.log10(w),Gbd);
+					var point2=grapheBodeGdb.coordonnees(Math.log10(w),0);
+					var tige=new Kinetic.Line({points:[point1.x,point1.y,point2.x,point2.y+signe*taille],
+								x:grapheBodeGdb.repere.position().x,
+								y:grapheBodeGdb.repere.position().y,
+								stroke:this.couleurMargeDeGain(-Gbd),
+								lineCap: 'round',
+								lineJoin: 'round',
+								strokeWidth:this.epaisseurFlechesMarges()
+							});
+					this.margesDeGain.add(tige);
+					//On crée le bout de la flèche
+					var x0=grapheBodeGdb.coordonnees(Math.log10(w),0).x;
+					var bout=new Kinetic.Path({data: "M"+x0+",0 L"+(x0-taille*0.4)+","+(signe*taille*1.2)+" L "+x0+","+(signe*taille)+","+(x0+taille*0.4)+","+(signe*taille*1.2)+"Z",
+								x:grapheBodeGdb.repere.position().x,
+								y:grapheBodeGdb.repere.position().y,
+								fill:this.couleurMargeDeGain(-Gbd),
+								lineCap: 'round',
+								lineJoin: 'round'
+							});
+					this.margesDeGain.add(bout);
+					//On crée le texte
+					var text = new Kinetic.Text({
+							  	x:grapheBodeGdb.repere.position().x+x0+5,
+								y:grapheBodeGdb.repere.position().y+(point1.y+point2.y)/2,
+							 	text: 'Mg',
+							  	fontSize: 25,
+							  	fontFamily: 'Calibri',
+							  	fill:this.couleurMargeDeGain(-Gbd)
+						  });
+					this.margesDeGain.add(text);
+				}
+			}
+			
+		}
+		
+		//Fonction qui calcule la couleur de la marge de gain
+		this.couleurMargeDeGain=function(Mg)
+		{
+			limiteDanger=20;
+			if(Mg<0)
+				return "#FF0000";
+			if(Mg>limiteDanger)
+				return "#00C000";
+			if(Mg<limiteDanger/2)
+			{	var tauxVert=Math.round(Mg/(limiteDanger/2)*192);
+				var code="00"+tauxVert.toString(16);
+				code=code.substr(code.length-2);
+				return "#FF"+code+"00";
+			}
+			else
+			{	var tauxRouge=Math.round((limiteDanger-Mg)/(limiteDanger/2)*255);
+				var code="00"+tauxRouge.toString(16);
+				code=code.substr(code.length-2);
+				return "#"+code+"C000";
+			}
+		}
+		
+		
+		//Met à jour les flèches qui indiquent la marge de phase
+		this.updateMargeDePhase=function()
+		{
+			//Effacer les précédentes fleches
+			this.margesDePhase.destroyChildren();
+			
+			if(this.afficheMargeDePhase())
+			{
+				//Refaire les nouvelles flèches
+				pulsations=this.getW0dB();
+				for(i=0;i<pulsations.length;i++)
+				{
+					var w=pulsations[i];
+					var phi=this.getPhase(w);
+					var signe=(phi>-180)*2-1;
+					var taille=this.tailleBoutFlecheMarges();
+					var Mphi=180+phi;
+					//On cree la fleche			
+					point1=grapheBodePhase.coordonnees(Math.log10(w),phi);
+					point2=grapheBodePhase.coordonnees(Math.log10(w),-180);
+					var fleche=new Kinetic.Line({points:[point1.x,point1.y+signe*taille,point2.x,point2.y],
+								x:grapheBodePhase.repere.position().x,
+								y:grapheBodePhase.repere.position().y,
+								stroke:this.couleurMargeDePhase(Mphi),
+								lineCap: 'round',
+								lineJoin: 'round',
+								strokeWidth:4
+							});
+					//On l'ajoute au groupe
+					this.margesDePhase.add(fleche);
+					//On crée le bout de la flèche
+					var x0=grapheBodePhase.coordonnees(Math.log10(w),phi).x;
+					var y0=grapheBodePhase.coordonnees(Math.log10(w),phi).y;
+					var bout=new Kinetic.Path({data: "M"+x0+","+y0+" L"+(x0-taille*0.4)+","+(y0+signe*taille*1.2)+" L "+x0+","+(y0+signe*taille)+","+(x0+taille*0.4)+","+(y0+signe*taille*1.2)+"Z",
+								x:grapheBodePhase.repere.position().x,
+								y:grapheBodePhase.repere.position().y,
+								fill:this.couleurMargeDePhase(Mphi),
+								lineCap: 'round',
+								lineJoin: 'round'
+							});
+					this.margesDePhase.add(bout);
+					//On crée le texte
+					var text = new Kinetic.Text({
+							  	x:grapheBodePhase.repere.position().x+x0-40,
+								y:grapheBodePhase.repere.position().y+(point1.y+point2.y)/2,
+							 	text: 'Mφ',
+							  	fontSize: 25,
+							  	fontFamily: 'Calibri',
+							  	fill:this.couleurMargeDePhase(Mphi),
+							  	align:"right"
+						  });
+					text.align("right");
+					this.margesDePhase.add(text);
+				}
+			}	
+		}
+		
+		//Fonction qui calcule la couleur de la marge de gain
+		this.couleurMargeDePhase=function(Mphi)
+		{
+			limiteDanger=45;
+			if(Mphi<0)
+				return "#FF0000";
+			if(Mphi>limiteDanger)
+				return "#00C000";
+			if(Mphi<limiteDanger/2)
+			{	var tauxVert=Math.round(Mphi/(limiteDanger/2)*192);
+				var code="00"+tauxVert.toString(16);
+				code=code.substr(code.length-2);
+				return "#FF"+code+"00";
+			}
+			else
+			{	var tauxRouge=Math.round((limiteDanger-Mphi)/(limiteDanger/2)*255);
+				var code="00"+tauxRouge.toString(16);
+				code=code.substr(code.length-2);
+				return "#"+code+"C000";
+			}
+		}
+			
 	//==========================
 	//MENU ARBORESCENCE
 	//==========================
@@ -211,77 +470,87 @@ var FonctionGlobale = function()
 			{
 				return	this.ajouteLigneArbre2_boutonInverse(i);
 			}
-
+			
+		//Ajoute le bouton marge de gain
+		this.ajouteLigneArbre2_boutonMarges=function(i)
+		{
+			return ''+
+'						<div class="item">'+
+'							<input id="'+i+'-check-margeGain" name="'+i+'-check-margeGain" type="checkbox" checked onclick="updateAfficheMargeDeGain(this.checked)" />'+
+'							<label for="'+i+'-check-margeGain">'+
+'								<img class="icone" src="./sources/icones/iconeMargeGain.png"/>'+
+'								Marge de gain'+
+'							</label>'+
+'						</div>'+
+'						<div class="item">'+
+'							<input id="'+i+'-check-margePhase" name="'+i+'-check-margePhase" type="checkbox" checked onclick="updateAfficheMargeDePhase(this.checked)" />'+
+'							<label for="'+i+'-check-margePhase">'+
+'								<img class="icone" src="./sources/icones/iconeMargePhase.png"/>'+
+'								Marge de Phase'+
+'							</label>'+
+'						</div>';
+		}
+			
+			
 		//ajoute options d'affichage -- Redéfini pour ne PAS affichertoutes bouton
 		this.ajouteLigneArbre2_affichage=function(i)
 			{
 				return 	this.ajouteLigneArbre2_boutonsAffichage(i)+
+					this.ajouteLigneArbre2_boutonMarges(i)+
 					this.ajouteLigneArbre2_boutonCouleur(i)+
 					this.ajouteLigneArbre2_boutonBornes(i)+
 					this.ajouteLigneArbre2_boutonNbPoints(i);
 			}
 
-		//OLD
-		/*this.ajouteLigneArbre_titre=function(i)
+
+	//==========================
+	//Graphique
+	//==========================
+		this.margesDeGain=new Kinetic.Group();	//Liste des flèches qui indique la (les) marges de gain
+		this.margesDePhase=new Kinetic.Group();	//Liste des flèches qui indique la (les) marges de phase
+
+		grapheBodeGdb.calqueCourbes.add(this.margesDeGain);
+		grapheBodePhase.calqueCourbes.add(this.margesDePhase);
+		
+
+		//Met a jour toutes la courbe de gain (Écrase la fonction dont elle hérite)
+		this.updateCourbeGdb=function()
 			{
-				//ROOT=$("#arborescence").treetable('node','ROOT');
-				$("#arborescence").treetable('loadBranch',null,
-					'<tr data-tt-branch="true" data-tt-id="'+i+'" >'+
-					'	<td>'+
-					'		<img class="icone" src="./sources/icones/iconeGlobal.png"/>'+
-					'		<strong>Fonction globale</strong>'+
-					this.ajouteArbo_CarreCouleur(i)+
-					'	</td>'+
-					'</tr>');
-
-				//node=$("#arborescence").treetable("node",i);
-				//node.render();
-			}*/
-
-
-		/*this.ajouteLigneArbre_parametres=function(i)
+				//shape
+				this.tabCourbeGdb=[];
+				var pas=(this.bornesW().maxi-this.bornesW().mini)/(this.nbPoints()-1);
+				for(w=this.bornesW().mini;w<=this.bornesW().maxi;w+=pas)//Pour chaque point
+					{
+						var point=grapheBodeGdb.coordonnees(w,this.getGdb(Math.pow(10,w)));
+						this.tabCourbeGdb=this.tabCourbeGdb.concat([point.x,point.y]);//On ajoute le point
+					}
+				this.courbeGdb.points(this.tabCourbeGdb);//On met à jour le dessin
+				this.courbeGdb.visible(this.afficheAnalytique());//Rend invisible ou non
+				this.courbeGdb.stroke(this.couleur());//Met a jour la couleur de la ligne
+				this.courbeGdb.strokeWidth(this.epaisseurAnalytique());//Modifie l'épaisseur des traits
+				this.courbeGdb.dash(this.getDashFromTypeTrait(this.typeTraitAnalytique(),this.epaisseurAnalytique()));//modifie le type de traits (pointillets, etc...)
+				this.updateMargeDeGain();
+			}
+			
+		//Met a jour la courbe de phase (Écrase la fonction dont elle hérite)
+		this.updateCourbePhase=function()
 			{
-				node=$("#arborescence").treetable("node",i+"-param");
-				$("#arborescence").treetable('loadBranch',node,
-					this.ajouteArbo_BoutonInverse(i));
-			}*/
-
-
-
-		//this.ajouteLigneArbre_affichage=function(i)	--> Hérite de CLASS-Fonction
-		/*	{
-				node=$("#arborescence").treetable("node",i+"-affichage");
-				$("#arborescence").treetable('loadBranch',node,
-						'		<tr data-tt-id="'+i+'-afficheReel" data-tt-parent-id="'+i+'-affichage">'+
-						'			<td>'+
-						'				<input id="'+i+'-afficheReel" name="" type="checkbox"/>'+
-						'				<img class="icone" src="./sources/icones/iconeReel.png"/>'+
-						'				Afficher Réel'+
-						'			</td>'+
-						'		</tr>'+
-						'		<tr data-tt-id="'+i+'-afficheAsympt" data-tt-parent-id="'+i+'-affichage">'+
-						'			<td>'+
-						'				<input id="'+i+'-afficheAsympt" name="" type="checkbox"/>'+
-						'				<img class="icone" src="./sources/icones/iconeAsympt.png"/>'+
-						'				Afficher asymptotique'+
-						'			</td>'+
-						'		</tr>');
-			}*/
-	//Contenu des branches "Affichage"
-	/*this.ajouteLigneArbre_affichage=function(i)
-		{
-	
-			node=$("#arborescence").treetable("node",i+"-affichage");
-			$("#arborescence").treetable('loadBranch',node,
-					this.ajouteArbo_bouton_afficheAnalytique(i)+
-					this.ajouteArbo_bouton_afficheAsympt(i)+
-					this.ajouteArbo_couleur(i)+
-					this.ajouteArbo_omegaLimit(i)+
-					this.ajouteArbo_nbPoints(i));
-		}*/
-
-
-
+				this.tabCourbePhase=[];
+				var pas=(this.bornesW().maxi-this.bornesW().mini)/(this.nbPoints()-1);
+				for(w=this.bornesW().mini;w<=this.bornesW().maxi;w+=pas)//Pour chaque point
+					{
+						var point=grapheBodePhase.coordonnees(w,this.getPhase(Math.pow(10,w)));
+						this.tabCourbePhase=this.tabCourbePhase.concat([point.x,point.y]);//on ajoute le point
+					}
+				this.courbePhase.points(this.tabCourbePhase);//On met à jour le dessin
+				this.courbePhase.visible(this.afficheAnalytique());//Rend invisible ou non
+				this.courbePhase.stroke(this.couleur());//Met a jour la couleur de la ligne
+				this.courbePhase.strokeWidth(this.epaisseurAnalytique());//Modifie l'épaisseur des traits
+				this.courbePhase.dash(this.getDashFromTypeTrait(this.typeTraitAnalytique(),this.epaisseurAnalytique()));//modifie le type de traits (pointillets, etc...)
+				this.updateMargeDePhase();
+			}
+			
+				
 	//==========================
 	//Export
 	//==========================

@@ -339,8 +339,8 @@ function updateParametreK(i,val)//i
 			}
 		eq.K(val);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 
 //Met a jour Tau quand on le modifie à la main
@@ -357,8 +357,8 @@ function updateParametreTau(i,val)
 			}
 		eq.tau(val);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 
 //Met a jour w0 quand on le modifie à la main
@@ -375,8 +375,8 @@ function updateParametreW0(i,val)
 			}
 		eq.w0(val);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 
 //Met a jour z quand on le modifie à la main
@@ -393,8 +393,8 @@ function updateParametreZ(i,val)
 			}
 		eq.z(val);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 
 //Met a jour Q (=1/2z) quand on le modifie à la main
@@ -411,8 +411,8 @@ function updateParametreQ(i,val)
 			}
 		eq.Q(val);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 
 //Met a jour Kp quand on le modifie à la main
@@ -427,8 +427,8 @@ function updateParametreKp(i,val)
 			}
 		eq.Kp(val);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 	
 	
@@ -444,8 +444,8 @@ function updateParametreTi(i,val)
 			}
 		eq.Ti(val);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 	
 	
@@ -461,8 +461,8 @@ function updateParametreTd(i,val)
 			}
 		eq.Td(val);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 	
 	
@@ -478,8 +478,8 @@ function updateParametreA(i,val)
 			}
 		eq.a(val);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 	
 //Affiche ou cache le grpahe Bode Gdb (OBSOLETE Replace par une methode dans les graphiques...)
@@ -509,8 +509,8 @@ function updateBornesWFonction(i)
 		var wmax=parseFloat($("#wmax"+i).val());
 		eq.bornesW({mini:wmin,maxi:wmax});
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 
 function updateBorneInfWFonction(i,val)
@@ -518,8 +518,8 @@ function updateBorneInfWFonction(i,val)
 		eq=listeFonctions[i];
 		eq.bornesW({mini:parseFloat(val),maxi:eq.bornesW().maxi});
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 
 function updateBorneSupWFonction(i,val)
@@ -527,8 +527,8 @@ function updateBorneSupWFonction(i,val)
 		eq=listeFonctions[i];
 		eq.bornesW({mini:eq.bornesW().mini,maxi:parseFloat(val)});
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 
 function updateNbPointsFonction(i)
@@ -538,8 +538,8 @@ function updateNbPointsFonction(i)
 		$("#nbPoints"+i).val(nbP);//Juste histoire d'arrondir à l'entier et actualiser l'affichage
 		eq.nbPoints(nbP);
 		eq.updateCourbes();
-		grapheBodeGdb.draw();
-		grapheBodePhase.draw();
+		//grapheBodeGdb.draw();
+		//grapheBodePhase.draw();
 	}
 
 
@@ -629,7 +629,20 @@ function updatenbPoints(i,val)
 		eq.updateCourbes();	//Demande de refaire les courbes
 	}
 
-	
+function updateAfficheMargeDeGain(checked)
+	{
+		var eq=listeFonctions[0];	//Recupere la fonction
+		eq.afficheMargeDeGain(checked);	//Met à jour le parametre
+		eq.updateCourbes();	//Demande de refaire les courbes
+	}
+
+function updateAfficheMargeDePhase(checked)
+	{
+		var eq=listeFonctions[0];	//Recupere la fonction
+		eq.afficheMargeDePhase(checked);	//Met à jour le parametre
+		eq.updateCourbes();	//Demande de refaire les courbes
+	}
+
 //Fonction qui envoie la sauvegarde avec AJAX ---------------------
 $('#formeDialogueSauveBDD').on('submit', function(e) {
         e.preventDefault(); // J'empêche le comportement par défaut du navigateur, c-à-d de soumettre le formulaire

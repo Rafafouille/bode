@@ -216,15 +216,25 @@ var Repere = function(_grapheParent) {
 				for(i=this.grapheParent.bornesY().mini;i<=this.grapheParent.bornesY().maxi;i+=this.grapheParent.pasAxesSecondaires().y)
 					{
 						var texte=new Kinetic.Text({
-										x:1,
-										y:this.grapheParent.coordonnees(0,i).y+1,
+										x:2,
+										y:this.grapheParent.coordonnees(0,i).y,
 										text:String(i),
 										fontSize:15,
 										fontFamily:'Times New Roman',
 										fill:this.grapheParent._lineColor
 										});
+						texte.y(texte.y()-texte.height()/2);
 						if(this.grapheParent.logarithmique().y)
 							texte.text('10^'+String(i));
+						var fondTexte=new Kinetic.Rect({
+										x:texte.x()-1,
+										y:texte.y()-1,
+										width:texte.width()+2,
+										height:texte.height()+2,
+										fill:this.grapheParent.backgroundColor()
+									});
+						
+						this.annotations.add(fondTexte);
 						this.annotations.add(texte);
 					}
 			}

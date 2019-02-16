@@ -284,51 +284,8 @@ var Fonction = function() {
 '			</div>');
 
 
-			//Ajoute le titre de la ligne en arborescence
-			/*this.ajouteLigneArbre_titre(i);*/
-
-			
 
 
-			//OLD============================
-
-			//Paramétrage
-			/*nodeTitre=$("#arborescence").treetable('node',i);
-			$("#arborescence").treetable('loadBranch',nodeTitre,
-					'	<tr data-tt-id="'+i+'-param" data-tt-parent-id="'+i+'">'+
-					'		<td>'+
-					'			<img class="icone" src="./sources/icones/iconeParam.png"/>'+
-					'			Paramètres'+
-					this.afficheEquation()+
-					'		</td>'+
-					'	</tr>');
-			this.ajouteLigneArbre_parametres(i);*/
-			
-			//Paramétrage
-			/*$("#arborescence").treetable('loadBranch',nodeTitre,
-					'	<tr data-tt-id="'+i+'-affichage" data-tt-parent-id="'+i+'">'+
-					'		<td>'+
-					'			<img class="icone" src="./sources/icones/iconeAffichage.png"/>'+
-					'			Affichage'+
-					'		</td>'+
-					'	</tr>');*/
-					
-			/*this.ajouteLigneArbre_affichage(i);*/
-			//Supprimer
-			/*$("#arborescence").treetable('loadBranch',nodeTitre,
-					'	<tr data-tt-id="'+i+'-supprimer" data-tt-parent-id="'+i+'">'+
-					'		<td>'+
-					'			<a onclick="$(\'#dialogSupprime span\').text('+i+');$(\'#dialogSupprime\').dialog(\'open\');">'+
-					'				<img class="icone" src="./sources/icones/iconeDelete.png" alt="(X)"/>'+
-					'				Supprimer'+
-					'			</a>'+
-					'		</td>'+
-					'	</tr>');*/
-
-
-			//Bug ?? voir --> http://stackoverflow.com/questions/1758066/jquery-treetable-root-node-expander-image-is-hidden-in-ie6-why
-			/*node=$("#arborescence").treetable("node",i);
-			node._initialize();*/
 
 		}
 		//FIN D'AJOUT DANS L'ARBORESENCE
@@ -443,9 +400,9 @@ var Fonction = function() {
 '						</div>';
 					return res;
 				}
-			//Boutons Combine
-			this.ajouteLigneArbre2_boutonsCombine=function(i)
-				{
+		//Boutons Combine
+		this.ajouteLigneArbre2_boutonsCombine=function(i)
+			{
 					res=''+
 '						<div class="item">'+
 '							<input id="'+i+'-check-combineAnalytique" name="'+i+'-check-combineAnalytique" type="checkbox" onclick="c=listeFonctions['+i+'];c.analytiqueGlobal(this.checked);c.updateCourbes();" ';
@@ -506,217 +463,7 @@ var Fonction = function() {
 '						</div>';
 			}
 
-	//OLD
-//Titre dans l'arborescence ------
-	/*this.ajouteLigneArbre_titre=function(i)
-		{
-			$("#arborescence").treetable('loadBranch',null,
-				'<tr data-tt-id="'+i+'">'+
-				'	<td>'+
-				'		<img class="icone" src="./sources/icones/iconeInconnu.png"/>'+
-				'		Fonction Inconnue'+
-				this.ajouteArbo_CarreCouleur(i)+
-				'	</td>'+
-				'</tr>');
-		}*/
 
-			//Puce de couleur
-		/*	this.ajouteArbo_CarreCouleur=function(i)
-				{
-					return '<span id="'+i+'-carreCouleur" style="color:'+this.couleur()+';font-size:x-large;">&#9632;</span>';
-				}*/
-
-	//Contenu des branches "Paramètres"
-	/*this.ajouteLigneArbre_parametres=function(i)
-		{
-			node=$("#arborescence").treetable("node",i+"-param");
-			$("#arborescence").treetable('loadBranch',node,
-				this.ajouteArbo_BoutonInverse(i));
-		}*/
-
-	/*this.ajouteLigneArbre_parametres=function(i)
-		{
-			node=$("#arborescence").treetable("node",i+"-param");
-			$("#arborescence").treetable('loadBranch',node,
-				this.ajouteArbo_Parametre_K(i)+
-				this.ajouteArbo_BoutonInverse(i));
-		}*/
-
-			//Bouton Inverse
-		/*	this.ajouteArbo_BoutonInverse=function(i)
-				{
-					res='		<tr data-tt-id="'+i+'-inverse" data-tt-parent-id="'+i+'-param">'+
-					'			<td>'+
-					'				<input type="checkbox" name="'+i+'-inverse" id="'+i+'-inverse" onclick="fonc=listeFonctions['+i+'];fonc.inverse(this.checked);fonc.updateCourbes();"';//updateAffichageListe();
-					if(this.inverse())
-						res+='checked="true"';
-					res+='/>'+
-					'				<label for="'+i+'-inverse">Inverse</label>'+
-					'			</td>'+
-					'		</tr>';
-					return res;
-				}*/
-
-		/*	this.ajouteArbo_Parametre_K=function(i)
-				{
-					res='		<tr data-tt-id="'+i+'-param-K" data-tt-parent-id="'+i+'-param">'+
-					'			<td>'+
-					'				<label for="'+i+'-input-param-K-number">K = </label>'+
-					'				<input type="number" name="'+i+'-input-param-K-number" id="'+i+'-input-param-K-number" min="0" step="0.5" style="width:50px;" value="'+this.K()+'" oninput="updateParametreK('+i+',this.value)"/>'+
-					'				<input type="range" name="'+i+'-input-param-K-range" id="'+i+'-input-param-K-range"  style="width:80px;" min="-5" max="5" step="0.2" value="'+log10(this.K())+'" oninput="updateParametreK('+i+',Math.pow(10,this.value))"/>'+
-					'			</td>'+
-					'		</tr>';
-					return res;
-				}*/
-
-
-
-	//Contenu des branches "Affichage"
-	/*this.ajouteLigneArbre_affichage=function(i)
-		{
-	
-			node=$("#arborescence").treetable("node",i+"-affichage");
-			$("#arborescence").treetable('loadBranch',node,
-					this.ajouteArbo_bouton_afficheAnalytique(i)+
-					this.ajouteArbo_bouton_afficheAsympt(i)+
-					this.ajouteArbo_bouton_CombineAnalytique(i)+
-					this.ajouteArbo_bouton_CombineAsympt(i)+
-					this.ajouteArbo_couleur(i)+
-					this.ajouteArbo_omegaLimit(i)+
-					this.ajouteArbo_nbPoints(i));
-		}*/
-
-			/*this.ajouteArbo_bouton_afficheAnalytique=function(i)
-				{
-					res='		<tr data-tt-id="'+i+'-afficheAnalytique" data-tt-parent-id="'+i+'-affichage">'+
-					'			<td>'+
-					'				<input id="'+i+'-afficheAnalytique" name="'+i+'-afficheAnalytique" type="checkbox" onclick="updateAfficheAnalytique('+i+',this.checked)" ';
-					if(this.afficheAnalytique())
-						res+='checked="true" ';
-					res+='/>'+
-					'				<label for="'+i+'-afficheAnalytique">'+
-					'					<img class="icone" src="./sources/icones/iconeReel.png"/>'+
-					'					Analytique'+
-					'				</label>'+
-					'				<select class="typeTrait" id="'+i+'-typeTraitAnalytique" name="'+i+'-typeTraitAnalytique" size="1" onchange="updateTypeTraitAnalytique('+i+',this.value);">'+
-					'					<option value="normal"';
-					if(this.typeTraitAnalytique()=="normal") res+=' selected="selected"'
-					res+='>___</option>'+
-					'					<option value="pointillets"';
-					if(this.typeTraitAnalytique()=="pointillets") res+=' selected="selected"'
-					res+='>---</option>'+
-					'					<option value="points"';
-					if(this.typeTraitAnalytique()=="points") res+=' selected="selected"'
-					res+='>...</option>'+
-					'				</select>'+
-					'				<input id="'+i+'-epaisseurAnalytique" name="'+i+'-epaisseurAnalytique" type="number" min="0" size="20" value="'+this.epaisseurAnalytique()+'" onchange="updateEpaisseurAnalytique('+i+',this.value)"/>'+
-					'			</td>'+
-					'		</tr>';
-					return res;
-				}*/
-
-		/*	this.ajouteArbo_bouton_afficheAsympt=function(i)
-				{
-					res='		<tr data-tt-id="'+i+'-afficheAsympt" data-tt-parent-id="'+i+'-affichage">'+
-					'			<td>'+
-					'				<input id="'+i+'-afficheAsympt" name="'+i+'-afficheAsympt" type="checkbox" onclick="updateAfficheAsymptotique('+i+',this.checked)" ';
-					if(this.afficheAsymptotique())
-						res+='checked="true" ';
-					res+='/>'+
-					'				<label for="'+i+'-afficheAsympt">'+
-					'					<img class="icone" src="./sources/icones/iconeAsympt.png"/>'+
-					'					Asymptotique'+
-					'				</label>'+
-					'				<select class="typeTrait" id="'+i+'-typeTraitAsympt" name="'+i+'-typeTraitAsympt" size="1" onchange="updateTypeTraitAsymptotique('+i+',this.value);">'+
-					'					<option value="normal"';
-					if(this.typeTraitAsymptotique()=="normal") res+=' selected="selected"'
-					res+='>___</option>'+
-					'					<option value="pointillets"';
-					if(this.typeTraitAsymptotique()=="pointillets") res+=' selected="selected"'
-					res+='>---</option>'+
-					'					<option value="points"';
-					if(this.typeTraitAsymptotique()=="points") res+=' selected="selected"'
-					res+='>...</option>'+
-					'				</select>'+
-					'				<input id="'+i+'-epaisseurAsymptotique" name="'+i+'-epaisseurAnalytique" type="number" min="0" size="20" value="'+this.epaisseurAsymptotique()+'" onchange="updateEpaisseurAsymptotique('+i+',this.value)"/>'+
-					'			</td>'+
-					'		</tr>';
-					return res;
-				}
-
-
-			this.ajouteArbo_bouton_CombineAnalytique=function(i)
-				{
-					res='		<tr data-tt-id="'+i+'-combineAnalytique" data-tt-parent-id="'+i+'-affichage">'+
-					'			<td>'+
-					'				<input id="'+i+'-check-combineAnalytique" name="'+i+'-check-combineAnalytique" type="checkbox" onclick="c=listeFonctions['+i+'];c.analytiqueGlobal(this.checked);c.updateCourbes();" ';
-					if(this.analytiqueGlobal())
-						res+='checked="true" ';
-					res+='/>'+
-					'				<label for="'+i+'-check-combineAnalytique">'+
-					'					<img class="icone" src="./sources/icones/iconeCombineReel.png"/>'+
-					'					Combine Analytique'+
-					'				</label>'+
-					'			</td>'+
-					'		</tr>';
-					return res;
-				}*/
-
-	/*		this.ajouteArbo_bouton_CombineAsympt=function(i)
-				{
-					res='		<tr data-tt-id="'+i+'-combineAsympt" data-tt-parent-id="'+i+'-affichage">'+
-					'			<td>'+
-					'				<input id="'+i+'-check-combineAsympt" name="'+i+'-check-combineAsympt" type="checkbox" onclick="c=listeFonctions['+i+'];c.asymptotiqueGlobal(this.checked);c.updateCourbes();" ';
-					if(this.asymptotiqueGlobal())
-						res+='checked="true" ';
-					res+='/>'+
-					'				<label for="'+i+'-check-combineAsympt">'+
-					'					<img class="icone" src="./sources/icones/iconeCombineAsympt.png"/>'+
-					'					Combine Asymptotique'+
-					'				</label>'+
-					'			</td>'+
-					'		</tr>';
-					return res;
-				}*/
-
-
-		/*	this.ajouteArbo_couleur=function(i)
-				{
-					res='		<tr data-tt-id="'+i+'-couleur" data-tt-parent-id="'+i+'-affichage">'+
-					'			<td>'+
-					'				<label for="'+i+'-input-couleur">'+
-					'					Couleur : '+
-					'				</label>'+
-					'				<input id="'+i+'-input-couleur" name="'+i+'-input-couleur" type="color" value="'+this.couleur()+'" onchange="updateCouleur('+i+',this.value)"/>';
-					'			</td>'+
-					'		</tr>';
-					return res;
-				}*/
-
-	/*		this.ajouteArbo_omegaLimit=function(i)
-				{
-					res='		<tr data-tt-id="'+i+'-omegaLimit" data-tt-parent-id="'+i+'-affichage">'+
-					'			<td>'+
-					'				Bornes : '+
-					'				<label for="'+i+'-input-wMin">10</label><sup><input id="'+i+'-input-wMin" name="'+i+'-input-wMin" type="number" value="'+this.bornesW().mini+'" onchange="updateBorneInfWFonction('+i+',this.value)"/></sup>'+
-					'				&le; &omega; &le; '+
-					'				<label for="'+i+'-input-wMax">10</label><sup><input id="'+i+'-input-wMax" name="'+i+'-input-wMax" type="number" value="'+this.bornesW().maxi+'" onchange="updateBorneSupWFonction('+i+',this.value)"/></sup>'+
-					'			</td>'+
-					'		</tr>';
-					return res;
-				}*/
-
-	/*		this.ajouteArbo_nbPoints=function(i)
-				{
-					res='		<tr data-tt-id="'+i+'-nbPoints" data-tt-parent-id="'+i+'-affichage">'+
-					'			<td>'+
-					'				<label for="'+i+'-input-nbPoints-number">Nb de points :</label> '+
-					'				<input id="'+i+'-input-nbPoints-number" name="'+i+'-input-nbPoints-number" size="20" style="width:40px;" min="2"  type="number" value="'+this.nbPoints()+'" oninput="updatenbPoints('+i+',this.value)"/>'+
-					'				<input id="'+i+'-input-nbPoints-range" name="'+i+'-input-nbPoints-range" size="5" style="width:80px;" min="2" max="300" type="range" value="'+this.nbPoints()+'" oninput="updatenbPoints('+i+',this.value)"/>'+
-					'			</td>'+
-					'		</tr>';
-					return res;
-				}*/
 
 	//==========================
 	//Graphique
@@ -764,6 +511,7 @@ var Fonction = function() {
 							strokeWidth:1,
 							dash: [5, 5]
 						});
+						
 
 		grapheBodeGdb.calqueCourbes.add(this.courbeGdb);
 		grapheBodeGdb.calqueCourbes.add(this.courbeGdbAsympt);
@@ -831,7 +579,7 @@ var Fonction = function() {
 					listeFonctions[0].updateCourbeGdbAsympt();//Met a jour la courbe globale
 			}
 
-		//Met a jour la courbe du gain en db asymptotique
+		//Met a jour la courbe de phase
 		this.updateCourbePhase=function()
 			{
 				this.tabCourbePhase=[];
@@ -850,7 +598,7 @@ var Fonction = function() {
 					listeFonctions[0].updateCourbePhase();//Met a jour la courbe globale
 			}
 
-		//Met a jour la courbe du gain en db asymptotique
+		//Met a jour la courbe du phase asymptotique
 		this.updateCourbePhaseAsympt=function()
 			{
 				this.tabCourbePhaseAsympt=[];
