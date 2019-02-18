@@ -15,6 +15,8 @@ var Derivee = function(paramK)
 		this._nom="Dérivée";//Nom de la fonction
 		this._icone="./sources/icones/iconeDerivee.png";
 		this._couleur="#0000FF";
+		this._afficheAnalytique=false;//Affiche-t-on la courbe analytique seule ?
+		this._afficheAsymptotique=false;//Affiche-t-on la courbe asymptotique seule ,
 
 		//parametres
 		this._K_=parseFloat(paramK);

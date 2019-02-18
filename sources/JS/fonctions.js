@@ -150,11 +150,11 @@ updateExport=function()
 			{
 				rendu=getExportLaTex();
 			}
-		if($("#dialogExport select").val()=="SVG")	//Si LaTex ========
+		if($("#dialogExport select").val()=="SVG")	//Si SVG ========
 			{
 				rendu=getExportSVG();
 			}
-		if($("#dialogExport select").val()=="XML")	//Si LaTex ========
+		if($("#dialogExport select").val()=="XML")	//Si XML ========
 			{
 				rendu=getExportXML();
 			}	

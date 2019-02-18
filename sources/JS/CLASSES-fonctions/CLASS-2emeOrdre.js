@@ -16,6 +16,8 @@ var DeuxiemeOrdre = function(paramK,paramW0,paramZ)
 		this._nom="2<sup>ème</sup> Ordre";//Nom de la fonction
 		this._couleur="#FF0000";
 		this._icone="./sources/icones/icone2emeOrdre.png";
+		this._afficheAnalytique=false;//Affiche-t-on la courbe analytique seule ?
+		this._afficheAsymptotique=false;//Affiche-t-on la courbe asymptotique seule ,
 
 		//parametres
 		this._K_=parseFloat(paramK);

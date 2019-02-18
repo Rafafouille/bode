@@ -15,7 +15,11 @@ var Integrale = function(paramK)
 		this._type="Intégrale";//Nom de la fonction
 		this._nom="Intégrale";//Nom de la fonction
 		this._icone="./sources/icones/iconeIntegrale.png";
+		this._afficheAnalytique=false;//Affiche-t-on la courbe analytique seule ?
+		this._afficheAsymptotique=false;//Affiche-t-on la courbe asymptotique seule ,
 		this._couleur="#FFF101";
+		this._afficheAnalytique=false;//Affiche-t-on la courbe analytique seule ?
+		this._afficheAsymptotique=false;//Affiche-t-on la courbe asymptotique seule ,
 
 		//parametres
 		this._K_=parseFloat(paramK);

@@ -16,6 +16,8 @@ var Gain = function(paramK)
 		this._nom="Gain";//Nom de la fonction
 		this._icone="./sources/icones/iconeGain.png";
 		this._couleur="#808080";
+		this._afficheAnalytique=false;//Affiche-t-on la courbe analytique seule ?
+		this._afficheAsymptotique=false;//Affiche-t-on la courbe asymptotique seule ,
 
 		//parametres
 		this._K_=parseFloat(paramK);

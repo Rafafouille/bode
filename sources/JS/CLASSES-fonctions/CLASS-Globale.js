@@ -18,6 +18,7 @@ var FonctionGlobale = function()
 		this._epaisseurAnalytique=4;//Epaisseur du trait
 		this._epaisseurAsymptotique=3;//Epaisseur du trait
 		this._icone="./sources/icones/iconeGlobal.png";
+		//Nouveaux membres
 		this._afficheMargeDeGain=true;
 		this._afficheMargeDePhase=true;
 		this._epaisseurFlechesMarges=3;
