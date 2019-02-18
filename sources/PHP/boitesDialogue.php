@@ -59,7 +59,7 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {$(this).dialog("close");
 													var K=$("#nouveau2emeOrdreK").val();//On recupere K
-													var w0=$("#nouveau2emeOrdreK").val();//On recupere w0
+													var w0=$("#nouveau2emeOrdreW0").val();//On recupere w0
 													if($("input[name=boutonSIPhysique]:checked").val()=="SI")//Si avec Z
 														var z=$("#nouveau2emeOrdreZ").val();
 													else//Sinon (avec Q)
