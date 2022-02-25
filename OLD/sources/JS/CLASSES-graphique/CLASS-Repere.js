@@ -1,6 +1,6 @@
 
 
-//Fonction qui servira de constructeur pour la classe Noeud
+//Fonction qui servira de constructeur pour la classe Repere
 var Repere = function(_grapheParent) {
 
 
@@ -63,7 +63,8 @@ var Repere = function(_grapheParent) {
 
 				//Axes secondaires Horizontal
 				this.lignesQuadrillageHorz=[];
-				for(i=this.grapheParent.bornesY().mini;i<this.grapheParent.bornesY().maxi;i+=this.grapheParent.pasAxesSecondaires().y)
+				var yDepart=Math.ceil(this.grapheParent.bornesY().mini/this.grapheParent.pasAxesSecondaires().y)*this.grapheParent.pasAxesSecondaires().y;
+				for(i=yDepart;i<this.grapheParent.bornesY().maxi;i+=this.grapheParent.pasAxesSecondaires().y)
 				{
 					var ligne = new Kinetic.Line({
 									points:[this.grapheParent.coordonnees(this.grapheParent.bornesX().mini,i).x,
@@ -213,7 +214,8 @@ var Repere = function(_grapheParent) {
 							}
 					}
 				//Sur Y
-				for(i=this.grapheParent.bornesY().mini;i<=this.grapheParent.bornesY().maxi;i+=this.grapheParent.pasAxesSecondaires().y)
+				var yDepart=Math.ceil(this.grapheParent.bornesY().mini/this.grapheParent.pasAxesSecondaires().y)*this.grapheParent.pasAxesSecondaires().y;
+				for(i=yDepart;i<=this.grapheParent.bornesY().maxi;i+=this.grapheParent.pasAxesSecondaires().y)
 					{
 						var texte=new Kinetic.Text({
 										x:2,
@@ -358,10 +360,6 @@ var Repere = function(_grapheParent) {
 			this.axesSecondaires=new Kinetic.Group({});
 			this.add(this.axesSecondaires);
 			//this.createAxesSecondaires();
-
-
-
-
 
 
 

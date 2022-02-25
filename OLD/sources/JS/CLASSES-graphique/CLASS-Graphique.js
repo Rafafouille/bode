@@ -26,6 +26,11 @@ var Graphique = function(conteneur) {
 		this._logarithmique={x:false,y:false};
 		this._visible=true;	//Variable qui dit si le garphique est visible ou non
 		this._idDivVisible=0;//Lien (id) vers la boite qui contient le graphique (qu'on doit eventuellement cacher)
+		
+		this._margeClicable=10;
+		this._lastPressPosition={x:0,y:0};
+		this._sourisPressed=false;
+		this._actionSouris="rien";
 
 	//*********************************
 	//Export
@@ -144,6 +149,54 @@ var Graphique = function(conteneur) {
 					}
 				return this._lineColor;
 			}
+			
+		this.lastPressPosition=function(_c)
+			{
+				if(typeof(_c) != 'undefined')
+					{	this._lastPressPosition=_c;//Affectation de la position de la souris au dernier clic
+					}
+				return this._lastPressPosition;
+			}
+			
+		this.lastPressPositionX=function(_x)
+			{
+				if(typeof(_x) != 'undefined')
+					{	this._lastPressPosition.x=_x;//Affectation de la position de la souris au dernier clic
+					}
+				return this._lastPressPosition.x;
+			}
+			
+		this.lastPressPositionY=function(_y)
+			{
+				if(typeof(_y) != 'undefined')
+					{	this._lastPressPosition.y=_y;//Affectation de la position de la souris au dernier clic
+					}
+				return this._lastPressPosition.y;
+			}
+			
+		this.sourisPressed=function(_s)
+			{
+				if(typeof(_s) != 'undefined')
+					{	this._sourisPressed=_s;//Affectation de la position de la souris au dernier clic
+					}
+				return this._sourisPressed;
+			}
+			
+		this.actionSouris=function(_a)
+			{
+				if(typeof(_a) != 'undefined')
+					{	this._actionSouris=_a;//Affectation de la position de la souris au dernier clic
+					}
+				return this._actionSouris;
+			}
+			
+		this.margeClicable=function(_m)
+			{
+				if(typeof(_m) != 'undefined')
+					{	this._margeClicable=_m;//Affectation de la position de la souris au dernier clic
+					}
+				return this._margeClicable;
+			}
 
 	//****************************************************
 	// Fonctions membres...
@@ -160,6 +213,8 @@ var Graphique = function(conteneur) {
 //				this.height(hauteur);
 				this.rectangleBackground.width(largeur);
 				this.rectangleBackground.height(hauteur);
+//				this.rectangleFrontground.width(largeur);
+//				this.rectangleFrontground.height(hauteur);
 
 
 				//On recale le centre du repere (i.e des calques) par rapport au Stage
@@ -206,26 +261,106 @@ var Graphique = function(conteneur) {
 
 
 	//****************************************************
+	// Evenements
+	//****************************************************
+
+		//Fonction appelée des qu'on bouge la souris sur le graphique
+		this.mouvementSouris=function(e)
+			{
+				//Gestion du style de curseur
+				var souris=this.getPointerPosition();
+				if(souris.x<this.margeClicable())
+					document.body.style.cursor = 'ew-resize';
+				else if(souris.x>this.width()-this.margeClicable())
+					document.body.style.cursor = 'ew-resize';
+				else if(souris.y<this.margeClicable())
+					document.body.style.cursor = 'ns-resize';
+				else if(souris.y>this.height()-this.margeClicable())
+					document.body.style.cursor = 'ns-resize';
+				else
+		                	document.body.style.cursor = 'crosshair';
+				//Action à réaliser en cas de clic
+				if(this.sourisPressed())
+				{
+					if(this.actionSouris()=="resizeLeft")
+					{
+						var dx=this.getPointerPosition().x-this.lastPressPositionX();
+						console.log(dx);
+					}
+				}
+	            	}
+	            	
+	            	
+	        this.clique=function(e)
+	        	{
+				this.lastPressPosition(this.getPointerPosition());
+				this.sourisPressed(true);
+				if(this.lastPressPositionX()<this.margeClicable())
+					this.actionSouris("resizeLeft");
+				else if(this.lastPressPositionX()>this.width()-this.margeClicable())
+					this.actionSouris("resizeRight");
+				else if(this.lastPressPositionY()<this.margeClicable())
+					this.actionSouris("resizeTop");
+				else if(this.lastPressPositionY()>this.height()-this.margeClicable())
+					this.actionSouris("resizeBottom");
+				else
+					this.actionSouris("rien");
+	        	}
+	        	
+	        this.relache=function(e)
+	        	{
+				this.sourisPressed(false);
+				this.actionSouris("rien");
+	        	}
+
+		this.on('mousemove', this.mouvementSouris);
+		this.on("mousedown",this.clique);
+		this.on("mouseup",this.relache);
+            	this.on('mouseout',function()
+            		{
+            			document.body.style.cursor = 'auto';
+            		});
+
+
+	//****************************************************
 	// Contenu du graphique (à mettre en dernier)
 	//****************************************************
 		this.calqueBackground=new Kinetic.Layer();//Calque d'arriere plan
+		this.calqueFrontground=new Kinetic.Layer();//Calque d'avant plan (pour les clics)
 		this.calqueRepere=new Kinetic.Layer({x:this.width()/2,y:this.height()/2});//Calque avec le repere et diverse anotations
 		this.calqueCourbes=new Kinetic.Layer({x:this.width()/2,y:this.height()/2});//Calque avec les courbes
 		this.add(this.calqueBackground);
 		this.add(this.calqueRepere);
 		this.add(this.calqueCourbes);
+		this.add(this.calqueFrontground);
 
 		//Objets deja presents dans le graphe
+		console.log(this.width())
 		this.rectangleBackground=new Kinetic.Rect({
 								x:0,
 								y:0,
 								width: this.width(),
 								height: this.height(),
-								fill: this._backgroundColor,
+								fill: "yellow",//this._backgroundColor,
 								stroke: this._lineColor,
 								strokeWidth: 3
 							});
 		this.calqueBackground.add(this.rectangleBackground);
+
+		console.log(this.width())
+
+		//avant plan (un peu comme un écran tactil)
+/*		this.rectangleFrontground=new Kinetic.Rect({
+								x:0,
+								y:0,
+								width: this.width(),
+								height:this.height(),
+								fill: "red",//this._backgroundColor,
+								stroke: this._lineColor,
+								strokeWidth: 3
+							});*/
+//		this.calqueFrontground.add(this.rectangleFrontground);
+
 
 		this.repere=new Repere(this);
 		this.calqueRepere.add(this.repere);

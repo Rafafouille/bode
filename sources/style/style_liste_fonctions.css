@@ -1,0 +1,26 @@
+#contenu
+{
+	display:flex;
+}
+
+#liste_fonctions
+{
+	width : 200px ;
+	display : inline-block ;
+	min-height : 100px;
+	vertical-align:top;
+}
+
+#tabs
+{
+	display:inline-block;
+	vertical-align:top;
+	width: 100%;
+	text-align:center;
+}
+
+
+#canvas_bode_gain, #canvas_bode_phase
+{
+	border:solid black 1px;
+}

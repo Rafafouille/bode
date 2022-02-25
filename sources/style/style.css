@@ -1,0 +1,47 @@
+body
+{
+
+	margin : 0px;
+	font-family : "Sans Serif";
+}
+
+
+
+/* *********************************************
+ *
+ *	ENTETE
+ *
+ *********************************************** */
+ 
+ 
+header
+{
+	width : 100%;
+	text-align : center;
+	background-color : black;
+	color : white;
+	padding : 10px;
+}
+
+header h1
+{
+	margin:20px;
+	vertical-align:middle;
+}
+
+
+/* *********************************************
+ *
+ *	PIED
+ *
+ *********************************************** */
+ 
+footer
+{
+	width:100%;
+	margin:0px;
+	border-top:solid;
+	text-align:center;
+}
+ 
+

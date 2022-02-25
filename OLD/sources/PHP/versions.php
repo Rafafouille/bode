@@ -5,6 +5,7 @@
 						<ul>
 							<li>Ajout des marges de phases et des marges de gain (seulement sur la page web).</li>
 							<li>Suppression de l'affichage des fonctions élémentaires par défaut (sauf les correcteurs).</li>
+							<li>Correction de bug pour la création d'un second ordre.</li>
 						</ul>
 					</div>
 
