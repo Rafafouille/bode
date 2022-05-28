@@ -1,15 +1,5 @@
-#contenu
-{
-	display:flex;
-}
 
-#liste_fonctions
-{
-	width : 200px ;
-	display : inline-block ;
-	min-height : 100px;
-	vertical-align:top;
-}
+
 
 #tabs
 {
@@ -20,7 +10,24 @@
 }
 
 
+#affichage_curseur
+{
+	display : block;
+	position : absolute ;
+	right : 0;
+}
+
+
+#tabs
+{
+	display : block;
+}
+
+
+
+
 #canvas_bode_gain, #canvas_bode_phase
 {
 	border:solid black 1px;
 }
+

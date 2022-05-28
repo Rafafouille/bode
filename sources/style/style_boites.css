@@ -1,0 +1,19 @@
+.boite_contenu
+{
+	text-align:center;
+}
+
+.boite_contenu table
+{
+	margin:auto;
+}
+
+.boite_table_input
+{
+	text-align:left;
+}
+
+.boite_table_label
+{
+	text-align:right;
+}

@@ -22,7 +22,8 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {	$(this).dialog("close");
 																actionAjouter1erOrdre($("#nouveau1erOrdreK").val(),$("#nouveau1erOrdreTau").val(), $("#nouveau1erOrdreInverse").is(':checked'));
-																ga('send', 'event', 'fonctions', 'insérer', "1er Ordre");//Statistiqus Google
+																//ga('send', 'event', 'fonctions', 'insérer', "1er Ordre");//Statistiqus Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  '1er ordre']);
 																}
 										}
 								});
@@ -59,14 +60,15 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {$(this).dialog("close");
 													var K=$("#nouveau2emeOrdreK").val();//On recupere K
-													var w0=$("#nouveau2emeOrdreW0").val();//On recupere w0
+													var w0=$("#nouveau2emeOrdreK").val();//On recupere w0
 													if($("input[name=boutonSIPhysique]:checked").val()=="SI")//Si avec Z
 														var z=$("#nouveau2emeOrdreZ").val();
 													else//Sinon (avec Q)
 														var z=1/(2*$("#nouveau2emeOrdreQ").val());
 													var inv=$("#nouveau2emeOrdreInverse").is(':checked');
 													actionAjouter2emeOrdre(K,w0,z,inv);
-													ga('send', 'event', 'fonctions', 'insérer', "2ème Ordre"); //Statistiques Google
+													//ga('send', 'event', 'fonctions', 'insérer', "2ème Ordre"); //Statistiques Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  '2eme ordre']);
 											}
 										}
 								});
@@ -95,7 +97,8 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {	$(this).dialog("close");
 																actionAjouterGain($("#nouveauGainK").val(),$("#nouveauGainInverse").is(':checked'));
-																ga('send', 'event', 'fonctions', 'insérer', "Gain"); //Statistiques Google
+																//ga('send', 'event', 'fonctions', 'insérer', "Gain"); //Statistiques Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  'Gain']);
 																}
 										}
 								});
@@ -124,7 +127,8 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {	$(this).dialog("close");
 																actionAjouterDerivee($("#nouvelleDeriveeK").val(),$("#nouveauDeriveeInverse").is(':checked'));
-																ga('send', 'event', 'fonctions', 'insérer', "Dérivée"); //Statistiques Google
+																//ga('send', 'event', 'fonctions', 'insérer', "Dérivée"); //Statistiques Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  'Derivee']);
 																}
 										}
 								});
@@ -153,7 +157,8 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {	$(this).dialog("close");
 																actionAjouterIntegrale($("#nouvelleIntegraleK").val(),$("#nouveauIntegraleInverse").is(':checked'));
-																ga('send', 'event', 'fonctions', 'insérer', "Intégrale"); //Statistiques Google
+																//ga('send', 'event', 'fonctions', 'insérer', "Intégrale"); //Statistiques Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  'Integrale']);
 																}
 										}
 								});
@@ -188,7 +193,8 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {	$(this).dialog("close");
 																actionAjouterPIDSerie($("#nouveauPIDSerieKp").val(),$("#nouveauPIDSerieTi").val(),$("#nouveauPIDSerieTd").val(),$("#nouveauPIDSerieInverse").is(':checked'));
-																ga('send', 'event', 'fonctions', 'insérer', "PID"); //Statistiques Google
+																//ga('send', 'event', 'fonctions', 'insérer', "PID"); //Statistiques Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  'PID']);
 																}
 										}
 								});
@@ -220,7 +226,8 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {	$(this).dialog("close");
 																actionAjouterPI($("#nouveauPIKp").val(),$("#nouveauPITi").val(),$("#nouveauPIInverse").is(':checked'));
-																ga('send', 'event', 'fonctions', 'insérer', "PI"); //Statistiques Google
+																//ga('send', 'event', 'fonctions', 'insérer', "PI"); //Statistiques Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  'PI']);
 																}
 										}
 								});
@@ -252,7 +259,8 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {	$(this).dialog("close");
 																actionAjouterPD($("#nouveauPDKp").val(),$("#nouveauPDTd").val(),$("#nouveauPDInverse").is(':checked'));
-																ga('send', 'event', 'fonctions', 'insérer', "PD"); //Statistiques Google
+																//ga('send', 'event', 'fonctions', 'insérer', "PD"); //Statistiques Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  'PD']);
 																}
 										}
 								});
@@ -287,7 +295,8 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {	$(this).dialog("close");
 																actionAjouterAvancePhase($("#nouveauAvancePhaseKp").val(),$("#nouveauAvancePhaseTi").val(),$("#nouveauAvancePhaseA").val(),$("#nouveauAvancePhaseInverse").is(':checked'));
-																ga('send', 'event', 'fonctions', 'insérer', "Avance de phase"); //Statistiques Google
+																//ga('send', 'event', 'fonctions', 'insérer', "Avance de phase"); //Statistiques Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  'Avance de phase']);
 																}
 										}
 								});
@@ -323,7 +332,8 @@
 										"Annuler": function() {$(this).dialog( "close" );},
 										"Ajouter": function() {	$(this).dialog("close");
 																actionAjouterRetardPhase($("#nouveauRetardPhaseKp").val(),$("#nouveauRetardPhaseTi").val(),$("#nouveauRetardPhaseA").val(),$("#nouveauRetardPhaseInverse").is(':checked'));
-																ga('send', 'event', 'fonctions', 'insérer', "Retard de phase"); //Statistiques Google
+																//ga('send', 'event', 'fonctions', 'insérer', "Retard de phase"); //Statistiques Google
+																_paq.push(['trackEvent', 'fonction_utilisee',  'Retard de phase']);
 																}
 										}
 								});
@@ -370,7 +380,8 @@
 									modal:true,
 									buttons: {
 										"Télécharger": function() {	$("#formeDialogExport").submit();
-																	ga('send', 'event', 'exports', 'telecharger', $("#formatExport option:selected").val()); //Statistiques Google
+																	//ga('send', 'event', 'exports', 'telecharger', $("#formatExport option:selected").val()); //Statistiques Google
+																	_paq.push(['trackEvent', 'export', 'export', $("#formatExport option:selected").val()]);
 																	},
 										"Fermer": function() {$(this).dialog("close");}
 										},

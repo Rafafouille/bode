@@ -11,6 +11,7 @@ include_once("./sources/PHP/entete.php");
 ?>
 
 
+	<?php include("bandeau.php")?>
  	
 
 

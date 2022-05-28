@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
+
+<svg
+   version="1.1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 1000 1000"
+   enable-background="new 0 0 1000 1000"
+   xml:space="preserve"
+   id="svg8"
+   sodipodi:docname="iconeImporter.svg"
+   inkscape:version="1.1.2 (1:1.1+202202050950+0a00cf5339)"
+   inkscape:export-filename="/run/user/1000/gvfs/sftp:host=allais.eu,port=33121,user=raf/home/raf/internet/bode/develop/sources/images/iconeImport.png"
+   inkscape:export-xdpi="2.3"
+   inkscape:export-ydpi="2.3"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs12" /><sodipodi:namedview
+   id="namedview10"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1.0"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   showgrid="false"
+   inkscape:zoom="0.6151829"
+   inkscape:cx="438.0811"
+   inkscape:cy="548.61733"
+   inkscape:window-width="1920"
+   inkscape:window-height="1016"
+   inkscape:window-x="1920"
+   inkscape:window-y="673"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="g6" />
+<metadata
+   id="metadata2"> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+<g
+   id="g6"><path
+     d="m 244.00919,442.4 182.9,182.3 c 14.5,15.7 38,3.4 38,-15.7 v -91.2 h 80.5 c 23.5,0 54.3,1.1 92.9,2.8 38.6,1.7 76.6,8.4 114.7,19.6 37.5,11.2 67.7,24 90.6,38.6 22.4,14.5 38,29.1 47.5,43.6 9,14 16.8,33 24.1,56.5 7.3,23.5 10.6,47 10.6,71 0,12.9 -0.6,28 -1.7,44.2 0,2.8 -1.7,13.4 -1.7,17.9 0,6.7 4.5,12.3 11.2,12.3 4.5,0 7.8,-2.2 10.1,-6.2 3.9,-5 10.1,-20.7 13.4,-26.8 30.2,-67.7 39.7,-137 28,-207.5 -6.2,-48.7 -31.3,-95.7 -76.1,-140.4 -72.6,-72.1 -194,-108.4 -363.5,-108.4 h -80.5 v -91.7 c 0,-19.6 -23.5,-30.8 -38,-16.2 l -182.9,182.9 c -9,9.4 -9,23.4 -0.1,32.4 z"
+     id="path872" /><path
+     d="m 797,632.3 v 100.1 c 0,44.2 -15.7,82.2 -47.5,113.5 -31.3,31.9 -69.4,47.6 -113.5,47.6 H 171.1 C 126.9,893.5 88.9,877.8 57,845.9 25.7,814.6 10,776.5 10,732.4 V 267.6 c 0,-44.2 15.7,-82.2 47,-113.5 31.9,-31.9 69.9,-47.5 114.1,-47.5 h 393.8 c 9.5,0 17.3,7.3 17.3,17.9 v 35.8 c 0,10.6 -7.8,17.9 -17.3,17.9 H 171.1 c -24.6,0 -45.9,9 -63.2,26.3 -17.3,17.3 -26.3,38.6 -26.3,63.2 v 464.8 c 0,24.6 9,45.9 26.3,63.2 17.3,17.3 38.6,26.3 63.2,26.3 h 464.8 c 24.6,0 45.9,-9 63.2,-26.3 17.3,-17.3 26.3,-38.6 26.3,-63.2 V 632.3 c 0,-10.6 7.3,-17.3 17.9,-17.3 h 35.8 c 10.6,-0.1 17.9,6.7 17.9,17.3 z"
+     id="path4" /></g>
+</svg>
