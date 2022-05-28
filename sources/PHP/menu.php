@@ -7,18 +7,18 @@
 					Gérer
 				</div>
 				<div class="liste-items-menu">
-					<div class="item-menu" onclick="$('#boite_connection').dialog('open')">
+					<!--<div class="item-menu" onclick="$('#boite_connection').dialog('open')">
 						<img src="./sources/images/iconeCle.png" alt=""/>
 						Se connecter
-					</div>
+					</div>-->
 					<div class="item-menu" onclick="location.reload();">
 						<img src="./sources/images/iconePoubelle.png" alt=""/>
 						Nouveau
 					</div>
-					<div class="item-menu">
+					<!--<div class="item-menu">
 						<img src="./sources/images/iconeDossier.png" alt=""/>
 						 Ouvrir
-					</div>
+					</div>-->
 					<div class="item-menu" onclick="$('#dialogImporter').dialog('open')">
 						<img src="./sources/images/iconeImport.png" alt=""/>
 						Importer
@@ -27,10 +27,10 @@
 						<img src="./sources/images/iconeExport.png" alt=""/>
 						Exporter
 					</div>
-					<div class="item-menu">
+					<!--<div class="item-menu">
 						<img src="./sources/images/iconeBDD.png" alt=""/>
 						Enregistrer
-					</div>
+					</div>-->
 					<div class="item-menu" onclick="$('#boite_a_propos').dialog('open')">
 						<img src="./sources/images/iconeAPropos.png" alt=""/>
 						 À propos
