@@ -1,3 +1,4 @@
 #Ignore le fichier "parametresSQL.php"
 parametresSQL.php
+#Ignorer le dossier de developpement
 develop
