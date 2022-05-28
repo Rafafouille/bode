@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once("./sources/fonctions_PHP.php");
-spy();//Fonction qui enregistre l'activité dans la BDD
+//spy();//Fonction qui enregistre l'activité dans la BDD
 
 
 
