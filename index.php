@@ -2,6 +2,7 @@
 session_start();
 include_once("./sources/PHP/fonctions.php");
 include_once("./sources/PHP/entete.php");
+include_once("./sources/PHP/matomo.php");
 
 ?>
 
