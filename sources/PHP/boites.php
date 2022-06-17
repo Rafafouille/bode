@@ -58,6 +58,7 @@
 					text: "AJOUTER",
 					click: function() {
 							ajoute_fonction(new Fonction_Gain(parseFloat($("#ajout_Gain_input_K").val()) ))
+							_paq.push(['trackEvent', 'fonction_utilisee',  'Gain']);
 							$( this ).dialog( "close" );
 							}
 				},
@@ -111,6 +112,7 @@
 					text: "AJOUTER",
 					click: function() {
 							ajoute_fonction(new Fonction_1er_Ordre(parseFloat($("#ajout_1er_Ordre_input_K").val()) , parseFloat($("#ajout_1er_Ordre_input_tau").val()) ))
+							_paq.push(['trackEvent', 'fonction_utilisee',  '1er ordre']);
 							$( this ).dialog( "close" );
 							}
 				},
@@ -165,6 +167,7 @@
 					text: "AJOUTER",
 					click: function() {
 							ajoute_fonction(new Fonction_2eme_Ordre(parseFloat($("#ajout_2eme_Ordre_input_K").val()) , parseFloat($("#ajout_2eme_Ordre_input_xi").val()) , parseFloat($("#ajout_2eme_Ordre_input_w0").val()) ))
+							_paq.push(['trackEvent', 'fonction_utilisee',  '2eme ordre']);
 							$( this ).dialog( "close" );
 							}
 				},
@@ -211,6 +214,7 @@
 					text: "AJOUTER",
 					click: function() {
 							ajoute_fonction(new Fonction_Integrateur(parseFloat($("#ajout_Integrateur_input_Ki").val())  ))
+							_paq.push(['trackEvent', 'fonction_utilisee',  'Integrale']);
 							$( this ).dialog( "close" );
 							}
 				},
@@ -257,6 +261,7 @@
 					text: "AJOUTER",
 					click: function() {
 							ajoute_fonction(new Fonction_Derivateur(parseFloat($("#ajout_Derivateur_input_Kd").val())  ))
+							_paq.push(['trackEvent', 'fonction_utilisee',  'Derivee']);
 							$( this ).dialog( "close" );
 							}
 				},
@@ -307,6 +312,7 @@
 					text: "AJOUTER",
 					click: function() {
 							ajoute_fonction(new Fonction_PI(parseFloat($("#ajout_PI_input_Ki").val())   ,   parseFloat($("#ajout_PI_input_Ti").val())  ))
+							_paq.push(['trackEvent', 'fonction_utilisee',  'PI']);
 							$( this ).dialog( "close" );
 							}
 				},
@@ -411,6 +417,7 @@
 					text: "AJOUTER",
 					click: function() {
 							ajoute_fonction(new Fonction_Avance_De_Phase( parseFloat($("#ajout_Avance_De_Phase_input_Kd").val())   ,   parseFloat($("#ajout_Avance_De_Phase_input_Td").val())  ,   parseFloat($("#ajout_Avance_De_Phase_input_a").val()) ))
+							_paq.push(['trackEvent', 'fonction_utilisee',  'Avance de phase']);
 							$( this ).dialog( "close" );
 							}
 				},
@@ -474,6 +481,7 @@
 					text: "AJOUTER",
 					click: function() {
 							ajoute_fonction(new Fonction_Retard_De_Phase( parseFloat($("#ajout_Retard_De_Phase_input_Ki").val())   ,   parseFloat($("#ajout_Retard_De_Phase_input_Ti").val())  ,   parseFloat($("#ajout_Retard_De_Phase_input_a").val()) ))
+							_paq.push(['trackEvent', 'fonction_utilisee',  'Retard de phase']);
 							$( this ).dialog( "close" );
 							}
 				},
@@ -624,6 +632,7 @@
 					click: function() {
 							$("#formulaire_exporter").submit();
 							$( this ).dialog( "close" );
+							_paq.push(['trackEvent', 'export', 'export', $("#selectTypeExport option:selected").val()]);
 							}
 				}
 			  ],
@@ -679,9 +688,9 @@
 <!-- BOITE accueil ================================== -->
 
 <div id="dialogAccueil" title="Mise à jour du site !">
-	Le site a été mis à jour pour une meilleure ergonomie (même si toutes les fonctionnalités n'ont pas été recrée par choix, ou par manque de temps).
+	Le site a été mis à jour pour une meilleure ergonomie (même si toutes les fonctionnalités n'ont pas été recrées par choix, ou par manque de temps).
 	
-	<p>Vous pouvez maintenant vous déplacer plus rapidement dans le plan de Bode, en utilisant le click-milieu de la souris.</p>
+	<p>Vous pouvez maintenant vous déplacer plus rapidement dans le plan de Bode, en utilisant la molette de la souris.</p>
 	<table style="margin:auto;font-weight:bold;">
 		<tr>
 			<td style="text-align:center;width:150px;">
