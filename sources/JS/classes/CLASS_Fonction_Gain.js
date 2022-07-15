@@ -31,7 +31,7 @@ class Fonction_Gain extends Fonction
  		{
 			if(typeof(k)!='undefined')
 			{
-				this._K=k;
+				this._K=parseFloat(k);
 				if(redessine)
 				{
 					this.redessine_tout();

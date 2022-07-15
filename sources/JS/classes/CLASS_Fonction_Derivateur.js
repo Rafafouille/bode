@@ -31,7 +31,7 @@ class Fonction_Derivateur extends Fonction
  		{
 			if(typeof(k)!='undefined')
 			{
-				this._Kd=k;
+				this._Kd = parseFloat(k);
 				if(redessine)
 				{
 					this.redessine_tout();

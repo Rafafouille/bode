@@ -36,6 +36,7 @@ class Fonction_2eme_Ordre extends Fonction
  		{
 			if(typeof(k)!='undefined')
 			{
+				k = parseFloat(k);
 				if(k<0)
 					k=0
 				this._K=k;
@@ -58,9 +59,10 @@ class Fonction_2eme_Ordre extends Fonction
  		{
 			if(typeof(x)!='undefined')
 			{
+				x = parseFloat(x)
 				if(x<0)
-					x=0
-				this._xi=x;
+					x = 0
+				this._xi = x;
 				if(redessine)
 				{
 					this.redessine_tout();
@@ -79,6 +81,7 @@ class Fonction_2eme_Ordre extends Fonction
  		{
 			if(typeof(w)!='undefined')
 			{
+				w = parseFloat(w)
 				if(w<0)
 					w=0
 				this._w0=w;
@@ -104,7 +107,7 @@ class Fonction_2eme_Ordre extends Fonction
 		// w = réel positif
 		GdB_asymptotique(w)
 		{
-			if(this.xi()<1)
+			if(this.xi()<=1)
 			{
 				if(w < this.w0())
 					return 20*Math.log10(this.K()) *this.coefInv()
@@ -204,7 +207,7 @@ class Fonction_2eme_Ordre extends Fonction
 '						<div class="item">'+
 	'						<label for="'+String(this.n())+'-input-param-xi-number">&#958; = </label>'+
 	'						<input type="number" name="'+String(this.n())+'-input-param-xi-number" id="'+String(this.n())+'-input-param-xi-number" min="0" step="0.1" style="width:50px;" value="'+this.xi()+'" onchange="getFonctionByNum('+String(this.n())+').xi(this.value)"/>'+
-	'						<input type="range" name="'+String(this.n())+'-input-param-xi-range" id="'+String(this.n())+'-input-param-xi-range"  style="width:120px;" min="0" max="3" step="0.05" value="'+this.xi()+'" oninput="getFonctionByNum('+String(this.n())+').xi(this.value)"/>'+
+	'						<input type="range" name="'+String(this.n())+'-input-param-xi-range" id="'+String(this.n())+'-input-param-xi-range"  style="width:120px;" min="0" max="4" step="0.01" value="'+this.xi()+'" oninput="getFonctionByNum('+String(this.n())+').xi(this.value)"/>'+
 '						</div>'+
 '						<div class="item">'+
 	'						<label for="'+String(this.n())+'-input-param-w0-number">&#969; = </label>'+

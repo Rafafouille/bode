@@ -31,7 +31,7 @@ class Fonction_Integrateur extends Fonction
  		{
 			if(typeof(k)!='undefined')
 			{
-				this._Ki=k;
+				this._Ki = parseFloat(k);
 				if(redessine)
 				{
 					this.redessine_tout();

@@ -34,7 +34,7 @@ class Fonction_Retard_De_Phase extends Fonction
  		{
 			if(typeof(k)!='undefined')
 			{
-				this._Ki=k;
+				this._Ki = parseFloat(k);
 				if(redessine)
 				{
 					this.redessine_tout();
@@ -53,6 +53,7 @@ class Fonction_Retard_De_Phase extends Fonction
  		{
 			if(typeof(t)!='undefined')
 			{
+				t = parseFloat(t);
 				if(t<0)
 					t=0
 				this._Ti=t;
@@ -74,6 +75,7 @@ class Fonction_Retard_De_Phase extends Fonction
  		{
 			if(typeof(a)!='undefined')
 			{
+				a = parseFloat(a);
 				if(a<1)
 					a=1
 				this._a=a;

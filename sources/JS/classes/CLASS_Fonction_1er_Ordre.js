@@ -33,6 +33,7 @@ class Fonction_1er_Ordre extends Fonction
  		{
 			if(typeof(k)!='undefined')
 			{
+ 				k = parseFloat(k);
 				if(k<0)
 					k=0
 				this._K=k;
@@ -54,6 +55,7 @@ class Fonction_1er_Ordre extends Fonction
  		{
 			if(typeof(t)!='undefined')
 			{
+ 				t = parseFloat(t);
 				if(t<0)
 					t=0
 				this._tau=t;
