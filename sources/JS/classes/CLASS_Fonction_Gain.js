@@ -5,10 +5,10 @@ class Fonction_Gain extends Fonction
 {
 
 	// CONSTRUCTEUR ***********************
-	constructor(_K=1)
+	constructor(_K=1, inverse=false)
 	{
 		// Héritage
-		super("Gain pur", "#5555FF")
+		super("Gain pur", "#5555FF", inverse)
 		
 		this.type("gain");
 		this.K(_K)

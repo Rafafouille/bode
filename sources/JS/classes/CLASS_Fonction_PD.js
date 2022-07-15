@@ -5,10 +5,10 @@ class Fonction_PD extends Fonction
 {
 
 	// CONSTRUCTEUR ***********************
-	constructor(_Kd=1, _Td=1)
+	constructor(_Kd=1, _Td=1, inverse=false)
 	{
 		// Héritage
-		super("Correcteur PD","#AA5500")
+		super("Correcteur PD","#AA5500", inverse)
 		
 		this.type("PD")
 		this.Td(_Td)

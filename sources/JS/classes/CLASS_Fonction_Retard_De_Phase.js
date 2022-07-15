@@ -5,10 +5,10 @@ class Fonction_Retard_De_Phase extends Fonction
 {
 
 	// CONSTRUCTEUR ***********************
-	constructor(_Ki=1, _Ti=1, _a=10)
+	constructor(_Ki=1, _Ti=1, _a=10, inverse=false)
 	{
 		// Héritage
-		super("Retard de phase","#00AAAA")
+		super("Retard de phase","#00AAAA", inverse)
 		
 		this.type("retard de phase")
 		this.Ki(_Ki)

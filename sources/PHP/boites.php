@@ -47,6 +47,10 @@
   			<td class="boite_table_label"><label for="ajout_Gain_input_K">K = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Gain_input_K" id="ajout_Gain_input_K" value="1" min="0" step="0.1" size="6"/></td>
   		</tr>
+  		<tr>
+  			<td class="boite_table_label"><label for="ajout_Gain_input_Inverse">Inverse ? </label>
+  			</td><td class="boite_table_input"><input type="checkbox" name="ajout_Gain_input_Inverse" id="ajout_Gain_input_Inverse"/></td>
+  		</tr>
   	</table>
   </div>
 </div>
@@ -57,7 +61,7 @@
 		  		{
 					text: "AJOUTER",
 					click: function() {
-							ajoute_fonction(new Fonction_Gain(parseFloat($("#ajout_Gain_input_K").val()) ))
+							ajoute_fonction(new Fonction_Gain( parseFloat($("#ajout_Gain_input_K").val()) , $("#ajout_Gain_input_Inverse")[0].checked ))
 							_paq.push(['trackEvent', 'fonction_utilisee',  'Gain']);
 							$( this ).dialog( "close" );
 							}
@@ -101,6 +105,10 @@
   			<td class="boite_table_label"><label for="ajout_1er_Ordre_input_tau">&#964; (en s) = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_1er_Ordre_input_tau" id="ajout_1er_Ordre_input_tau" value="1" min="0" step="0.1"  size="6"/></td>
   		</tr>
+  		<tr>
+  			<td class="boite_table_label"><label for="ajout_1er_Ordre_input_Inverse">Inverse ? </label>
+  			</td><td class="boite_table_input"><input type="checkbox" name="ajout_1er_Ordre_input_Inverse" id="ajout_1er_Ordre_input_Inverse"/></td>
+  		</tr>
   	</table>
   </div>
 </div>
@@ -111,7 +119,7 @@
 		  		{
 					text: "AJOUTER",
 					click: function() {
-							ajoute_fonction(new Fonction_1er_Ordre(parseFloat($("#ajout_1er_Ordre_input_K").val()) , parseFloat($("#ajout_1er_Ordre_input_tau").val()) ))
+							ajoute_fonction(new Fonction_1er_Ordre(parseFloat($("#ajout_1er_Ordre_input_K").val()) , parseFloat($("#ajout_1er_Ordre_input_tau").val()) , $("#ajout_1er_Ordre_input_Inverse")[0].checked ))
 							_paq.push(['trackEvent', 'fonction_utilisee',  '1er ordre']);
 							$( this ).dialog( "close" );
 							}
@@ -156,6 +164,10 @@
   			<td class="boite_table_label"><label for="ajout_2eme_Ordre_input_w0">&#969;<sub>0</sub> (en rad/s) = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_2eme_Ordre_input_w0" id="ajout_2eme_Ordre_input_w0" value="1" min="0" step="0.1"  size="6"/></td>
   		</tr>
+  		<tr>
+  			<td class="boite_table_label"><label for="ajout_2eme_Ordre_input_Inverse">Inverse ? </label>
+  			</td><td class="boite_table_input"><input type="checkbox" name="ajout_2eme_Ordre_input_Inverse" id="ajout_2eme_Ordre_input_Inverse"/></td>
+  		</tr>
   	</table>
   </div>
 </div>
@@ -166,7 +178,7 @@
 		  		{
 					text: "AJOUTER",
 					click: function() {
-							ajoute_fonction(new Fonction_2eme_Ordre(parseFloat($("#ajout_2eme_Ordre_input_K").val()) , parseFloat($("#ajout_2eme_Ordre_input_xi").val()) , parseFloat($("#ajout_2eme_Ordre_input_w0").val()) ))
+							ajoute_fonction(new Fonction_2eme_Ordre(parseFloat($("#ajout_2eme_Ordre_input_K").val()) , parseFloat($("#ajout_2eme_Ordre_input_xi").val()) , parseFloat($("#ajout_2eme_Ordre_input_w0").val()) , $("#ajout_2eme_Ordre_input_Inverse")[0].checked ))
 							_paq.push(['trackEvent', 'fonction_utilisee',  '2eme ordre']);
 							$( this ).dialog( "close" );
 							}
@@ -203,6 +215,10 @@
   			<td class="boite_table_label"><label for="ajout_Integrateur_input_Ki">K<sub>i</sub> = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Integrateur_input_Ki" id="ajout_Integrateur_input_Ki" value="1" min="0" step="0.1" size="6"/></td>
   		</tr>
+  		<tr>
+  			<td class="boite_table_label"><label for="ajout_Integrateur_input_Inverse">Inverse ? </label>
+  			</td><td class="boite_table_input"><input type="checkbox" name="ajout_Integrateur_input_Inverse" id="ajout_Integrateur_input_Inverse"/></td>
+  		</tr>
   	</table>
   </div>
 </div>
@@ -213,7 +229,7 @@
 		  		{
 					text: "AJOUTER",
 					click: function() {
-							ajoute_fonction(new Fonction_Integrateur(parseFloat($("#ajout_Integrateur_input_Ki").val())  ))
+							ajoute_fonction(new Fonction_Integrateur(parseFloat($("#ajout_Integrateur_input_Ki").val()) , $("#ajout_Integrateur_input_Inverse")[0].checked ))
 							_paq.push(['trackEvent', 'fonction_utilisee',  'Integrale']);
 							$( this ).dialog( "close" );
 							}
@@ -250,6 +266,10 @@
   			<td class="boite_table_label"><label for="ajout_Derivateur_input_Kd">K<sub>d</sub> = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Derivateur_input_Kd" id="ajout_Derivateur_input_Kd" value="1" min="0" step="0.1" size="6"/></td>
   		</tr>
+  		<tr>
+  			<td class="boite_table_label"><label for="ajout_Derivateur_input_Inverse">Inverse ? </label>
+  			</td><td class="boite_table_input"><input type="checkbox" name="ajout_Derivateur_input_Inverse" id="ajout_Derivateur_input_Inverse"/></td>
+  		</tr>
   	</table>
   </div>
 </div>
@@ -260,7 +280,7 @@
 		  		{
 					text: "AJOUTER",
 					click: function() {
-							ajoute_fonction(new Fonction_Derivateur(parseFloat($("#ajout_Derivateur_input_Kd").val())  ))
+							ajoute_fonction(new Fonction_Derivateur(parseFloat($("#ajout_Derivateur_input_Kd").val()) ,  $("#ajout_Derivateur_input_Inverse")[0].checked ))
 							_paq.push(['trackEvent', 'fonction_utilisee',  'Derivee']);
 							$( this ).dialog( "close" );
 							}
@@ -301,6 +321,10 @@
   			<td class="boite_table_label"><label for="ajout_PI_input_Ti">&#964;<sub>i</sub> (en s) = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_PI_input_Ti" id="ajout_PI_input_Ti" value="1" min="0" step="0.1"  size="6"/></td>
   		</tr>
+  		<tr>
+  			<td class="boite_table_label"><label for="ajout_PI_input_Inverse">Inverse ? </label>
+  			</td><td class="boite_table_input"><input type="checkbox" name="ajout_PI_input_Inverse" id="ajout_PI_input_Inverse"/></td>
+  		</tr>
   	</table>
   </div>
 </div>
@@ -311,7 +335,7 @@
 		  		{
 					text: "AJOUTER",
 					click: function() {
-							ajoute_fonction(new Fonction_PI(parseFloat($("#ajout_PI_input_Ki").val())   ,   parseFloat($("#ajout_PI_input_Ti").val())  ))
+							ajoute_fonction(new Fonction_PI(parseFloat($("#ajout_PI_input_Ki").val())   ,   parseFloat($("#ajout_PI_input_Ti").val())  ,  $("#ajout_PI_input_Inverse")[0].checked   ))
 							_paq.push(['trackEvent', 'fonction_utilisee',  'PI']);
 							$( this ).dialog( "close" );
 							}
@@ -352,6 +376,10 @@
   			<td class="boite_table_label"><label for="ajout_PD_input_Td">&#964;<sub>d</sub> (en s) = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_PD_input_Td" id="ajout_PD_input_Td" value="1" min="0" step="0.1"  size="6"/></td>
   		</tr>
+  		<tr>
+  			<td class="boite_table_label"><label for="ajout_PD_input_Inverse">Inverse ? </label>
+  			</td><td class="boite_table_input"><input type="checkbox" name="ajout_PD_input_Inverse" id="ajout_PD_input_Inverse"/></td>
+  		</tr>
   	</table>
   </div>
 </div>
@@ -362,7 +390,7 @@
 		  		{
 					text: "AJOUTER",
 					click: function() {
-							ajoute_fonction(new Fonction_PD(parseFloat($("#ajout_PD_input_Kd").val())   ,   parseFloat($("#ajout_PD_input_Td").val())  ))
+							ajoute_fonction(new Fonction_PD(parseFloat($("#ajout_PD_input_Kd").val())   ,   parseFloat($("#ajout_PD_input_Td").val())  ,  $("#ajout_PD_input_Inverse")[0].checked  ))
 							$( this ).dialog( "close" );
 							}
 				},
@@ -406,6 +434,10 @@
   			<td class="boite_table_label"><label for="ajout_Avance_De_Phase_input_a">a = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Avance_De_Phase_input_a" id="ajout_Avance_De_Phase_input_a" value="10" min="0" step="0.1"  size="6"/></td>
   		</tr>
+  		<tr>
+  			<td class="boite_table_label"><label for="ajout_Avance_De_Phase_input_Inverse">Inverse ? </label>
+  			</td><td class="boite_table_input"><input type="checkbox" name="ajout_Avance_De_Phase_input_Inverse" id="ajout_Avance_De_Phase_input_Inverse"/></td>
+  		</tr>
   	</table>
   </div>
 </div>
@@ -416,7 +448,7 @@
 		  		{
 					text: "AJOUTER",
 					click: function() {
-							ajoute_fonction(new Fonction_Avance_De_Phase( parseFloat($("#ajout_Avance_De_Phase_input_Kd").val())   ,   parseFloat($("#ajout_Avance_De_Phase_input_Td").val())  ,   parseFloat($("#ajout_Avance_De_Phase_input_a").val()) ))
+							ajoute_fonction(new Fonction_Avance_De_Phase( parseFloat($("#ajout_Avance_De_Phase_input_Kd").val())   ,   parseFloat($("#ajout_Avance_De_Phase_input_Td").val())  ,   parseFloat($("#ajout_Avance_De_Phase_input_a").val())  ,  $("#ajout_Avance_De_Phase_input_Inverse")[0].checked ))
 							_paq.push(['trackEvent', 'fonction_utilisee',  'Avance de phase']);
 							$( this ).dialog( "close" );
 							}
@@ -433,15 +465,6 @@
 		modal:true
 	});
 </script>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -470,6 +493,10 @@
   			<td class="boite_table_label"><label for="ajout_Retard_De_Phase_input_a">a = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Retard_De_Phase_input_a" id="ajout_Retard_De_Phase_input_a" value="10" min="0" step="0.1"  size="6"/></td>
   		</tr>
+  		<tr>
+  			<td class="boite_table_label"><label for="ajout_Retard_De_Phase_input_Inverse">Inverse ? </label>
+  			</td><td class="boite_table_input"><input type="checkbox" name="ajout_Retard_De_Phase_input_Inverse" id="ajout_Retard_De_Phase_input_Inverse"/></td>
+  		</tr>
   	</table>
   </div>
 </div>
@@ -480,7 +507,7 @@
 		  		{
 					text: "AJOUTER",
 					click: function() {
-							ajoute_fonction(new Fonction_Retard_De_Phase( parseFloat($("#ajout_Retard_De_Phase_input_Ki").val())   ,   parseFloat($("#ajout_Retard_De_Phase_input_Ti").val())  ,   parseFloat($("#ajout_Retard_De_Phase_input_a").val()) ))
+							ajoute_fonction(new Fonction_Retard_De_Phase( parseFloat($("#ajout_Retard_De_Phase_input_Ki").val())   ,   parseFloat($("#ajout_Retard_De_Phase_input_Ti").val())  ,   parseFloat($("#ajout_Retard_De_Phase_input_a").val())  ,  $("#ajout_Retard_De_Phase_input_Inverse")[0].checked ))
 							_paq.push(['trackEvent', 'fonction_utilisee',  'Retard de phase']);
 							$( this ).dialog( "close" );
 							}

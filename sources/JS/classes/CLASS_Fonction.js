@@ -7,11 +7,12 @@ class Fonction
 	// CONSTRUCTEUR ***********************
 	// Nom de la fonction (pour débugger, surtout)
 	// Couleur (en notation hexa !!!)
-	constructor(nom_="fonction",couleur_="#000000")
+	constructor(nom_="fonction",couleur_="#000000",inverse=false)
 	{
 		this.nom(nom_);
 		this.t
 		this.couleur(couleur_);
+		this.inverse(inverse,false);
  	}
  	
  	
