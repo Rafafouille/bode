@@ -42,7 +42,10 @@
 
 <div id="boite_ajout_Gain" title="Ajout d'une fonction Gain">
   <div class="boite_contenu">
-  	<table>
+	<div class="boite_table_equation" >
+		<img src="http://latex.codecogs.com/gif.latex?H(p)=K" alt="H(p)=K"/>
+	</div>
+  	<table class="boite_table">
   		<tr>
   			<td class="boite_table_label"><label for="ajout_Gain_input_K">K = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Gain_input_K" id="ajout_Gain_input_K" value="1" min="0" step="0.1" size="6"/></td>
@@ -73,7 +76,7 @@
 							}
 				}
 			  ],
-		width: 400,
+		width: 500,
 		autoOpen: false,
 		modal:true
 	});
@@ -96,7 +99,10 @@
 
 <div id="boite_ajout_1er_Ordre" title="Ajout d'une fonction du 1er ordre">
   <div class="boite_contenu">
-  	<table>
+	<div class="boite_table_equation" >
+		<img src="http://latex.codecogs.com/gif.latex?H(p)=\frac{K}{1+\tau p}" alt="H(p)=K/(1+τp)"/>
+	</div>
+  	<table class="boite_table">
   		<tr>
   			<td class="boite_table_label"><label for="ajout_1er_Ordre_input_K">K = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_1er_Ordre_input_K" id="ajout_1er_Ordre_input_K" value="1" min="0" step="0.1" size="6"/></td>
@@ -131,7 +137,7 @@
 							}
 				}
 			  ],
-		width: 400,
+		width: 500,
 		autoOpen: false,
 		modal:true
 	});
@@ -151,7 +157,10 @@
 
 <div id="boite_ajout_2eme_Ordre" title="Ajout d'une fonction du 2ème ordre">
   <div class="boite_contenu">
-  	<table>
+	<div class="boite_table_equation" >
+		<img src="http://latex.codecogs.com/gif.latex?H(p)=\frac{K}{\frac 1{\omega_0^2}p^2+\frac{2\xi}{\omega_0}p+1}" alt="H(p)=K/((1/w0^2)p^2+2z/w0p+1)"/>
+	</div>
+  	<table class="boite_table">
   		<tr>
   			<td class="boite_table_label"><label for="ajout_2eme_Ordre_input_K">K = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_2eme_Ordre_input_K" id="ajout_2eme_Ordre_input_K" value="1" min="0" step="0.1" size="6"/></td>
@@ -210,7 +219,10 @@
 
 <div id="boite_ajout_Integrateur" title="Ajout d'un intégrateur">
   <div class="boite_contenu">
-  	<table>
+	<div class="boite_table_equation" >
+		<img src="http://latex.codecogs.com/gif.latex?H(p)=\frac{K_i}{p}" alt="H(p)=Ki/p"/>
+	</div>
+  	<table class="boite_table">
   		<tr>
   			<td class="boite_table_label"><label for="ajout_Integrateur_input_Ki">K<sub>i</sub> = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Integrateur_input_Ki" id="ajout_Integrateur_input_Ki" value="1" min="0" step="0.1" size="6"/></td>
@@ -261,7 +273,10 @@
 
 <div id="boite_ajout_Derivateur" title="Ajout d'un dérivateur">
   <div class="boite_contenu">
-  	<table>
+	<div class="boite_table_equation" >
+		<img src="http://latex.codecogs.com/gif.latex?H(p)=K_dp" alt="H(p)=Kd p"/>
+	</div>
+  	<table class="boite_table">
   		<tr>
   			<td class="boite_table_label"><label for="ajout_Derivateur_input_Kd">K<sub>d</sub> = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Derivateur_input_Kd" id="ajout_Derivateur_input_Kd" value="1" min="0" step="0.1" size="6"/></td>
@@ -312,7 +327,10 @@
 
 <div id="boite_ajout_PI" title="Ajout d'un correcteur PI">
   <div class="boite_contenu">
-  	<table>
+	<div class="boite_table_equation" >
+		<img src="http://latex.codecogs.com/gif.latex?H(p)=K_i\frac{1+\tau_ip}{\tau_ip}" alt="H(p)=Ki(1+Ti p)/(Ti p)"/>
+	</div>
+  	<table class="boite_table">
   		<tr>
   			<td class="boite_table_label"><label for="ajout_PI_input_Ki">K<sub>i</sub> = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_PI_input_Ki" id="ajout_PI_input_Ki" value="1" min="0" step="0.1" size="6"/></td>
@@ -367,7 +385,10 @@
 
 <div id="boite_ajout_PD" title="Ajout d'un correcteur PD">
   <div class="boite_contenu">
-  	<table>
+	<div class="boite_table_equation" >
+		<img src="http://latex.codecogs.com/gif.latex?H(p)=K_d(1+\tau_dp)" alt="H(p)=Kd(1+Td p)"/>
+	</div>
+  	<table class="boite_table">
   		<tr>
   			<td class="boite_table_label"><label for="ajout_PD_input_Kd">K<sub>d</sub> = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_PD_input_Kd" id="ajout_PD_input_Kd" value="1" min="0" step="0.1" size="6"/></td>
@@ -421,7 +442,10 @@
 
 <div id="boite_ajout_Avance_De_Phase" title="Ajout d'un correcteur à avance de phase">
   <div class="boite_contenu">
-  	<table>
+	<div class="boite_table_equation" >
+		<img src="http://latex.codecogs.com/gif.latex?H(p)=K_d\frac{1+a\tau_dp}{1+\tau_dp}" alt="H(p)=Kd(1+a Td p)/(1+Td p)"/>
+	</div>
+  	<table class="boite_table">
   		<tr>
   			<td class="boite_table_label"><label for="ajout_Avance_De_Phase_input_Kd">K<sub>d</sub> = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Avance_De_Phase_input_Kd" id="ajout_Avance_De_Phase_input_Kd" value="1" min="0" step="0.1" size="6"/></td>
@@ -432,7 +456,7 @@
   		</tr>
   		<tr>
   			<td class="boite_table_label"><label for="ajout_Avance_De_Phase_input_a">a = </label></td>
-  			<td class="boite_table_input"><input type="number" name="ajout_Avance_De_Phase_input_a" id="ajout_Avance_De_Phase_input_a" value="10" min="0" step="0.1"  size="6"/></td>
+  			<td class="boite_table_input"><input type="number" name="ajout_Avance_De_Phase_input_a" id="ajout_Avance_De_Phase_input_a" value="10" min="1" step="0.1"  size="6"/></td>
   		</tr>
   		<tr>
   			<td class="boite_table_label"><label for="ajout_Avance_De_Phase_input_Inverse">Inverse ? </label>
@@ -480,7 +504,10 @@
 
 <div id="boite_ajout_Retard_De_Phase" title="Ajout d'un correcteur à retard de phase">
   <div class="boite_contenu">
-  	<table>
+	<div class="boite_table_equation" >
+		<img src="http://latex.codecogs.com/gif.latex?H(p)=K_d\frac{1+\tau_dp}{1+a\tau_dp}" alt="H(p)=Kd(1+Td p)/(1+a Td p)"/>
+	</div>
+  	<table class="boite_table">
   		<tr>
   			<td class="boite_table_label"><label for="ajout_Retard_De_Phase_input_Ki">K<sub>i</sub> = </label></td>
   			<td class="boite_table_input"><input type="number" name="ajout_Retard_De_Phase_input_Ki" id="ajout_Retard_De_Phase_input_Ki" value="1" min="0" step="0.1" size="6"/></td>
@@ -491,7 +518,7 @@
   		</tr>
   		<tr>
   			<td class="boite_table_label"><label for="ajout_Retard_De_Phase_input_a">a = </label></td>
-  			<td class="boite_table_input"><input type="number" name="ajout_Retard_De_Phase_input_a" id="ajout_Retard_De_Phase_input_a" value="10" min="0" step="0.1"  size="6"/></td>
+  			<td class="boite_table_input"><input type="number" name="ajout_Retard_De_Phase_input_a" id="ajout_Retard_De_Phase_input_a" value="10" min="1" step="0.1"  size="6"/></td>
   		</tr>
   		<tr>
   			<td class="boite_table_label"><label for="ajout_Retard_De_Phase_input_Inverse">Inverse ? </label>
