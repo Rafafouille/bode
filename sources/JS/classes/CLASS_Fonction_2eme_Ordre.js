@@ -5,10 +5,10 @@ class Fonction_2eme_Ordre extends Fonction
 {
 
 	// CONSTRUCTEUR ***********************
-	constructor(_K=1, _xi=1, _w0=1, inverse=false)
+	constructor(_K=1, _xi=1, _w0=1, inverse=false, commentaire_="")
 	{
 		// Héritage
-		super("2<sup>ème</sup> Ordre","#FF0000", inverse)
+		super("2<sup>ème</sup> Ordre","#FF0000", inverse, commentaire_)
 		
 		this.type("2ème ordre");
 		this.K(_K)

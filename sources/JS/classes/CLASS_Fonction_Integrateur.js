@@ -5,10 +5,10 @@ class Fonction_Integrateur extends Fonction
 {
 
 	// CONSTRUCTEUR ***********************
-	constructor(_Ki=1, inverse=false)
+	constructor(_Ki=1, inverse=false, commentaire_="")
 	{
 		// Héritage
-		super("Intégrateur pur", "#AAAA00", inverse)
+		super("Intégrateur pur", "#AAAA00", inverse, commentaire_)
 		
 		this.type("intégrateur")
 		this.Ki(_Ki)

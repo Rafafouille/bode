@@ -5,10 +5,10 @@ class Fonction_Derivateur extends Fonction
 {
 
 	// CONSTRUCTEUR ***********************
-	constructor(_Kd=1, inverse=false)
+	constructor(_Kd=1, inverse=false, commentaire_="")
 	{
 		// Héritage
-		super("Dérivateur pur", "#7777FF", inverse)
+		super("Dérivateur pur", "#7777FF", inverse, commentaire_)
 		
 		this.type("dérivateur")
 		this.Kd(_Kd)

@@ -247,7 +247,7 @@ updateNomExport=function()
 getJSON = function(trace = false)
 {
 	var retour = {
-		version: 1.0,
+		version: 1.1,
 		parametres: get_parametres_json(),
 		fonctions: get_liste_fonctions_json(trace)
 		};
@@ -297,7 +297,7 @@ ouvre_fichier_local_JSON = function()
 	var lecteur = new FileReader();
 	lecteur.onload=function(){
 		var jsonText = lecteur.result;
-	console.log(jsonText)
+	//console.log(jsonText)
 		chargeJSON(JSON.parse(jsonText));
         }
         lecteur.readAsText($("#dialogImporter_input_fichier")[0].files[0]);
@@ -390,6 +390,7 @@ chargeJSON = function(json)
 			FONCTION_GLOBALE.setUpOptionsFromJson(f);
 		}
 	});
+	updateAffichageListe();
 }
 
 

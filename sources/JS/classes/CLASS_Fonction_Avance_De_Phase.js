@@ -5,10 +5,10 @@ class Fonction_Avance_De_Phase extends Fonction
 {
 
 	// CONSTRUCTEUR ***********************
-	constructor(_Kd=1, _Td=1, _a=10, inverse=false)
+	constructor(_Kd=1, _Td=1, _a=10, inverse=false, commentaire_="")
 	{
 		// Héritage
-		super("Avance de phase","#00AAAA", inverse)
+		super("Avance de phase","#00AAAA", inverse, commentaire_)
 		
 		this.type("avance de phase")
 		this.Kd(_Kd)

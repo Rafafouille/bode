@@ -7,10 +7,10 @@ class Fonction
 	// CONSTRUCTEUR ***********************
 	// Nom de la fonction (pour débugger, surtout)
 	// Couleur (en notation hexa !!!)
-	constructor(nom_="fonction",couleur_="#000000",inverse=false)
+	constructor(nom_="fonction",couleur_="#000000", inverse=false, commentaire_="")
 	{
 		this.nom(nom_);
-		this.t
+		this.commentaire(commentaire_);
 		this.couleur(couleur_);
 		this.inverse(inverse,false);
  	}
@@ -29,6 +29,7 @@ class Fonction
 		// Constantes
 		_n = N++ ;			// N° de la fonction
 		_nom = "Fonction mère" ;	// Nom de la fonction
+		_commentaire = ""		// Commentaire
 		_type = "FT" ; 			// Type (un peu similaire à nom)
 		_couleur = "black" ; 		// Couleur
 		_icone = "./sources/images/iconeInconnu.png";	// URL Icone à afficher dans le menu HTML
@@ -68,6 +69,14 @@ class Fonction
 			return this._nom;
  		}
  	
+ 		// Commentaire
+ 		commentaire(c)
+ 		{
+			if(typeof(c)!='undefined')
+				this._commentaire=c;
+			return this._commentaire;
+ 		}
+ 		
  		// Type de la fonction
  		type(t)
  		{
@@ -524,6 +533,7 @@ class Fonction
 		{
 			var infos={
 				nom : this.nom(),
+				commentaire : this.commentaire(),
 				type : this.type(),
 				n : this.n(),
 				couleur : this.couleur(),
@@ -576,6 +586,8 @@ class Fonction
 		setUpOptionsFromJson(f)
 		{
 			this.nom(f.nom);
+			if(f.commentaire != undefined)
+				this.commentaire(f.commentaire);
 			this.couleur(f.couleur)
 			this.inverse(f.inverse)
 			this.afficheAnalytique(f.afficheAnalytique)
@@ -606,7 +618,13 @@ class Fonction
 '					<span class="fleche-arbo">&#9656;</span>'+
 '					<img class="icone" src="'+this.icone()+'"/>'+
 '					'+this.nom()+
-'					<span id="'+String(this.n())+'-carreCouleur" style="color:'+this.couleur()+';font-size:x-large;">&#9632;</span>'+
+'					<span id="'+String(this.n())+'-carreCouleur" style="color:'+this.couleur()+';font-size:x-large;">&#9632;</span>';
+			if(this._commentaire!="")
+			{
+				html += ''+
+'					<div class="commentaire">'+this.commentaire()+'</div>';
+			}
+			html += ''+
 '				</div>'+
 '				<div class="options-fonctions">'+
 '					<div class="options-parametres">'+

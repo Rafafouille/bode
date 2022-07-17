@@ -5,10 +5,10 @@ class Fonction_PI extends Fonction
 {
 
 	// CONSTRUCTEUR ***********************
-	constructor(_Ki=1, _Ti=1, inverse=false)
+	constructor(_Ki=1, _Ti=1, inverse=false, commentaire_="")
 	{
 		// Héritage
-		super("Correcteur PI","#AA5500", inverse)
+		super("Correcteur PI","#AA5500", inverse, commentaire_)
 		
 		this.type("PI")
 		this.Ti(_Ti)

@@ -59,7 +59,13 @@
 	color:white;
 }
 
-
+#blocArborescence .commentaire
+{
+	font-weight : normal;
+	font-size : small;
+	font-style:italic;
+	margin-left:30px;
+}
 
 #blocArborescence .fonction .fleche-arbo
 {

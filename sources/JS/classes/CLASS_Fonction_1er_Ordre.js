@@ -5,10 +5,10 @@ class Fonction_1er_Ordre extends Fonction
 {
 
 	// CONSTRUCTEUR ***********************
-	constructor(_K=1, _tau=1, inverse=false)
+	constructor(_K=1, _tau=1, inverse=false, commentaire_="")
 	{
 		// Héritage
-		super("1er Ordre","#0000FF", inverse)
+		super("1er Ordre","#0000FF", inverse, commentaire_)
 		
 		this.type("1er ordre") ;
 		this.tau(_tau) ;
