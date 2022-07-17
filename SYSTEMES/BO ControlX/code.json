@@ -1,27 +1,27 @@
 {
   "version": 1.1,
   "parametres": {
-    "NOM": "diagramme",
+    "NOM": "ControlX-BO",
     "GRAPHE_BODE_GDB": {
       "origine": {
-        "x": 400,
-        "y": 150
+        "x": 146.68408991494408,
+        "y": 223.59957267469144
       },
       "width": 800,
       "height": 400
     },
     "GRAPHE_BODE_PHASE": {
       "origine": {
-        "x": 400,
-        "y": 150
+        "x": 146.68408991494408,
+        "y": -19.19525097736092
       },
       "width": 800,
       "height": 400
     },
-    "ECHELLE_W": 200,
-    "ECHELLE_DB": 5,
+    "ECHELLE_W": 125.05451965129151,
+    "ECHELLE_DB": 2.136307849682424,
     "PAS_DB": 20,
-    "ECHELLE_PHASE": 1.5,
+    "ECHELLE_PHASE": 1.2637932041011206,
     "PAS_PHASE": 15
   },
   "fonctions": [
@@ -43,34 +43,14 @@
       "courbes": null
     },
     {
-      "nom": "1er Ordre",
-      "commentaire": "moteur",
-      "type": "1er ordre",
-      "n": 1,
-      "couleur": "#0000FF",
-      "inverse": false,
-      "parametres": {
-        "K": 1,
-        "tau": 1
-      },
-      "afficheAnalytique": false,
-      "afficheAsymptotique": false,
-      "typeTraitAsymptotique": "pointillés",
-      "typeTraitAnalytique": "normal",
-      "epaisseurAsymptotique": 1,
-      "epaisseurAnalytique": 1,
-      "combineGlobal": true,
-      "courbes": null
-    },
-    {
       "nom": "Gain pur",
-      "commentaire": "trc&",
+      "commentaire": "Variateur",
       "type": "gain",
-      "n": 2,
-      "couleur": "#5555FF",
+      "n": 1,
+      "couleur": "#555555",
       "inverse": false,
       "parametres": {
-        "K": 1
+        "K": 4
       },
       "afficheAnalytique": false,
       "afficheAsymptotique": false,
@@ -83,15 +63,15 @@
     },
     {
       "nom": "2<sup>ème</sup> Ordre",
-      "commentaire": "ffff",
+      "commentaire": "Moteur CC",
       "type": "2ème ordre",
-      "n": 3,
+      "n": 2,
       "couleur": "#FF0000",
       "inverse": false,
       "parametres": {
-        "K": 1,
-        "xi": 1,
-        "w0": 1
+        "K": 4.8008,
+        "xi": 3.2222,
+        "w0": 247.3093
       },
       "afficheAnalytique": false,
       "afficheAsymptotique": false,
@@ -104,9 +84,9 @@
     },
     {
       "nom": "Intégrateur pur",
-      "commentaire": "aaaaa",
+      "commentaire": "Convertion ω -> θ",
       "type": "intégrateur",
-      "n": 4,
+      "n": 3,
       "couleur": "#AAAA00",
       "inverse": false,
       "parametres": {
@@ -122,14 +102,14 @@
       "courbes": null
     },
     {
-      "nom": "Dérivateur pur",
-      "commentaire": "zzz",
-      "type": "dérivateur",
-      "n": 5,
-      "couleur": "#7777FF",
+      "nom": "Gain pur",
+      "commentaire": "Encodeur",
+      "type": "gain",
+      "n": 4,
+      "couleur": "#555555",
       "inverse": false,
       "parametres": {
-        "Kd": 1
+        "K": 636.62
       },
       "afficheAnalytique": false,
       "afficheAsymptotique": false,
@@ -141,80 +121,36 @@
       "courbes": null
     },
     {
-      "nom": "Correcteur PI",
-      "commentaire": "dddd",
-      "type": "PI",
+      "nom": "Gain pur",
+      "commentaire": "Adaptateur",
+      "type": "gain",
+      "n": 5,
+      "couleur": "#555555",
+      "inverse": false,
+      "parametres": {
+        "K": 0.0129
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Gain pur",
+      "commentaire": "Correcteur",
+      "type": "gain",
       "n": 6,
-      "couleur": "#AA5500",
+      "couleur": "#555555",
       "inverse": false,
       "parametres": {
-        "Ki": 1,
-        "Ti": 1
+        "K": 0.336
       },
-      "afficheAnalytique": true,
-      "afficheAsymptotique": true,
-      "typeTraitAsymptotique": "pointillés",
-      "typeTraitAnalytique": "normal",
-      "epaisseurAsymptotique": 1,
-      "epaisseurAnalytique": 1,
-      "combineGlobal": true,
-      "courbes": null
-    },
-    {
-      "nom": "Correcteur PD",
-      "commentaire": "qsqd",
-      "type": "PD",
-      "n": 7,
-      "couleur": "#AA5500",
-      "inverse": false,
-      "parametres": {
-        "Kd": 1,
-        "Td": 1
-      },
-      "afficheAnalytique": true,
-      "afficheAsymptotique": true,
-      "typeTraitAsymptotique": "pointillés",
-      "typeTraitAnalytique": "normal",
-      "epaisseurAsymptotique": 1,
-      "epaisseurAnalytique": 1,
-      "combineGlobal": true,
-      "courbes": null
-    },
-    {
-      "nom": "Avance de phase",
-      "commentaire": "aeaeaea",
-      "type": "avance de phase",
-      "n": 8,
-      "couleur": "#00AAAA",
-      "inverse": false,
-      "parametres": {
-        "Kd": 1,
-        "Td": 1,
-        "a": 10
-      },
-      "afficheAnalytique": true,
-      "afficheAsymptotique": true,
-      "typeTraitAsymptotique": "pointillés",
-      "typeTraitAnalytique": "normal",
-      "epaisseurAsymptotique": 1,
-      "epaisseurAnalytique": 1,
-      "combineGlobal": true,
-      "courbes": null
-    },
-    {
-      "nom": "Retard de phase",
-      "commentaire": "rrrrr",
-      "type": "retard de phase",
-      "n": 9,
-      "couleur": "#00AAAA",
-      "inverse": false,
-      "parametres": {
-        "Ki": 1,
-        "Ti": 1,
-        "a": 10
-      },
-      "afficheAnalytique": true,
-      "afficheAsymptotique": true,
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
       "typeTraitAsymptotique": "pointillés",
       "typeTraitAnalytique": "normal",
       "epaisseurAsymptotique": 1,

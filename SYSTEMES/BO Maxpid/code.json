@@ -1,0 +1,182 @@
+{
+  "version": 1.1,
+  "parametres": {
+    "NOM": "Maxpid BO",
+    "GRAPHE_BODE_GDB": {
+      "origine": {
+        "x": 186.31245134606615,
+        "y": 267.89752360197787
+      },
+      "width": 800,
+      "height": 400
+    },
+    "GRAPHE_BODE_PHASE": {
+      "origine": {
+        "x": 186.31245134606615,
+        "y": 37
+      },
+      "width": 800,
+      "height": 400
+    },
+    "ECHELLE_W": 85.13932398013748,
+    "ECHELLE_DB": 2.1284830995034376,
+    "PAS_DB": 20,
+    "ECHELLE_PHASE": 1.5,
+    "PAS_PHASE": 15
+  },
+  "fonctions": [
+    {
+      "nom": "Globale",
+      "commentaire": "",
+      "type": "globale",
+      "n": 0,
+      "couleur": "#000000",
+      "inverse": false,
+      "parametres": {},
+      "afficheAnalytique": true,
+      "afficheAsymptotique": true,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 2,
+      "epaisseurAnalytique": 3,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Gain pur",
+      "commentaire": "CNA",
+      "type": "gain",
+      "n": 8,
+      "couleur": "#555555",
+      "inverse": false,
+      "parametres": {
+        "K": 0.0039
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Gain pur",
+      "commentaire": "Hacheur",
+      "type": "gain",
+      "n": 9,
+      "couleur": "#555555",
+      "inverse": false,
+      "parametres": {
+        "K": 0.0941
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "2<sup>ème</sup> Ordre",
+      "commentaire": "Moteur (2 masses)",
+      "type": "2ème ordre",
+      "n": 10,
+      "couleur": "#FF0000",
+      "inverse": false,
+      "parametres": {
+        "K": 14.2523,
+        "xi": 6.827,
+        "w0": 243.7
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Gain pur",
+      "commentaire": "Convertion rad -> °",
+      "type": "gain",
+      "n": 11,
+      "couleur": "#555555",
+      "inverse": false,
+      "parametres": {
+        "K": 57.2958
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Gain pur",
+      "commentaire": "Chaîne cinématique",
+      "type": "gain",
+      "n": 12,
+      "couleur": "#555555",
+      "inverse": false,
+      "parametres": {
+        "K": 0.00958
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Gain pur",
+      "commentaire": "Capteur",
+      "type": "gain",
+      "n": 13,
+      "couleur": "#555555",
+      "inverse": false,
+      "parametres": {
+        "K": 44
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Correcteur PI",
+      "commentaire": "Correcteur",
+      "type": "PI",
+      "n": 14,
+      "couleur": "#AA5500",
+      "inverse": false,
+      "parametres": {
+        "Ki": 2377.2,
+        "Ti": 0.0031622776601683794
+      },
+      "afficheAnalytique": true,
+      "afficheAsymptotique": true,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    }
+  ]
+}
