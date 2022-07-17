@@ -40,4 +40,32 @@ include_once("./sources/PHP/matomo.php");
 
 <?php
 include_once("./sources/PHP/pied.php");
+
+
+
+
+
+// OUVERTURE d'UN SYSTEME ENREGISTRE
+// ============================================================
+
+if(isset($_GET['sys']))
+{
+	echo "
+	<script>";
+
+	$sys_a_ouvrir = $_GET['sys'];
+	$fichier = "./SYSTEMES/".$sys_a_ouvrir."/code.json";
+	//on vérifie que le dossier existe
+	if(file_exists($fichier))
+	{
+		$code = fopen($fichier, 'r');
+            	echo 'CODE_JSON_INITIAL='.fread($code, filesize($fichier));
+	}
+	else // Si le fichier n'est pas dans la BDD (si c'est pas un dossier)
+	{
+		echo '$("#dialog_ouvrir_systeme_absent").dialog("open")';
+	}
+	echo "
+	</script>";
+}
 ?>

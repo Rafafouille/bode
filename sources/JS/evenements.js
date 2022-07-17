@@ -257,6 +257,38 @@ ouvreBoiteExporter=function()
 
 
 
+ouvreBoiteOuvrirSysteme = function()
+{
+	//Supprime le contenu
+	$("#dialog_ouvrir_systeme_contenu").empty();
+	//met le'icone
+	$("#dialog_ouvrir_systeme_contenu").append("<div style='text-align:center;'><img style='width:50px;' src='./sources/images/chargement.svg' alt='Chargement...'/></div>");
+	$("#dialog_ouvrir_systeme").dialog("open");
+	// Lancement de la requete de recherche des systemes
+	$.post(	"repondeur.php",
+			{action:"getSystemes"},
+			getSystemes_callback,
+			"json"
+	)
+}
+
+// *************************************************
+// Fonction callback qui recoit la liste des systemes
+getSystemes_callback = function(data)
+{
+	var systemes = data.systemes
+	//Supprime le contenu
+	$("#dialog_ouvrir_systeme_contenu").empty();
+	for(i=0;i<systemes.length;i++)
+	{
+		var systeme = systemes[i];
+		var nom = systeme.nom;
+		var image = systeme.image;
+		var lien = systeme.lien;
+		var code = "<a class='systeme_a_ouvrir' href='?sys="+lien+"'><h1>"+nom+"</h1><div class='image_systeme_a_ouvrir'><img src='"+image+"'/></div></div>"
+		$("#dialog_ouvrir_systeme_contenu").append(code);
+	}	
+}
 
 
 

@@ -90,6 +90,15 @@ main = function()
 	
 	updateAffichageListe();
 	
+	
+	
+	// CHARGEMENT d'UN JSON EXISTANT =============
+	// La variable "CODE_JSON_INITIAL" (si elle existe) a été créé dans le index.php, lors du chargement éventuel d'un fichier json
+	if(typeof CODE_JSON_INITIAL != "undefined") 
+	{
+		chargeJSON(CODE_JSON_INITIAL);
+	}
+	
 
 }
 

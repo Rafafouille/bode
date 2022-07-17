@@ -654,9 +654,7 @@
 	</ul>
 	
 	<p style="text-align:center;">
-		<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" title="Cette application est mise à disposition selon les termes de la Licence Creative Commons Attribution - Pas d'Utilisation Commerciale 4.0 International.">
-			<img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
-		</a>
+		<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="Cette œuvre est mise à disposition selon les termes de la Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International" target="_blank"><img alt="Licence Creative Commons" style="border-width:0" src="./sources/images/CC.png" /></a>
 	</p>
 </div>
 
@@ -833,4 +831,64 @@
 		autoOpen: true,
 		modal:true
 	})
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OUVRIR UN SYSTEME ENREGISTRÉ --------------------------- -->
+<div id="dialog_ouvrir_systeme" title="Ouvrir un système existant">
+	<div id="dialog_ouvrir_systeme_contenu">
+	</div>
+</div>
+
+
+<script>
+	$("#dialog_ouvrir_systeme").dialog({
+		autoOpen: false,
+		modal:true,
+		width:900,
+		height:500,
+		buttons: [
+			    {
+			      text: "Annuler",
+			      click: function() {$(this).dialog("close");}
+			    }
+			  ]
+	});
+</script>
+
+
+
+
+
+
+<div id="dialog_ouvrir_systeme_absent" title="Erreur d'ouverture">
+	Le système à ouvrir n'existe pas dans la base de données.
+</div>
+
+
+<script>
+	$("#dialog_ouvrir_systeme_absent").dialog({
+		autoOpen: false,
+		modal:true,
+		buttons: [
+			    {
+			      text: "Fermer",
+			      click: function() {$(this).dialog("close");}
+			    }
+			  ]
+	})
+	.prev(".ui-dialog-titlebar").css("background","red");
 </script>

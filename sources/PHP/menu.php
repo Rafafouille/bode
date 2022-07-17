@@ -15,10 +15,10 @@
 						<img src="./sources/images/iconePoubelle.png" alt=""/>
 						Nouveau
 					</div>
-					<!--<div class="item-menu">
+					<div class="item-menu" onclick="ouvreBoiteOuvrirSysteme()">
 						<img src="./sources/images/iconeDossier.png" alt=""/>
 						 Ouvrir
-					</div>-->
+					</div>
 					<div class="item-menu" onclick="$('#dialogImporter').dialog('open')">
 						<img src="./sources/images/iconeImport.png" alt=""/>
 						Importer
