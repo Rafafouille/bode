@@ -1,0 +1,126 @@
+{
+  "version": 1.1,
+  "parametres": {
+    "NOM": "diagramme",
+    "GRAPHE_BODE_GDB": {
+      "origine": {
+        "x": 327.82431672607186,
+        "y": 213.78891899408018
+      },
+      "width": 800,
+      "height": 400
+    },
+    "GRAPHE_BODE_PHASE": {
+      "origine": {
+        "x": 327.82431672607186,
+        "y": 149.81153963796874
+      },
+      "width": 800,
+      "height": 400
+    },
+    "ECHELLE_W": 61.48588587789016,
+    "ECHELLE_DB": 1.5823919091443306,
+    "PAS_DB": 20,
+    "ECHELLE_PHASE": 1.14487296,
+    "PAS_PHASE": 15
+  },
+  "fonctions": [
+    {
+      "nom": "Globale",
+      "commentaire": "",
+      "type": "globale",
+      "n": 0,
+      "couleur": "#000000",
+      "inverse": false,
+      "parametres": {},
+      "afficheAnalytique": true,
+      "afficheAsymptotique": true,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 2,
+      "epaisseurAnalytique": 3,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "2<sup>ème</sup> Ordre",
+      "commentaire": "Moteur CC",
+      "type": "2ème ordre",
+      "n": 1,
+      "couleur": "#FF0000",
+      "inverse": false,
+      "parametres": {
+        "K": 33.018407,
+        "xi": 2.4791275,
+        "w0": 732.88717
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Gain pur",
+      "commentaire": "1/Kt",
+      "type": "gain",
+      "n": 2,
+      "couleur": "#555555",
+      "inverse": true,
+      "parametres": {
+        "K": 0.0302
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "1er Ordre",
+      "commentaire": "Effets mécanique sur i",
+      "type": "1er ordre",
+      "n": 3,
+      "couleur": "#0000FF",
+      "inverse": true,
+      "parametres": {
+        "K": 61050.0611,
+        "tau": 1.2631731
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Correcteur PI",
+      "commentaire": "Correcteur",
+      "type": "PI",
+      "n": 4,
+      "couleur": "#AA5500",
+      "inverse": false,
+      "parametres": {
+        "Ki": 650.52,
+        "Ti": 2.218312
+      },
+      "afficheAnalytique": true,
+      "afficheAsymptotique": true,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    }
+  ]
+}
