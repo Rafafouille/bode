@@ -595,7 +595,7 @@
 
 
 
-<!-- BOITE DE DIALOGUE à propos ================================== -->
+<!-- BOITE DE CONNECTION ================================== -->
 
 <div id="boite_connection" title="Connection">
 	<p>Si vous avez un compte :</p>
@@ -644,7 +644,13 @@
 <!-- BOITE DE DIALOGUE à propos ================================== -->
 
 <div id="boite_a_propos" title="À Propos...">
-	<p>Application réalisée par <a href="http://raphael.allais.eu">Raphaël ALLAIS</a>, enseignement en CPGE PT au <a href="http://lyc21-eiffel.ac-dijon.fr/">lycée Gustave Eiffel de Dijon</a></p>
+	<p>Application réalisée par <a href="http://raphael.allais.eu">Raphaël ALLAIS</a></p>
+	<p style="text-align:center">
+		<a href="http://contact.allais.eu?site=bode" target="_blank"><img src="./sources/images/icone_mail.png" alt="[ @ ]"/></a>
+	</p>
+	<p>
+		enseignement en CPGE PT au <a href="http://lyc21-eiffel.ac-dijon.fr/">lycée Gustave Eiffel de Dijon</a>
+	</p>
 	
 	<p>Remerciements à:</p>
 	<ul>
