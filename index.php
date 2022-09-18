@@ -16,12 +16,20 @@ include_once("./sources/PHP/matomo.php");
 		<?php include_once("./sources/PHP/arborescence.php")?>
 
 
+		
+		<br/>
+
+		<!-- Différents tabs ----->
+		<?php include_once("./sources/PHP/tabs.php")?>
+		
+		
+		
 
 		<!-- Affichage souris ----->
 		<div id="affichage_curseur">
 		<table class="affichage">
 			<tr>
-				<td class="affichage_titre_abcisse"></td>
+				<td class="affichage_titre_abcisse">test</td>
 				<td class="affichage_valeur_abcisse"></td>
 			</tr>
 			<tr>
@@ -30,11 +38,6 @@ include_once("./sources/PHP/matomo.php");
 			</tr>
 		</table>
 		</div>
-		
-		<br/>
-
-		<!-- Différents tabs ----->
-		<?php include_once("./sources/PHP/tabs.php")?>
  	</div>
 
 
