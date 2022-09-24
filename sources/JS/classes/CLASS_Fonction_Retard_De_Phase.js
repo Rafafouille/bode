@@ -160,6 +160,21 @@ class Fonction_Retard_De_Phase extends Fonction
 		{
 			return {Ki:this.Ki(),Ti:this.Ti(),a:this.a()};
 		}
+		
+		
+		// *************************************************************************************************
+		// Fonction qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents et de l'entrée (enregistré dans this.historique_points)
+		// e = valeur consigne, t = temps, h = pas de temps
+		nextPoint(e,t,h)
+		{
+			this.save_TEMPOREL_entree(e)
+			var e1 = this.historique_TEMPOREL_entree[1]
+			var y1 = this.historique_TEMPOREL_sortie[1]
+			var Ti_h = this._Ti/h
+			var val = this._Ki*(e+Ti_h*(e-e1)-y1)/Ti_h/this._a+y1
+			return this.save_TEMPOREL_sortie(val)
+		}
 	
 		
 	// ====================================================================================

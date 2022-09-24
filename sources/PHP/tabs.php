@@ -24,10 +24,13 @@
 			<!--<canvas id="canvas_nyquist" width="500" height="300"></canvas>-->
 		</div>
 		<div id="tab-reponse-temporelle">
-			À venir...
+			<?php include("./sources/PHP/tab_temporel.php") ?>
 		</div>
 	</div>
 	
 	<script>
 		$("#tabs").tabs();
+		$("#tabs").on("tabsactivate", function( event, ui )
+			{redessine_toutes_fonctions();
+			updateTousLesGraphes();} );
 	</script>

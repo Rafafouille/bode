@@ -834,7 +834,7 @@
 				}
 			  ],
 		width: 600,
-		autoOpen: true,
+		autoOpen: false, // true
 		modal:true
 	})
 </script>

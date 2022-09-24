@@ -91,6 +91,20 @@ class Fonction_Gain extends Fonction
 		{
 			return {K:this.K()};
 		}
+		
+		
+		
+		
+		
+		// *************************************************************************************************
+		// Fonction qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents et de l'entrée (enregistré dans this.historique_points)
+		// e = valeur consigne, t = temps, h = pas de temps
+		nextPoint(e,t,h)
+		{
+			var val = this._K * e ;
+			return val;
+		}
 	
 	// ====================================================================================
 	// ====================================================================================

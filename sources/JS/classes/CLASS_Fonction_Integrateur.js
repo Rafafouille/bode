@@ -92,6 +92,17 @@ class Fonction_Integrateur extends Fonction
 		}
 	
 	
+		
+		// *************************************************************************************************
+		// Fonction qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents et de l'entrée (enregistré dans this.historique_points)
+		// e = valeur consigne, t = temps, h = pas de temps
+		nextPoint(e,t,h)
+		{
+			var y = this.historique_TEMPOREL_sortie[0];
+			var val = y+this._Ki * e * h ;
+			return this.save_TEMPOREL_sortie(val);
+		}
 	
 	// ====================================================================================
 	// ====================================================================================

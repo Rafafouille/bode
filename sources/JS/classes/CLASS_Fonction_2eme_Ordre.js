@@ -185,6 +185,20 @@ class Fonction_2eme_Ordre extends Fonction
 			return {K:this.K(),xi:this.xi(),w0:this.w0()};
 		}
 		
+		
+		
+		// *************************************************************************************************
+		// Fonction qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents et de l'entrée (enregistré dans this.historique_points)
+		// e = valeur consigne, t = temps, h = pas de temps
+		nextPoint(e,t,h)
+		{
+			var y1= this.historique_TEMPOREL_sortie[0];
+			var y2= this.historique_TEMPOREL_sortie[1];
+			var w0h = this._w0*h;
+			var val = (this._K*e-2*this._xi/w0h*(y1-y2)-y1)*w0h*w0h+2*y1-y2
+			return this.save_TEMPOREL_sortie(val);
+		}
 	// ====================================================================================
 	// ====================================================================================
 	// ARBRE DES FONCTIONS

@@ -51,6 +51,9 @@ class Fonction
 		
 		_w0dB = null;			// Pulsation de coupure
 		_wPhi180 = null;		// Pulsation de phase à -180°
+		
+		historique_TEMPOREL_sortie = [0, 0] ;	// Liste des derniers points temporels enregistrés à la sortie du bloc (le plus récent= [0])
+		historique_TEMPOREL_entree = [0, 0] ;	// Liste des derniers points temporels enregistrés (le plus récent= [0])
 	
 	
  		
@@ -517,10 +520,13 @@ class Fonction
 		// Fonction qui (re)dessine tous les graphes
 		redessine_tout()
 		{
-			this.dessine_GdB_asymptotique()
-			this.dessine_GdB_reel()
-			this.dessine_Phase_asymptotique()
-			this.dessine_Phase_reel()
+			if(getActiveOnglet()=="bode")
+			{
+				this.dessine_GdB_asymptotique()
+				this.dessine_GdB_reel()
+				this.dessine_Phase_asymptotique()
+				this.dessine_Phase_reel()
+			}
 		}
 		
 		
@@ -601,6 +607,38 @@ class Fonction
 		
 		
 		
+		
+		// ********************************************************
+		// Fonction qui remet l'historique des derniers points à 0
+		resetHistoriques()
+		{
+			this.historique_TEMPOREL_sortie=[0,0];
+			this.historique_TEMPOREL_entree=[0,0];
+		}
+		
+		// ***************************************************
+		// Fonction qui ajoute un point à l'historique
+		save_TEMPOREL_entree(v)
+		{
+			this.historique_TEMPOREL_entree=[v,this.historique_TEMPOREL_entree[0]];
+			return v;
+		}
+		
+		// ***************************************************
+		// Fonction qui ajoute un point à l'historique
+		save_TEMPOREL_sortie(v)
+		{
+			this.historique_TEMPOREL_sortie=[v,this.historique_TEMPOREL_sortie[0]];
+			return v;
+		}
+		
+		// *************************************************************************************************
+		// Fonction (abstraite) qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents et de l'entrée
+		nextPoint()
+		{
+			return 0;
+		}
 		
 	// ====================================================================================
 	// ====================================================================================

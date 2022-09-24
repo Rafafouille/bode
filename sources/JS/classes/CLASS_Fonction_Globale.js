@@ -132,44 +132,114 @@ class Fonction_Globale extends Fonction
 		// ECRASE L'ANCIENNE FONCTION
 		redessine_tout()
 		{
-			this.dessine_GdB_asymptotique()
-			this.dessine_GdB_reel()
-			this.dessine_Phase_asymptotique()
-			this.dessine_Phase_reel()
-			
-			// Update de marge de gain
-			if(typeof(this.flecheMargeDeGain)!="undefined")	// Par defaut, on le cache, s'il existe (quite à le réafficher après)
-				this.flecheMargeDeGain.visible = false;
-			if(this.afficheMargeDeGain() && this.wPhi180())
+			if(getActiveOnglet()=="bode")
 			{
-				var gdb =  this.GdB(this.wPhi180())
-				this.flecheMargeDeGain.label(" "+String(-gdb.toFixed(1))+" dB",false);
-				var xPhi180 = get_PixelFromw_BODE(this.wPhi180())
-				this.flecheMargeDeGain.x1(xPhi180)
-				this.flecheMargeDeGain.y1(-gdb*ECHELLE_DB)
-				this.flecheMargeDeGain.x2(xPhi180)
-				this.flecheMargeDeGain.visible = true;
-				if(gdb<-30)
-					gdb=-30
-				this.flecheMargeDeGain.couleur(couleurEchelle(-gdb,10,50));
+					this.dessine_GdB_asymptotique()
+					this.dessine_GdB_reel()
+					this.dessine_Phase_asymptotique()
+					this.dessine_Phase_reel()
+					
+					// Update de marge de gain
+					if(typeof(this.flecheMargeDeGain)!="undefined")	// Par defaut, on le cache, s'il existe (quite à le réafficher après)
+						this.flecheMargeDeGain.visible = false;
+					if(this.afficheMargeDeGain() && this.wPhi180())
+					{
+						var gdb =  this.GdB(this.wPhi180())
+						this.flecheMargeDeGain.label(" "+String(-gdb.toFixed(1))+" dB",false);
+						var xPhi180 = get_PixelFromw_BODE(this.wPhi180())
+						this.flecheMargeDeGain.x1(xPhi180)
+						this.flecheMargeDeGain.y1(-gdb*ECHELLE_DB)
+						this.flecheMargeDeGain.x2(xPhi180)
+						this.flecheMargeDeGain.visible = true;
+						if(gdb<-30)
+							gdb=-30
+						this.flecheMargeDeGain.couleur(couleurEchelle(-gdb,10,50));
+					}
+					// Update de marge de Phase
+					if(typeof(this.flecheMargeDePhase)!="undefined")	// Par defaut, on le cache, s'il existe (quite à le réafficher après)
+						this.flecheMargeDePhase.visible = false;
+					if(this.afficheMargeDePhase() && this.w0dB())
+					{
+						var phi =  this.phi(this.w0dB())
+						this.flecheMargeDePhase.label(" "+String((180+phi).toFixed(1))+"°",false);
+						var x0dB = get_PixelFromw_BODE(this.w0dB())
+						this.flecheMargeDePhase.y1(180*ECHELLE_PHASE)
+						this.flecheMargeDePhase.x1(x0dB)
+						this.flecheMargeDePhase.y2(-phi*ECHELLE_PHASE)
+						this.flecheMargeDePhase.x2(x0dB)
+						this.flecheMargeDePhase.visible = true;
+						if(phi>-150)
+							phi=-150
+						this.flecheMargeDePhase.couleur(couleurEchelle(phi+180,10,50));
+					}
 			}
-			// Update de marge de Phase
-			if(typeof(this.flecheMargeDePhase)!="undefined")	// Par defaut, on le cache, s'il existe (quite à le réafficher après)
-				this.flecheMargeDePhase.visible = false;
-			if(this.afficheMargeDePhase() && this.w0dB())
+			else if(getActiveOnglet()=="temporel")
 			{
-				var phi =  this.phi(this.w0dB())
-				this.flecheMargeDePhase.label(" "+String((180+phi).toFixed(1))+"°",false);
-				var x0dB = get_PixelFromw_BODE(this.w0dB())
-				this.flecheMargeDePhase.y1(180*ECHELLE_PHASE)
-				this.flecheMargeDePhase.x1(x0dB)
-				this.flecheMargeDePhase.y2(-phi*ECHELLE_PHASE)
-				this.flecheMargeDePhase.x2(x0dB)
-				this.flecheMargeDePhase.visible = true;
-				if(phi>-150)
-					phi=-150
-				this.flecheMargeDePhase.couleur(couleurEchelle(phi+180,10,50));
+					if(this.courbe_Temporelle == null)	// Si on ne l'a jamais dessiné
+					{
+						this.courbe_Temporelle = new createjs.Shape();
+						this.courbe_Temporelle.fonction = this;		// On remet une reférence vers l'objet fonction
+						SCENE_REPONSE_TEMPORELLE.calque_fonctions.addChild(this.courbe_Temporelle);
+					}
+					
+					var g = this.courbe_Temporelle.graphics;	// Graphique
+					g.clear();					// On efface la courbe
+					g.setStrokeStyle( this.epaisseurAsymptotique() );
+					g.beginStroke( this.couleur() );
+					var tmin = get_tMin_TEMPOREL();
+					var tmax = get_tMax_TEMPOREL();
+					var h = (tmax-tmin)/1000
+					var t=tmin;
+					var CONSIGNE = 5;
+					
+					// On efface les historiques
+					this.resetHistoriques();
+					for(var i=0 ; i<LISTE_FONCTIONS.length ; i++)
+					{
+						LISTE_FONCTIONS[i].resetHistoriques();
+					}
+					
+					// Dessin
+					g.moveTo(tmin*ECHELLE_TEMPS, 0)
+					while(t<=tmax)
+					{
+						if(t<0)
+							CONSIGNE=0;
+						else
+							CONSIGNE=5;
+						var v = this.nextPoint(CONSIGNE,t,h); // Nouveau point
+						g.lineTo(t*ECHELLE_TEMPS,-v*ECHELLE_VALEUR)
+						t+=h
+					}
+					SCENE_REPONSE_TEMPORELLE.update();
 			}
+		}
+		
+		
+		// *************************************************************************************************
+		// Fonction (abstraite) qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents
+		nextPoint(e,t,h)
+		{
+			this.save_TEMPOREL_entree(e);
+			// Comparateur en boucle fermée
+			if($("#bouton_retour_unitaire").is(":checked") )
+			{
+				e = e - this.historique_TEMPOREL_sortie[0];
+			}
+			// pour chauqe fonction
+			for(var i=0 ; i<LISTE_FONCTIONS.length ; i++)
+			{
+				if(LISTE_FONCTIONS[i].combineGlobal())
+					e = LISTE_FONCTIONS[i].nextPoint(e,t,h)
+			}
+			// Perturbation
+			if(t>=0)
+				e = e+Number($("#bouton_perturbation").val())
+			// on stocke le dernier (push_historique)
+			// Lissage
+			e = (0.8*e + 0.2*this.historique_TEMPOREL_sortie[0])
+			return this.save_TEMPOREL_sortie(e);
 		}
 	
 		

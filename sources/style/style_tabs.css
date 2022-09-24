@@ -26,7 +26,7 @@
 
 
 
-#canvas_bode_gain, #canvas_bode_phase
+#canvas_bode_gain, #canvas_bode_phase, #canvas_reponse_temporelle
 {
 	border:solid black 1px;
 }

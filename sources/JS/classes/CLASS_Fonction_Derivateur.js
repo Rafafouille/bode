@@ -89,6 +89,18 @@ class Fonction_Derivateur extends Fonction
 		{
 			return {Kd:this.Kd()};
 		}
+		
+		
+		// *************************************************************************************************
+		// Fonction qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents et de l'entrée (enregistré dans this.historique_points)
+		// e = valeur consigne, t = temps, h = pas de temps
+		nextPoint(e,t,h)
+		{
+			this.save_TEMPOREL_entree(e); // On se sert de l'historique pour stocker les entrées et non pas les sorties
+			var val = this._Kd * (e-this.historique_TEMPOREL_entree[1])/h ;
+			return val;
+		}
 	
 	// ====================================================================================
 	// ====================================================================================

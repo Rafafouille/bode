@@ -129,6 +129,20 @@ class Fonction_1er_Ordre extends Fonction
 		{
 			return {K:this.K(),tau:this.tau()};
 		}
+		
+		
+		
+		
+		// *************************************************************************************************
+		// Fonction qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents et de l'entrée (enregistré dans this.historique_points)
+		// e = valeur consigne, t = temps, h = pas de temps
+		nextPoint(e,t,h)
+		{
+			var y= this.historique_TEMPOREL_sortie[0];
+			var val = y + h * (this._K*e-y) / this._tau ; // Euler
+			return this.save_TEMPOREL_sortie(val);
+		}
 	
 		
 	// ====================================================================================

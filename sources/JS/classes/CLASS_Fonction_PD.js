@@ -32,7 +32,7 @@ class Fonction_PD extends Fonction
  		{
 			if(typeof(k)!='undefined')
 			{
-				this._Ki = parseFloat(k);
+				this._Kd = parseFloat(k);
 				if(redessine)
 				{
 					this.redessine_tout();
@@ -44,7 +44,7 @@ class Fonction_PD extends Fonction
 					$("#"+String(this.n())+"-input-param-Kd-range").val(Math.log10(k));
 				}
 			}
-			return this._Ki;
+			return this._Kd;
  		}
  		// Constante de temps
  		Td(t, redessine=true)
@@ -54,7 +54,7 @@ class Fonction_PD extends Fonction
  				t = parseFloat(t);
 				if(t<0)
 					t=0
-				this._Ti=t;
+				this._Td=t;
 				if(redessine)
 				{
 					this.redessine_tout();
@@ -66,7 +66,7 @@ class Fonction_PD extends Fonction
 					$("#"+String(this.n())+"-input-param-Td-range").val(Math.log10(t));
 				}
 			}
-			return this._Ti;
+			return this._Td;
  		}
  		
  		
@@ -120,6 +120,19 @@ class Fonction_PD extends Fonction
 		getParametresJSON()
 		{
 			return {Kd:this.Kd(), Td:this.Td()};
+		}
+		
+		
+		// *************************************************************************************************
+		// Fonction qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents et de l'entrée (enregistré dans this.historique_points)
+		// e = valeur consigne, t = temps, h = pas de temps
+		nextPoint(e,t,h)
+		{
+			this.save_TEMPOREL_entree(e)
+			var e1 = this.historique_TEMPOREL_entree[1]
+			var val = this._Kd*(e+this._Td/h*(e-e1))
+			return val
 		}
 	
 	

@@ -28,6 +28,7 @@
 			<script src="./sources/JS/main.js"></script>
 			<script src="./sources/JS/fonctions.js"></script>
 			<script src="./sources/JS/fonctions_BODE.js"></script>
+			<script src="./sources/JS/fonctions_TEMPOREL.js"></script>
 			<script src="./sources/JS/evenements.js"></script>
 		<!-- Classes de fonction -->	
 			<script src="./sources/JS/classes/CLASS_Fonction.js"></script>

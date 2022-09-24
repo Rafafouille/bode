@@ -166,6 +166,19 @@ class Fonction_Avance_De_Phase extends Fonction
 		}
 		
 		
+		// *************************************************************************************************
+		// Fonction qui donne la valeur du point suivant (selon la méthode d'Euler)
+		// à partir des 2 ou 3 points précédents et de l'entrée (enregistré dans this.historique_points)
+		// e = valeur consigne, t = temps, h = pas de temps
+		nextPoint(e,t,h)
+		{
+			this.save_TEMPOREL_entree(e)
+			var e1 = this.historique_TEMPOREL_entree[1]
+			var y1 = this.historique_TEMPOREL_sortie[1]
+			var Td_h = this._Td/h
+			var val = this._Kd*(e+this._a*Td_h*(e-e1)-y1)/Td_h+y1
+			return this.save_TEMPOREL_sortie(val)
+		}
 		
 	// ====================================================================================
 	// ====================================================================================
