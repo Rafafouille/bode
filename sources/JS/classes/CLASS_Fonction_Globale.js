@@ -188,7 +188,7 @@ class Fonction_Globale extends Fonction
 					g.beginStroke( this.couleur() );
 					var tmin = get_tMin_TEMPOREL();
 					var tmax = get_tMax_TEMPOREL();
-					var h = (tmax-tmin)/1000
+					var h = (tmax-tmin)/NB_POINTS_TEMPOREL
 					var t=tmin;
 					var CONSIGNE = 5;
 					
@@ -199,15 +199,24 @@ class Fonction_Globale extends Fonction
 						LISTE_FONCTIONS[i].resetHistoriques();
 					}
 					
+					
+					// D'abord, si le zéro et trop à gauche, on calcule les points précédent (depuis zero) pour avoir l'historique
+					// sur tout l'intervalle [0,tmin[ (hors écran)
+					var v0 = 0;
+					if(tmin>0)
+					{
+						var hh = tmin/100;
+						for(var tt=0;tt<tmin;tt+=hh)
+							v0=this.nextPoint(consigne(tt),tt,hh)
+					}
+					
+					
 					// Dessin
-					g.moveTo(tmin*ECHELLE_TEMPS, 0)
+					g.moveTo(tmin*ECHELLE_TEMPS, -v0*ECHELLE_VALEUR)
+					//Tracé de la VRAI courbe (visible à l'écran)
 					while(t<=tmax)
 					{
-						if(t<0)
-							CONSIGNE=0;
-						else
-							CONSIGNE=5;
-						var v = this.nextPoint(CONSIGNE,t,h); // Nouveau point
+						var v = this.nextPoint(consigne(t),t,h); // Nouveau point
 						g.lineTo(t*ECHELLE_TEMPS,-v*ECHELLE_VALEUR)
 						t+=h
 					}
@@ -234,8 +243,9 @@ class Fonction_Globale extends Fonction
 					e = LISTE_FONCTIONS[i].nextPoint(e,t,h)
 			}
 			// Perturbation
-			if(t>=0)
+			/*if(t>=0)
 				e = e+Number($("#bouton_perturbation").val())
+				*/
 			// on stocke le dernier (push_historique)
 			// Lissage
 			e = (0.8*e + 0.2*this.historique_TEMPOREL_sortie[0])

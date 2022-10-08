@@ -29,6 +29,8 @@ main = function()
 	LISTE_FONCTIONS = [] ;	// Liste des fonctions
 	
 	N = 0;		// N° de fonction (qui s'incrémente à chaque nouvelle fonction)
+	
+	NB_POINTS_TEMPOREL = 1000 // Nombre de point à tracer entre les bornes du graphe temporel
 
 	
 // **********************************************
@@ -94,6 +96,9 @@ main = function()
 		SCENE_REPONSE_TEMPORELLE.calque_principal.x=100
 		SCENE_REPONSE_TEMPORELLE.calque_principal.y=300
 		//Evenement
+		SCENE_REPONSE_TEMPORELLE.on("stagemousedown",stagemousedown_TEMPOREL,null,false,{})
+		SCENE_REPONSE_TEMPORELLE.canvas.addEventListener("wheel",action_Molette_TEMPOREL)
+		SCENE_REPONSE_TEMPORELLE.on("stagemousemove",afficher_position_souris_TEMPOREL,null,false,{})
 		// A FAIRE
 		// Dessin de la grille
 		dessine_grille_horizontales_y(ECHELLE_VALEUR, PAS_VALEUR, SCENE_REPONSE_TEMPORELLE, SCENE_REPONSE_TEMPORELLE.calque_grille,"")

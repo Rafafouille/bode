@@ -782,45 +782,55 @@
 <!-- BOITE accueil ================================== -->
 
 <div id="dialogAccueil" title="Mise à jour du site !">
-	Le site a été mis à jour pour une meilleure ergonomie (même si toutes les fonctionnalités n'ont pas été recrées par choix, ou par manque de temps).
-	
-	<p>Vous pouvez maintenant vous déplacer plus rapidement dans le plan de Bode, en utilisant la molette de la souris.</p>
-	<table style="margin:auto;font-weight:bold;">
-		<tr>
-			<td style="text-align:center;width:150px;">
-				<img style="vertical-align:middle;" src="sources/images/click_molette.png" height="50px"/>
-				<br/>Déplacement<br/>X+Y
-			</td>
-			<td style="text-align:center;width:150px;">
-				<img style="vertical-align:middle;" src="sources/images/shift.svg" height="50px"/> + <img style="vertical-align:middle;" src="sources/images/click_molette.png" height="50px"/>
-				<br/>Déplacement<br/>X
-			</td>
-			<td style="text-align:center;width:150px;">
-				<img style="vertical-align:middle;" src="sources/images/ctrl.svg" height="50px"/> + <img style="vertical-align:middle;" src="sources/images/click_molette.png" height="50px"/>
-				<br/>Déplacement<br/>Y
-			</td>
-		</tr>
-	</table>
-	
-	<p>Il est aussi plus facile de zoomer avec la molette.</p>
-	<table style="margin:auto;font-weight:bold;">
-		<tr>
-			<td style="text-align:center;width:150px;">
-				<img style="vertical-align:middle;" src="sources/images/roule_molette.png" height="50px"/>
-				<br/>Zoom<br/>X+Y
-			</td>
-			<td style="text-align:center;width:150px;">
-				<img style="vertical-align:middle;" src="sources/images/shift.svg" height="50px"/> + <img style="vertical-align:middle;" src="sources/images/roule_molette.png" height="50px"/>
-				<br/>Zoom<br/>X
-			</td>
-			<td style="text-align:center;width:150px;">
-				<img style="vertical-align:middle;" src="sources/images/ctrl.svg" height="50px"/> + <img style="vertical-align:middle;" src="sources/images/roule_molette.png" height="50px"/>
-				<br/>Zoom<br/>Y
-			</td>
-		</tr>
-	</table>
-	
-	L'ancienne version est toujours <a href="OLD">disponible à ce lien</a>.
+	<h2>08/10/22</h2>
+		<ul>
+			<li><strong>Nouvelle mise à jour</strong> dans laquelle j'ai commencé à compléter l'onglet "Réponse Temporelle".
+			Il y a encore quelques bugs (pas mal d'instabilités dûes aux approximations de la simulation elle-même) mais cela permet tout de même d'illustrer qualitativement l'influence des différents paramètres. Il est possible de boucler (seulement par un retour unitaire pour le moment). Pour le moment, il n'y a pas d'export de ce graphique.<br>
+			<div style="text-align:center"><img style="border:solid;" src="./sources/images/exemple_temporel.png"/></div></li>
+			<li>Quelques <strong>exemples de systèmes connus</strong> peuvent maintenant apparaitre dans le menu "ouvrir" (n'hésitez pas à m'envoyer les votre et/ou des corrections de ceux déjà présents)</li>
+			<li>Vous disposez également d'un <strong><a href="http://contact.allais.eu?site=bode" target="_blank">formulaire de contact</a></strong> pour toute question/remarque dans le menu "Gérer".</li>
+		</ul>
+			
+	<h2>28/05/22</h2>
+		Le site a été mis à jour pour une meilleure ergonomie (même si toutes les fonctionnalités n'ont pas été recrées par choix, ou par manque de temps).
+		
+		<p>Vous pouvez maintenant vous déplacer plus rapidement dans le plan de Bode, en utilisant la molette de la souris.</p>
+		<table style="margin:auto;font-weight:bold;">
+			<tr>
+				<td style="text-align:center;width:150px;">
+					<img style="vertical-align:middle;" src="sources/images/click_molette.png" height="50px"/>
+					<br/>Déplacement<br/>X+Y
+				</td>
+				<td style="text-align:center;width:150px;">
+					<img style="vertical-align:middle;" src="sources/images/shift.svg" height="50px"/> + <img style="vertical-align:middle;" src="sources/images/click_molette.png" height="50px"/>
+					<br/>Déplacement<br/>X
+				</td>
+				<td style="text-align:center;width:150px;">
+					<img style="vertical-align:middle;" src="sources/images/ctrl.svg" height="50px"/> + <img style="vertical-align:middle;" src="sources/images/click_molette.png" height="50px"/>
+					<br/>Déplacement<br/>Y
+				</td>
+			</tr>
+		</table>
+		
+		<p>Il est aussi plus facile de zoomer avec la molette.</p>
+		<table style="margin:auto;font-weight:bold;">
+			<tr>
+				<td style="text-align:center;width:150px;">
+					<img style="vertical-align:middle;" src="sources/images/roule_molette.png" height="50px"/>
+					<br/>Zoom<br/>X+Y
+				</td>
+				<td style="text-align:center;width:150px;">
+					<img style="vertical-align:middle;" src="sources/images/shift.svg" height="50px"/> + <img style="vertical-align:middle;" src="sources/images/roule_molette.png" height="50px"/>
+					<br/>Zoom<br/>X
+				</td>
+				<td style="text-align:center;width:150px;">
+					<img style="vertical-align:middle;" src="sources/images/ctrl.svg" height="50px"/> + <img style="vertical-align:middle;" src="sources/images/roule_molette.png" height="50px"/>
+					<br/>Zoom<br/>Y
+				</td>
+			</tr>
+		</table>
+		
+		L'ancienne version est toujours <a href="OLD">disponible à ce lien</a>.
 </div>
 
 <script>
@@ -833,10 +843,12 @@
 							}
 				}
 			  ],
-		width: 600,
-		autoOpen: false, // true
+		width: 650,
+		height: 600,
+		autoOpen: true, // true
 		modal:true
 	})
+	$("#dialogAccueil").scrollTop("0")
 </script>
 
 

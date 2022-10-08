@@ -241,8 +241,98 @@ afficher_position_souris_BODE_PHASE = function(event)
 
 
 
+// *********************************************************
+// EVENEMENTS TEMPOREL
+// *********************************************************
+
+afficher_position_souris_TEMPOREL = function(event)
+{
+	var xS = event.stageX - SCENE_REPONSE_TEMPORELLE.calque_principal.x
+	var yS = event.stageY - SCENE_REPONSE_TEMPORELLE.calque_principal.y
+	
+	var t = xS/ECHELLE_TEMPS
+	var val = -yS / ECHELLE_VALEUR
+	
+	$("#affichage_curseur .affichage_titre_abcisse").html("Temps (s) : ")
+	$("#affichage_curseur .affichage_valeur_abcisse").text(t.toFixed(3))
+	$("#affichage_curseur .affichage_titre_ordonnee").html("Valeur (en USI) : ")
+	$("#affichage_curseur .affichage_valeur_ordonnee").text(val.toFixed(1))
+}
 
 
+
+stagemousedown_TEMPOREL = function(event,data)
+{
+	if(event.pointerID==-1 && event.nativeEvent.which == 2) // Si c'est une souris et qu'en plus c'est la molette
+	{
+		var evenement = this.on("stagemousemove",suivreSouris_TEMPOREL,null,false,{mouseDepart:{x:event.stageX ,y:event.stageY}, positionDepart:{x: SCENE_REPONSE_TEMPORELLE.calque_principal.x, y: SCENE_REPONSE_TEMPORELLE.calque_principal.y} })
+		
+		// On créee l'événement quand on releve la souris
+		this.on("stagemouseup",arreteSuivreSouris,null,true,{evenement_a_supprimer : evenement})
+	}
+}
+
+
+suivreSouris_TEMPOREL = function(event,data)
+{
+	var position_initiale = data.positionDepart
+	var souris_initiale = data.mouseDepart
+	
+	
+	if(!CTRL_PRESSED)
+		SCENE_REPONSE_TEMPORELLE.calque_principal.x = position_initiale.x + event.stageX - souris_initiale.x
+	else
+		SCENE_REPONSE_TEMPORELLE.calque_principal.x = position_initiale.x
+	
+	if(!SHIFT_PRESSED)
+		SCENE_REPONSE_TEMPORELLE.calque_principal.y = position_initiale.y + event.stageY - souris_initiale.y
+	else
+		SCENE_REPONSE_TEMPORELLE.calque_principal.y = position_initiale.y 
+		
+		
+	
+	redessine_Grille_TEMPOREL();
+	
+	SCENE_REPONSE_TEMPORELLE.update();
+}
+
+
+
+action_Molette_TEMPOREL = function(event)
+{
+	// La cible
+	//var cible = data.cible
+	//var stage = data.stage
+
+	// La molette
+	event.preventDefault(); // Supprime le scrolling d'origine
+	var val = event.wheelDelta;
+	var facteur = 1+val/1000;
+	
+	if(!SHIFT_PRESSED)
+		ECHELLE_VALEUR *= facteur
+	if(!CTRL_PRESSED)
+		ECHELLE_TEMPS *= facteur
+	
+	
+	var posSouris = {x:event.x, y:event.y}
+	var posCible = {x:SCENE_REPONSE_TEMPORELLE.canvas.getBoundingClientRect().x+SCENE_REPONSE_TEMPORELLE.calque_principal.x,y:SCENE_REPONSE_TEMPORELLE.canvas.getBoundingClientRect().y+SCENE_REPONSE_TEMPORELLE.calque_principal.y}
+	
+	//var dx =  
+	//var dy =
+	
+	// MAJ de la position du dessin et des axes
+	if(!SHIFT_PRESSED)
+		SCENE_REPONSE_TEMPORELLE.calque_principal.y -= (1-facteur)*(posCible.y-posSouris.y)
+	if(!CTRL_PRESSED)
+		SCENE_REPONSE_TEMPORELLE.calque_principal.x -= (1-facteur)*(posCible.x-posSouris.x)
+	
+
+	
+	redessine_Grille_TEMPOREL();
+	
+	SCENE_REPONSE_TEMPORELLE.update();
+}
 
 
 // *********************************************************

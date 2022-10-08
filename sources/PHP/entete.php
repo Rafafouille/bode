@@ -24,6 +24,9 @@
 		<!-- Boites de dialogue -->
 			<link rel="stylesheet" href="sources/style/style_boites.css" />
 		
+		<!-- Graphe temporel -->
+			<link rel="stylesheet" href="sources/style/style_TEMPOREL.css" />
+			
 		<!-- Fichiers Javascript -->			
 			<script src="./sources/JS/main.js"></script>
 			<script src="./sources/JS/fonctions.js"></script>

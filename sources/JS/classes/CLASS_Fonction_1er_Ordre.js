@@ -139,8 +139,11 @@ class Fonction_1er_Ordre extends Fonction
 		// e = valeur consigne, t = temps, h = pas de temps
 		nextPoint(e,t,h)
 		{
+			this.save_TEMPOREL_entree(e);
 			var y= this.historique_TEMPOREL_sortie[0];
-			var val = y + h * (this._K*e-y) / this._tau ; // Euler
+			//var val = y + h * (this._K*e-y) / this._tau ; // Euler
+			var val = this._tau/(this._tau+h)*(y+h*this._K*e/this._tau) // Euler implicite
+			//var val = y+h/this._tau*(this._K*0.5*(e+this.historique_TEMPOREL_entree[1])-(y+h/2/this._tau*(this._K*e-y))) // Runge Kutta 2
 			return this.save_TEMPOREL_sortie(val);
 		}
 	

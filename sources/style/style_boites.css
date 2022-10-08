@@ -45,7 +45,12 @@
 
 
 
+/* BOITE DE DIALOGUE ACCUEIL ===================== */
 
+#dialogAccueil h2
+{
+	border-top:solid;
+}
 
 
 
