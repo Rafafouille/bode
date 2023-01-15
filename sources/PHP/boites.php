@@ -644,19 +644,20 @@
 <!-- BOITE DE DIALOGUE à propos ================================== -->
 
 <div id="boite_a_propos" title="À Propos...">
-	<p>Application réalisée par <a href="http://raphael.allais.eu">Raphaël ALLAIS</a></p>
+	<p><strong>Version :</strong> <?php echo $VERSION; ?></p>
+	<p>Application réalisée par <a href="http://raphael.allais.eu">Raphaël ALLAIS</a>.</p>
 	<p style="text-align:center">
 		<a href="http://contact.allais.eu?site=bode" target="_blank"><img src="./sources/images/icone_mail.png" alt="[ @ ]"/></a>
 	</p>
 	<p>
-		enseignement en CPGE PT au <a href="http://lyc21-eiffel.ac-dijon.fr/">lycée Gustave Eiffel de Dijon</a>
+		enseignant en CPGE PT au <a href="http://lyc21-eiffel.ac-dijon.fr/">lycée Gustave Eiffel de Dijon</a>
 	</p>
 	
 	<p>Remerciements à:</p>
 	<ul>
 		<li>Robert PAPANICOLAS</li>
-		<li>Benjamin HAVETTE</li>
 		<li>David NOËL</li>
+		<li>Benjamin HAVETTE</li>
 	</ul>
 	
 	<p style="text-align:center;">
@@ -787,6 +788,7 @@
 		<ul>
 			<li>Ajout d'un menu "Options" afin de régler (notamment) les dimensions (en pixels) des diagrammes, et changer le format
 			<br/><div style="text-align:center"><img  style="vertical-align:middle;" src="sources/images/exemple_options.png" alt=""/></div></li>
+			<li>Ajout d'un cookie pour que cette fenêtre ne s'ouvre QUE s'il y a des nouveautés.</li>
 		</ul>
 	<h2>08/10/22</h2>
 		<ul>
@@ -851,7 +853,7 @@
 			  ],
 		width: 650,
 		height: 600,
-		autoOpen: true, // true
+		autoOpen: AUTO_OPEN_BOITE_ACCUEIL, // true
 		modal:true
 	})
 	$("#dialogAccueil").scrollTop("0")

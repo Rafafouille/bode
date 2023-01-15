@@ -32,6 +32,9 @@ main = function()
 	
 	NB_POINTS_TEMPOREL = 1000 // Nombre de point à tracer entre les bornes du graphe temporel
 	PAS_DESSIN_BODE = 1 // Pas de dessin entre 2 points des courbes du diagramme de Bode
+	
+	//VERSION = ...  Voir dans l'index.php
+	// AUTO_OPEN_BOITE_ACCUEIL = .... Voir dans le fichier gestion_version.php
 
 	
 // **********************************************

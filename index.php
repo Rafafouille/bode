@@ -1,11 +1,19 @@
 <?php
 session_start();
+$VERSION = "2023-01-13";
+include_once("./sources/PHP/gestion_version.php"); // Affiche ou pas la boite d'accueil
 include_once("./sources/PHP/fonctions.php");
 include_once("./sources/PHP/entete.php");
 include_once("./sources/PHP/matomo.php");
 
+
 ?>
 
+
+	<script>
+		VERSION = "<?php echo $VERSION; ?>"; // Version du programme
+		AUTO_OPEN_BOITE_ACCUEIL = Boolean(<?php echo $AUTO_OPEN_BOITE_ACCUEIL; ?>);	// Est-ce qu'on ouvre la fenetre d'accueil ou pas ?
+	</script>
 	
 	
 	<!-- Liste menu ----->
@@ -41,7 +49,10 @@ include_once("./sources/PHP/matomo.php");
  	</div>
 
 
+
 <?php
+
+
 include_once("./sources/PHP/pied.php");
 
 

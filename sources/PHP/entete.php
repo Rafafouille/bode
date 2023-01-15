@@ -47,7 +47,6 @@
 			<script src="./sources/JS/classes/CLASS_Fonction_Retard_De_Phase.js"></script>
 			<script src="./sources/JS/classes/CLASS_Fleche.js"></script>
 			
-			
 			<script>
 				// Après chargement : lancement de Javascript (fonction main)
 				$(document).ready(main);
