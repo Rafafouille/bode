@@ -382,3 +382,27 @@ getSystemes_callback = function(data)
 
 
 
+// *********************************************************
+// EVENEMENTS POUR LES OPTIONS
+// *********************************************************
+// Fonction qui ouvre la boite d'options, en mettant à jour les items
+ouvreBoiteOptions=function()
+{
+	// On récupère les dimensions et données
+	var canvas_gain = $("#canvas_bode_gain")
+		var width_bode = Number(canvas_gain.attr("width"));
+		var height_gain = Number(canvas_gain.attr("height"));
+		$("#option_bode_largeur").val(width_bode);
+		$("#option_bode_hauteur_gain").val(height_gain);
+	var canvas_phase = $("#canvas_bode_phase")
+		var height_phase = Number(canvas_phase.attr("height"));
+		$("#option_bode_hauteur_phase").val(height_phase);
+	var canvas_temporel = $("#canvas_reponse_temporelle")
+		var height_temporel = Number(canvas_temporel.attr("height"));
+		var width_temporel = Number(canvas_temporel.attr("width"));
+		$("#option_temporel_largeur").val(width_temporel);
+		$("#option_temporel_hauteur").val(height_temporel);
+	
+	$("#boite_options").dialog("open");
+}
+

@@ -27,10 +27,10 @@
 						<img src="./sources/images/iconeExport.png" alt=""/>
 						Exporter
 					</div>
-					<!--<div class="item-menu">
-						<img src="./sources/images/iconeBDD.png" alt=""/>
-						Enregistrer
-					</div>-->
+					<div class="item-menu" onclick="ouvreBoiteOptions()">
+						<img src="./sources/images/pignon.png" alt=""/>
+						Options
+					</div>
 					<div class="item-menu" onclick="$('#boite_a_propos').dialog('open')">
 						<img src="./sources/images/iconeAPropos.png" alt=""/>
 						 À propos

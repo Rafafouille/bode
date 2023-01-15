@@ -31,6 +31,7 @@ main = function()
 	N = 0;		// N° de fonction (qui s'incrémente à chaque nouvelle fonction)
 	
 	NB_POINTS_TEMPOREL = 1000 // Nombre de point à tracer entre les bornes du graphe temporel
+	PAS_DESSIN_BODE = 1 // Pas de dessin entre 2 points des courbes du diagramme de Bode
 
 	
 // **********************************************

@@ -80,3 +80,21 @@ consigne = function(t)
 	}
 }
 
+// *******************************************************************
+// Update largeur de la réponse temporelle
+function updateLargeurTemporel(w)
+{
+	SCENE_REPONSE_TEMPORELLE.canvas.width = w
+	redessine_Grille_TEMPOREL();
+	SCENE_REPONSE_TEMPORELLE.update(); //<-- semble pas nécessaire (?) Alors que ca l'est pour Bode
+}
+
+// *******************************************************************
+// Update largeur de la réponse temporelle
+function updateHauteurTemporel(h)
+{
+	SCENE_REPONSE_TEMPORELLE.canvas.height = h
+	redessine_Grille_TEMPOREL();
+	SCENE_REPONSE_TEMPORELLE.update(); //<-- semble pas nécessaire (?) Alors que ca l'est pour Bode
+}
+

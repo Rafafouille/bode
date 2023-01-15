@@ -782,6 +782,12 @@
 <!-- BOITE accueil ================================== -->
 
 <div id="dialogAccueil" title="Mise à jour du site !">
+
+	<h2>15/01/23</h2>
+		<ul>
+			<li>Ajout d'un menu "Options" afin de régler (notamment) les dimensions (en pixels) des diagrammes, et changer le format
+			<br/><div style="text-align:center"><img  style="vertical-align:middle;" src="sources/images/exemple_options.png" alt=""/></div></li>
+		</ul>
 	<h2>08/10/22</h2>
 		<ul>
 			<li><strong>Nouvelle mise à jour</strong> dans laquelle j'ai commencé à compléter l'onglet "Réponse Temporelle".
@@ -910,3 +916,62 @@
 	})
 	.prev(".ui-dialog-titlebar").css("background","red");
 </script>
+
+
+
+
+
+
+<!-- BOITE DE DIALOGUE OPTIONS ================================== -->
+
+<div id="boite_options" title="Options des diagrammes" data-id="-1">
+  <div>
+  	<form>
+  		<table>
+  			<tr>
+  				<td><label for="option_bode_largeur">Largeurs des digramme de Bode (px) :</label></td>
+  				<td><input type="number" id="option_bode_largeur" name="option_bode_largeur" value="801" placeholder="Largeur en pixel" onchange="updateLargeurBode($(this).val())"/></td>
+  			</tr>
+  			<tr>
+  				<td><label for="option_bode_hauteur_gain">Hauteur du diagramme de gain (px) :</label></td>
+  				<td><input type="number" id="option_bode_hauteur_gain" name="option_bode_hauteur_gain" value="801" placeholder="Hauteur en pixel" onchange="updateLargeurBodeGain($(this).val())"/></td>
+  			</tr>
+  			<tr>
+  				<td><label for="option_bode_hauteur_phase">Hauteur du diagramme de phase (px) :</label></td>
+  				<td><input type="number" id="option_bode_hauteur_phase" name="option_bode_hauteur_phase" value="801" placeholder="Hauteur en pixel" onchange="updateLargeurBodePhase($(this).val())"/></td>
+  			</tr>
+  			<tr>
+  				<td><label for="option_temporel_largeur">Largeur de la réponse temporelle (px) :</label></td>
+  				<td><input type="number" id="option_temporel_largeur" name="option_temporel_largeur" value="801" placeholder="Largeur en pixel" onchange="updateLargeurTemporel($(this).val())"/></td>
+  			</tr>
+  			<tr>
+  				<td><label for="option_temporel_hauteur">Hauteur de la réponse temporelle (px) :</label></td>
+  				<td><input type="number" id="option_temporel_hauteur" name="option_temporel_hauteur" value="801" placeholder="Hauteur en pixel" onchange="updateHauteurTemporel($(this).val())"/></td>
+  			</tr>
+  		</table>
+  	</form>
+  </div>
+</div>
+
+<script>
+	$("#boite_options").dialog({
+		  buttons: [
+		  		{
+					text: "Fermer",
+					click: function() {
+							$( this ).dialog( "close" );
+							}
+				},
+				{
+					text: "Réinitialiser",
+					click: function() {
+							
+							}
+				}
+			  ],
+		autoOpen: false,
+		width: 650,
+		modal:false
+	})
+</script>
+

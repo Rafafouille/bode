@@ -358,7 +358,7 @@ class Fonction
 				var x = xMin
 				while(x<=xMax)
 				{
-					x+= 2
+					x+= PAS_DESSIN_BODE
 					w = get_wFromPixel_BODE(x)
 					g.lineTo(x,-this.GdB_asymptotique(w)*ECHELLE_DB)
 				}
@@ -402,10 +402,11 @@ class Fonction
 				// On initialise pour la pulsation de coupure
 				var GdB_prec = this.GdB(w);
 				var w_prec = w
-				
+				var tabA_EFFACER=[]
 				while(x<=xMax)
 				{
-					x+= 2
+					x+= PAS_DESSIN_BODE
+					tabA_EFFACER.push(x)
 					w = get_wFromPixel_BODE(x)
 					var GdB = this.GdB(w)
 					
@@ -453,7 +454,7 @@ class Fonction
 				var x = xMin
 				while(x<=xMax)
 				{
-					x+= 2
+					x+= PAS_DESSIN_BODE
 					w = get_wFromPixel_BODE(x)
 					g.lineTo(x,-this.phi_asymptotique(w)*ECHELLE_PHASE)
 				}
@@ -498,7 +499,7 @@ class Fonction
 				
 				while(x<=xMax)
 				{
-					x+= 2
+					x+= PAS_DESSIN_BODE
 					w = get_wFromPixel_BODE(x)
 					var phi = this.phi(w)
 					

@@ -128,6 +128,18 @@ class Fonction_PI extends Fonction
 		// e = valeur consigne, t = temps, h = pas de temps
 		nextPoint(e,t,h)
 		{
+		/*
+		var e_precprec = this.historique_TEMPOREL_entree[1]
+			var e_prec = this.historique_TEMPOREL_entree[0]
+			
+			eprim = ((e_suiv-e_precprec)/((2*h)*(h)) - (e_prec-e_precprec)/((h)*(h))) * 2 * t
+			
+			this.save_TEMPOREL_entree(e_suiv)
+			var y_prec = this.historique_TEMPOREL_sortie[0]
+			var Ti_h = this._Ti/h
+			var y_suiv = y_prec + h*this._Ki/this._Ti*(e_suiv+this._Ti*eprim)
+			return this.save_TEMPOREL_sortie(y_suiv)
+		*/
 			this.save_TEMPOREL_entree(e)
 			var e1 = this.historique_TEMPOREL_entree[1]
 			var y1 = this.historique_TEMPOREL_sortie[1]
