@@ -789,6 +789,7 @@
 			<li>Ajout d'un menu "Options" afin de régler (notamment) les dimensions (en pixels) des diagrammes, et changer le format
 			<br/><div style="text-align:center"><img  style="vertical-align:middle;" src="sources/images/exemple_options.png" alt=""/></div></li>
 			<li>Ajout d'un cookie pour que cette fenêtre ne s'ouvre QUE s'il y a des nouveautés.</li>
+			<li>Quelques bugs d'export en SVG corrigés (graduations verticales à l'envers, contours des lettres plus fins)</li>
 		</ul>
 	<h2>08/10/22</h2>
 		<ul>
@@ -932,23 +933,27 @@
   		<table>
   			<tr>
   				<td><label for="option_bode_largeur">Largeurs des digramme de Bode (px) :</label></td>
-  				<td><input type="number" id="option_bode_largeur" name="option_bode_largeur" value="801" placeholder="Largeur en pixel" onchange="updateLargeurBode($(this).val())"/></td>
+  				<td><input type="number" id="option_bode_largeur" name="option_bode_largeur" value="801" placeholder="Largeur en pixel" onchange="updateLargeurBode($(this).val())" min="1"/></td>
   			</tr>
   			<tr>
   				<td><label for="option_bode_hauteur_gain">Hauteur du diagramme de gain (px) :</label></td>
-  				<td><input type="number" id="option_bode_hauteur_gain" name="option_bode_hauteur_gain" value="801" placeholder="Hauteur en pixel" onchange="updateLargeurBodeGain($(this).val())"/></td>
+  				<td><input type="number" id="option_bode_hauteur_gain" name="option_bode_hauteur_gain" value="801" placeholder="Hauteur en pixel" onchange="updateLargeurBodeGain($(this).val())" min="1"/></td>
   			</tr>
   			<tr>
   				<td><label for="option_bode_hauteur_phase">Hauteur du diagramme de phase (px) :</label></td>
-  				<td><input type="number" id="option_bode_hauteur_phase" name="option_bode_hauteur_phase" value="801" placeholder="Hauteur en pixel" onchange="updateLargeurBodePhase($(this).val())"/></td>
+  				<td><input type="number" id="option_bode_hauteur_phase" name="option_bode_hauteur_phase" value="801" placeholder="Hauteur en pixel" onchange="updateLargeurBodePhase($(this).val())" min="1"/></td>
+  			</tr>
+  			<tr>
+  				<td><label for="option_bode_pas">"Pas" de tracé de bode (px) :</label></td>
+  				<td><input type="number" id="option_bode_pas" name="option_bode_pas" value="801" placeholder="pas en pixel" onchange="updatePasBode($(this).val())" min="0.01"/></td>
   			</tr>
   			<tr>
   				<td><label for="option_temporel_largeur">Largeur de la réponse temporelle (px) :</label></td>
-  				<td><input type="number" id="option_temporel_largeur" name="option_temporel_largeur" value="801" placeholder="Largeur en pixel" onchange="updateLargeurTemporel($(this).val())"/></td>
+  				<td><input type="number" id="option_temporel_largeur" name="option_temporel_largeur" value="801" placeholder="Largeur en pixel" onchange="updateLargeurTemporel($(this).val())" min="1"/></td>
   			</tr>
   			<tr>
   				<td><label for="option_temporel_hauteur">Hauteur de la réponse temporelle (px) :</label></td>
-  				<td><input type="number" id="option_temporel_hauteur" name="option_temporel_hauteur" value="801" placeholder="Hauteur en pixel" onchange="updateHauteurTemporel($(this).val())"/></td>
+  				<td><input type="number" id="option_temporel_hauteur" name="option_temporel_hauteur" value="801" placeholder="Hauteur en pixel" onchange="updateHauteurTemporel($(this).val())" min="1"/></td>
   			</tr>
   		</table>
   	</form>

@@ -91,3 +91,15 @@ function updateLargeurBodePhase(h)
 	redessine_Grille_BODE_complet();
 	SCENE_BODE_PHASE.update();
 }
+
+// *******************************************************************
+// Update hauteur du diagramme de phase - Bode
+function updatePasBode(p)
+{
+	PAS_DESSIN_BODE = Number(p)
+	redessine_toutes_fonctions();
+	SCENE_BODE_GAIN.update();
+	SCENE_BODE_PHASE.update();	
+}
+
+

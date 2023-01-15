@@ -98,7 +98,7 @@ function makeQuadrillageSVGY ($h, $w, $xOrigine, $yOrigine, $echelleY, $pasY, $u
 		
 		// Unités
 		$unites .= '
-					<text x="0" y="'.strval($y).'" font-family="Sans Serif, Arial" style="stroke:#FFFFFF;stroke-width:0.4px" font-size="">'.strval(round($y/$echelleY)).$unite.'</text>';
+					<text x="0" y="'.strval($y).'" font-family="Sans Serif, Arial" style="stroke:#FFFFFF;stroke-width:0.2px" font-size="">'.strval(round(-$y/$echelleY)).$unite.'</text>';
 		// Graduations principales
 		$lignes .= '
 					<line x1="'.strval(-$xOrigine).'" x2="'.strval(-$xOrigine+$w).'" y1="'.strval($y).'" y2="'.strval($y).'" stroke="black" stroke-width="1" stroke-opacity="0.5"/>';
