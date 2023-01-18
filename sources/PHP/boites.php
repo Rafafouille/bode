@@ -784,6 +784,10 @@
 
 <div id="dialogAccueil" title="Mise à jour du site !">
 
+	<h2>18/01/23</h2>
+		<ul>
+			<li>Possibilité d'ajuster précisément les bornes de ω du diagramme de Bode, dans le menu "Options"</li>
+		</ul>
 	<h2>15/01/23</h2>
 		<ul>
 			<li>Ajout d'un menu "Options" afin de régler (notamment) les dimensions (en pixels) des diagrammes, et changer le format
@@ -930,6 +934,7 @@
 <div id="boite_options" title="Options des diagrammes" data-id="-1">
   <div>
   	<form>
+  		<h2>Diagramme de Bode</h2>
   		<table>
   			<tr>
   				<td><label for="option_bode_largeur">Largeurs des digramme de Bode (px) :</label></td>
@@ -947,6 +952,17 @@
   				<td><label for="option_bode_pas">"Pas" de tracé de bode (px) :</label></td>
   				<td><input type="number" id="option_bode_pas" name="option_bode_pas" value="801" placeholder="pas en pixel" onchange="updatePasBode($(this).val())" min="0.01"/></td>
   			</tr>
+  			<tr>
+  				<td><label for="option_bode_wmin">ω<sub>min</sub> = </label></td>
+  				<td>10<sup><input type="number" id="option_bode_wmin" name="option_bode_wmin" value="801" placeholder="Puissant mini de ω" onchange="updateWmin($(this).val())"/></sup></td>
+  			</tr>
+  			<tr>
+  				<td><label for="option_bode_wmax">ω<sub>max</sub> = </label></td>
+  				<td>10<sup><input type="number" id="option_bode_wmax" name="option_bode_wmax" value="801" placeholder="Puissant maxi de ω" onchange="updateWmax($(this).val())"/></sup></td>
+  			</tr>
+  		</table>
+  		<h2>Réponse temporelle</h2>
+  		<table>
   			<tr>
   				<td><label for="option_temporel_largeur">Largeur de la réponse temporelle (px) :</label></td>
   				<td><input type="number" id="option_temporel_largeur" name="option_temporel_largeur" value="801" placeholder="Largeur en pixel" onchange="updateLargeurTemporel($(this).val())" min="1"/></td>

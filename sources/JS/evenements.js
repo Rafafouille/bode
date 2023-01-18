@@ -395,11 +395,15 @@ ouvreBoiteOptions=function()
 		var height_gain = Number(canvas_gain.attr("height"));
 		$("#option_bode_largeur").val(width_bode);
 		$("#option_bode_hauteur_gain").val(height_gain);
+	// Hauteur Phase
 	var canvas_phase = $("#canvas_bode_phase")
 		var height_phase = Number(canvas_phase.attr("height"));
 		$("#option_bode_hauteur_phase").val(height_phase);
 	// PAS
 		$("#option_bode_pas").val(PAS_DESSIN_BODE)
+	// bornes de omega
+		$("#option_bode_wmin").val(get_wMin_BODE());//get_xMin_BODE()/ECHELLE_W)
+		$("#option_bode_wmax").val(get_wMax_BODE());//get_xMax_BODE()/ECHELLE_W)
 	var canvas_temporel = $("#canvas_reponse_temporelle")
 		var height_temporel = Number(canvas_temporel.attr("height"));
 		var width_temporel = Number(canvas_temporel.attr("width"));

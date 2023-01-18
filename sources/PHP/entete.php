@@ -50,15 +50,15 @@
 			<script>
 				// Après chargement : lancement de Javascript (fonction main)
 				$(document).ready(main);
-			</script>
+			</script>	
 	
 	</head>
 	<body>
 		<header>
-			<a style="display:block;background-color:white;padding:5px;width:200px;color:black;border-radius:5px;text-decoration:none;font-weight:bold;" href="OLD">
+			<a style="display:block;background-color:white;padding:5px;width:200px;color:black;border-radius:5px;text-decoration:none;font-weight:bold;margin-bottom:-45px;" href="OLD">
 				<img src="sources/images/click.svg" height="20px" alt=""/> Ancienne version
 			</a>
-			<h1>
+			<h1 style="margin-bottom:0px;margin-top:10px">
 				Diagrammes de Bode
 			</h1>
 		</header>

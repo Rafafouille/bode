@@ -33,6 +33,20 @@ get_xMax_BODE = function()
 	return get_xMin_BODE()+SCENE_BODE_GAIN.canvas.width
 }
 
+// *******************************************************************
+// Renvoie l'exposant du wMin
+get_wMin_BODE = function()
+{
+	return get_xMin_BODE()/ECHELLE_W;
+}
+
+// *******************************************************************
+// Renvoie l'exposant du wMax
+get_wMax_BODE = function()
+{
+	return get_xMax_BODE()/ECHELLE_W;
+}
+
 // ************************************
 // Renvoie (en px) la position du bord haut du canvas, dans le repère de "calque_principal"
 get_yMin_BODE = function()
@@ -102,4 +116,54 @@ function updatePasBode(p)
 	SCENE_BODE_PHASE.update();	
 }
 
+
+// *******************************************************************
+// Update du zoom, à partir de la puissance de wmin
+function updateWmin(powmin)
+{
+	//var xmin_old = get_wMin_BODE()
+	var x_max_OLD = get_xMax_BODE()
+	var ECHELLE_W_OLD = ECHELLE_W
+
+	//Changement d'echelle
+	var powmax = get_wMax_BODE()
+	var canvas_gain = $("#canvas_bode_gain")
+	ECHELLE_W = canvas_gain.attr("width")/(powmax-powmin)
+	
+	// Décallage pour garder l'autre borne au bon endroit
+	var x_max_new = x_max_OLD * ECHELLE_W/ECHELLE_W_OLD;
+	SCENE_BODE_GAIN.calque_principal.x += x_max_OLD - x_max_new
+	SCENE_BODE_PHASE.calque_principal.x += x_max_OLD - x_max_new
+	
+	
+	redessine_Grille_BODE_complet()
+//	redessine_toutes_fonctions();
+	SCENE_BODE_GAIN.update();
+	SCENE_BODE_PHASE.update();	
+}
+
+
+// *******************************************************************
+// Update du zoom, à partir de la puissance de wmin
+function updateWmax(powmax)
+{
+	//var xmax_old = get_wMax_BODE()
+	var x_min_OLD = get_xMin_BODE()
+	var ECHELLE_W_OLD = ECHELLE_W
+
+	//Changement d'echelle
+	var powmin = get_wMin_BODE()
+	var canvas_gain = $("#canvas_bode_gain")
+	ECHELLE_W = canvas_gain.attr("width")/(powmax-powmin)
+	
+	// Décallage pour garder l'autre borne au bon endroit
+	var x_min_new = x_min_OLD * ECHELLE_W/ECHELLE_W_OLD;
+	SCENE_BODE_GAIN.calque_principal.x += x_min_OLD - x_min_new
+	SCENE_BODE_PHASE.calque_principal.x += x_min_OLD - x_min_new
+	
+	redessine_Grille_BODE_complet()
+//	redessine_toutes_fonctions();
+	SCENE_BODE_GAIN.update();
+	SCENE_BODE_PHASE.update();	
+}
 

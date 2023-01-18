@@ -311,7 +311,6 @@ ouvre_fichier_local_JSON = function()
 	var lecteur = new FileReader();
 	lecteur.onload=function(){
 		var jsonText = lecteur.result;
-	//console.log(jsonText)
 		chargeJSON(JSON.parse(jsonText));
         }
         lecteur.readAsText($("#dialogImporter_input_fichier")[0].files[0]);
