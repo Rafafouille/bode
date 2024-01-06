@@ -655,7 +655,7 @@
 	
 	<p>Remerciements à:</p>
 	<ul>
-		<li>Robert PAPANICOLAS</li>
+		<li>Robert PAPANICOLA</li>
 		<li>David NOËL</li>
 		<li>Benjamin HAVETTE</li>
 	</ul>
@@ -784,9 +784,14 @@
 
 <div id="dialogAccueil" title="Mise à jour du site !">
 
+	<h2>06/01/24 (Bonne année !)</h2>
+		<ul>
+			<li>Amélioration des chiffres significatifs pour l'affichage des valeurs sur les graduations.</li>
+			<li>Supression des onglets non-achevés (Black-Niquist).</li>
+		</ul>
 	<h2>18/01/23</h2>
 		<ul>
-			<li>Possibilité d'ajuster précisément les bornes de ω du diagramme de Bode, dans le menu "Options"</li>
+			<li>Possibilité d'ajuster précisément les bornes de ω du diagramme de Bode, dans le menu "Options".</li>
 		</ul>
 	<h2>15/01/23</h2>
 		<ul>

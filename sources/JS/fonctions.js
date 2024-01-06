@@ -64,7 +64,7 @@ function getActiveOnglet()
 	var val = $("#tabs").tabs('option', 'active')
 	if(val==0)
 		return "bode"
-	if(val==3)
+	if(val==1)
 		return "temporel"
 	return "";
 }
@@ -499,12 +499,38 @@ dessine_grille_horizontales_y = function(unite, pas, stage, calque, suffixe = ""
 
 	//Changement du pas (si trop petit)
 	while(unite*pas < 30)
-		pas *= 2
-	while(unite*pas >100)
-		if(pas>1)
+	{
+		//pas *= 2    OBSOLETE
+		var chiffre = Math.floor(pas*Math.pow(10,-Math.floor(Math.log10(pas))))// Plus grand chiffre du pas (poids fort)// 
+		if(chiffre == 1)
+			pas *= 2
+		else if(chiffre==2)
+			pas *= 5/2
+		else if(chiffre==5)
+			pas *= 2
+		else
+			pas *=2
+			
+		pas = Math.round(pas * 1000000)/1000000 
+	}
+	while(unite*pas >100) //(Si trop grand)
+	{
+		/*if(pas>1)
 			pas = parseInt(pas/2)
 		else
-			pas = pas/2
+			pas = pas/2*/
+		var chiffre = Math.floor(pas*Math.pow(10,-Math.floor(Math.log10(pas))))// Plus grand chiffre du pas (poids fort)
+		if(chiffre == 1)
+			pas /= 2
+		else if(chiffre == 2)
+			pas /= 2
+		else if(chiffre == 5)
+			pas *= 2/5
+		else
+			pas /= 2
+			
+		pas = Math.round(pas * 10000000000000)/10000000000000
+	}
 
 
 	var largeur = stage.canvas.width
@@ -526,7 +552,6 @@ dessine_grille_horizontales_y = function(unite, pas, stage, calque, suffixe = ""
 		ligne.graphics.setStrokeStyle(2).beginStroke("rgba(0,0,0,0.4)");
 		ligne.graphics.moveTo(xmin,0);
 		ligne.graphics.lineTo(xmax,0);
-	
 	
 	
 	
@@ -552,7 +577,8 @@ dessine_grille_horizontales_y = function(unite, pas, stage, calque, suffixe = ""
 		// Ecriture
 		var ecriture = new createjs.Container();
 		calque.addChild(ecriture);
-		var valeur = new createjs.Text(String(Math.round(-j_grad*pas))+suffixe, "12px Arial", "black");
+		var valeurBruteAAfficher = -j_grad*pas
+		var valeur = new createjs.Text(String(Math.round(Math.round(valeurBruteAAfficher/pas)*pas*10000000)/10000000)+suffixe, "12px Arial", "black");
 		ecriture.addChild(valeur)
 		ecriture.y = j_grad*pas*unite - ecriture.getBounds().height/2
 		if(ecriture.getBounds().x < xmin)
@@ -580,12 +606,38 @@ dessine_grille_verticales_x = function(unite, pas, stage, calque, suffixe = "")
 
 	//Changement du pas (si trop petit)
 	while(unite*pas < 30)
-		pas *= 2
+	{
+		//pas *= 2    OBSOLETE
+		var chiffre = Math.floor(pas*Math.pow(10,-Math.floor(Math.log10(pas))))// Plus grand chiffre du pas (poids fort)// 
+		if(chiffre == 1)
+			pas *= 2
+		else if(chiffre==2)
+			pas *= 5/2
+		else if(chiffre==5)
+			pas *= 2
+		else
+			pas *=2
+			
+		pas = Math.round(pas * 1000000)/1000000 
+	}
 	while(unite*pas >100)
-		if(pas>1)
+	{
+		/*if(pas>1)
 			pas = parseInt(pas/2)
 		else
-			pas = pas/2
+			pas = pas/2*/
+		var chiffre = Math.floor(pas*Math.pow(10,-Math.floor(Math.log10(pas))))// Plus grand chiffre du pas (poids fort)
+		if(chiffre == 1)
+			pas /= 2
+		else if(chiffre == 2)
+			pas /= 2
+		else if(chiffre == 5)
+			pas *= 2/5
+		else
+			pas /= 2
+			
+		pas = Math.round(pas * 10000000000000)/10000000000000
+	}
 
 
 	var largeur = stage.canvas.width
@@ -633,7 +685,8 @@ dessine_grille_verticales_x = function(unite, pas, stage, calque, suffixe = "")
 		// Ecriture
 		var ecriture = new createjs.Container();
 		calque.addChild(ecriture);
-		var valeur = new createjs.Text(String(Math.round(i_grad*pas))+suffixe, "12px Arial", "black");
+		var valeurBruteAAfficher = i_grad*pas
+		var valeur = new createjs.Text(String(Math.round(Math.round(valeurBruteAAfficher/pas)*pas*100000000)/100000000)+suffixe, "12px Arial", "black");
 		ecriture.addChild(valeur)
 		ecriture.x = i_grad*pas*unite - ecriture.getBounds().width/2
 		if(ecriture.getBounds().y < ymin)
