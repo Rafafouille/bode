@@ -787,7 +787,7 @@
 	<h2>06/01/24 (Bonne année !)</h2>
 		<ul>
 			<li>Amélioration des chiffres significatifs pour l'affichage des valeurs sur les graduations.</li>
-			<li>Supression des onglets non-achevés (Black-Niquist).</li>
+			<li>Supression des onglets non-achevés (Black-Nyquist).</li>
 		</ul>
 	<h2>18/01/23</h2>
 		<ul>
