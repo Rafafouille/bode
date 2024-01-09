@@ -288,7 +288,7 @@ class Fonction_Globale extends Fonction
 '							<input id="'+String(this.n())+'-input-marge_gain" name="'+String(this.n())+'-input-marge_gain" type="checkbox" ';
 					if(this.afficheMargeDeGain())
 						res+='checked="true"';
-			 res += ' onchange=""/>'+
+			 res += ' onchange="FONCTION_GLOBALE.afficheMargeDeGain(this.checked)"/>'+
 '							<label for="'+String(this.n())+'-input-marge_gain">'+
 '								M<sub>G<sub>dB</sub></sub>'+
 '							</label>'+
@@ -297,7 +297,7 @@ class Fonction_Globale extends Fonction
 '							<input id="'+String(this.n())+'-input-marge_phase" name="'+String(this.n())+'-input-marge_phase" type="checkbox" ';
 					if(this.afficheMargeDePhase())
 						res+='checked="true"';
-			 res += ' onchange=""/>'+
+			 res += ' onchange="FONCTION_GLOBALE.afficheMargeDePhase(this.checked)"/>'+
 '							<label for="'+String(this.n())+'-input-marge_phase">'+
 '								M<sub>&#966;</sub>'+
 '							</label>'+
