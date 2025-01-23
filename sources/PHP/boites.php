@@ -784,6 +784,10 @@
 
 <div id="dialogAccueil" title="Mise à jour du site !">
 
+	<h2>23/01/25 (Bonne année !)</h2>
+		<ul>
+			<li>Ajout du système "Chariot JacXon".</li>
+		</ul>
 	<h2>06/01/24 (Bonne année !)</h2>
 		<ul>
 			<li>Amélioration des chiffres significatifs pour l'affichage des valeurs sur les graduations.</li>

@@ -1,0 +1,105 @@
+{
+  "version": 1.1,
+  "parametres": {
+    "NOM": "diagramme",
+    "GRAPHE_BODE_GDB": {
+      "origine": {
+        "x": -159.3872850872316,
+        "y": 50.28944484439063
+      },
+      "width": 800,
+      "height": 400
+    },
+    "GRAPHE_BODE_PHASE": {
+      "origine": {
+        "x": -159.3872850872316,
+        "y": -47.75280898876406
+      },
+      "width": 800,
+      "height": 400
+    },
+    "ECHELLE_W": 202.37314553244872,
+    "ECHELLE_DB": 2.2885833396715527,
+    "PAS_DB": 20,
+    "ECHELLE_PHASE": 1.5,
+    "PAS_PHASE": 15
+  },
+  "fonctions": [
+    {
+      "nom": "Globale",
+      "commentaire": "",
+      "type": "globale",
+      "n": 0,
+      "couleur": "#000000",
+      "inverse": false,
+      "parametres": {},
+      "afficheAnalytique": true,
+      "afficheAsymptotique": true,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 2,
+      "epaisseurAnalytique": 3,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Gain pur",
+      "commentaire": "Gain statique",
+      "type": "gain",
+      "n": 1,
+      "couleur": "#555555",
+      "inverse": false,
+      "parametres": {
+        "K": 0.0796
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "Intégrateur pur",
+      "commentaire": "",
+      "type": "intégrateur",
+      "n": 2,
+      "couleur": "#AAAA00",
+      "inverse": false,
+      "parametres": {
+        "Ki": 1
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    },
+    {
+      "nom": "2<sup>ème</sup> Ordre",
+      "commentaire": "",
+      "type": "2ème ordre",
+      "n": 3,
+      "couleur": "#FF0000",
+      "inverse": false,
+      "parametres": {
+        "K": 1,
+        "xi": 0.323,
+        "w0": 833
+      },
+      "afficheAnalytique": false,
+      "afficheAsymptotique": false,
+      "typeTraitAsymptotique": "pointillés",
+      "typeTraitAnalytique": "normal",
+      "epaisseurAsymptotique": 1,
+      "epaisseurAnalytique": 1,
+      "combineGlobal": true,
+      "courbes": null
+    }
+  ]
+}

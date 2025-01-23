@@ -1,6 +1,6 @@
 <?php
 session_start();
-$VERSION = "2024-01-06";
+$VERSION = "2025-01-23";
 include_once("./sources/PHP/gestion_version.php"); // Affiche ou pas la boite d'accueil
 include_once("./sources/PHP/fonctions.php");
 include_once("./sources/PHP/entete.php");
